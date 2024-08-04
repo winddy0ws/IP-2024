@@ -33,8 +33,9 @@ public class RoamingAI : MonoBehaviour
     /// State Change
     /// </summary>
     [SerializeField]
-    float sightRange;
+    float sightRange, stoppingRange;
     bool playerInSight;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -94,6 +95,15 @@ public class RoamingAI : MonoBehaviour
 
     void Chase()
     {
-        agent.SetDestination(player.transform.position);
+        float distToPlayer = Vector3.Distance(transform.position, player.transform.position);
+
+        if (distToPlayer > stoppingRange)
+        {
+            agent.SetDestination(player.transform.position);
+        }
+        else
+        {
+            agent.ResetPath();
+        }
     }
 }

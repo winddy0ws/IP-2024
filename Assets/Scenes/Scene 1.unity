@@ -3934,7 +3934,8 @@ MonoBehaviour:
     m_Bits: 64
   destPoint: {x: 0, y: 0, z: 0}
   range: 50
-  sightRange: 20
+  sightRange: 10
+  stoppingRange: 3
 --- !u!195 &1697151350
 NavMeshAgent:
   m_ObjectHideFlags: 0
