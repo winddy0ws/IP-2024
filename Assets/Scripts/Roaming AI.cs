@@ -12,15 +12,30 @@ using UnityEngine.AI;
 
 public class RoamingAI : MonoBehaviour
 {
+    /// <summary>
+    /// Setting up references for later call
+    /// </summary>
     GameObject player;
     NavMeshAgent agent;
     [SerializeField]
     LayerMask groundLayer;
+    [SerializeField]
 
+    /// <summary>
+    /// Variables to determine NPC's roam abilities
+    /// </summary>
     Vector3 destPoint;
     bool walkpointSet;
     [SerializeField]
     float range;
+
+    /// <summary>
+    /// State Change
+    /// </summary>
+    [SerializeField]
+    float sightRange;
+    bool playerInSight;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,9 +46,20 @@ public class RoamingAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Patrol();
+        playerInSight = Vector3.Distance(transform.position, player.transform.position) <= sightRange;
+        if (!playerInSight)
+        {
+            Patrol();
+        }
+        else if (playerInSight)
+        {
+            Chase();
+        }
     }
 
+    /// <summary>
+    /// Function makes AI detect whether NPC is roaming, and where it roams
+    /// </summary>
     void Patrol()
     {
         if (!walkpointSet)
@@ -50,6 +76,9 @@ public class RoamingAI : MonoBehaviour
         }    
     }
 
+    /// <summary>
+    /// Enables NPC to constantly wander to different points
+    /// </summary>
     void SearchForDest()
     {
         float z = Random.Range(-range, range);
@@ -61,5 +90,10 @@ public class RoamingAI : MonoBehaviour
         {
             walkpointSet |= true;
         }
+    }
+
+    void Chase()
+    {
+        agent.SetDestination(player.transform.position);
     }
 }
