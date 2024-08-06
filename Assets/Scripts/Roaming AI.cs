@@ -21,7 +21,6 @@ public class RoamingAI : MonoBehaviour
     NavMeshAgent agent;
     [SerializeField]
     LayerMask groundLayer;
-    [SerializeField]
 
     /// <summary>
     /// Variables to determine NPC's roam abilities

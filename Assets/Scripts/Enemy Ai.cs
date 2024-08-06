@@ -8,15 +8,11 @@ public class EnemyAi : MonoBehaviour
     /// <summary>
     /// Setting up references for later call
     /// </summary>
+    [SerializeField]
     GameObject player;
     NavMeshAgent agent;
     [SerializeField]
     LayerMask groundLayer;
-    [SerializeField]
-
-    float timeBtwnAttack;
-
-    float newDestCool = 0.5f;
 
     /// <summary>
     /// Variables to determine NPC's roam abilities
@@ -26,76 +22,50 @@ public class EnemyAi : MonoBehaviour
     [SerializeField]
     float range;
 
-    [Header("Combat")]
-    [SerializeField]
-    float attackCool = 1.5f;
-    [SerializeField]
-    float attackRange = 1f;
-    [SerializeField]
-    float aggroRange = 4f;
-
     /// <summary>
     /// State Change
     /// </summary>
     [SerializeField]
     float sightRange, stoppingRange;
     bool playerInSight;
-
+    string currentState;
+    string nextState;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        player = GameObject.FindGameObjectWithTag("Player");
+
+        //Setting NPC's intial states
+        currentState = "Roaming";
+        nextState = currentState;
+        SwitchState();
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerInSight = Vector3.Distance(transform.position, player.transform.position) <= sightRange;
-        if (!playerInSight)
-        {
-            Patrol();
-        }
-        else if (playerInSight)
-        {
-            Chase();
-        }
-       if (timeBtwnAttack >= attackCool)
-        {
-            if (Vector3.Distance(player.transform.position, transform.position) <= attackRange)
-            {
-                timeBtwnAttack = 0;
-            }
-        }
+        /*if (timeBtwnAttack >= attackCool)
+         {
+             if (Vector3.Distance(player.transform.position, transform.position) <= attackRange)
+             {
+                 timeBtwnAttack = 0;
+             }
+         }
 
-        timeBtwnAttack += Time.deltaTime;
+         timeBtwnAttack += Time.deltaTime;
 
-        if (newDestCool <= 0 && Vector3.Distance(player.transform.position, transform.position) <= aggroRange)
-        {
-            newDestCool = 0.5f;
-            agent.SetDestination(player.transform.position);
-        }
-        newDestCool -= Time.deltaTime;
-        transform.LookAt(player.transform);
-    }
+         if (newDestCool <= 0 && Vector3.Distance(player.transform.position, transform.position) <= aggroRange)
+         {
+             newDestCool = 0.5f;
+             agent.SetDestination(player.transform.position);
+         }
+         newDestCool -= Time.deltaTime;
+         transform.LookAt(player.transform);*/
 
-    /// <summary>
-    /// Function makes AI detect whether NPC is roaming, and where it roams
-    /// </summary>
-    void Patrol()
-    {
-        if (!walkpointSet)
+        if (currentState != nextState)
         {
-            SearchForDest();
-        }
-        else if (walkpointSet)
-        {
-            agent.SetDestination(destPoint);
-        }
-        if (Vector3.Distance(transform.position, destPoint) < 10)
-        {
-            walkpointSet = false;
+            currentState = nextState;
         }
     }
 
@@ -111,31 +81,84 @@ public class EnemyAi : MonoBehaviour
 
         if (Physics.Raycast(destPoint, Vector3.down, groundLayer))
         {
-            walkpointSet |= true;
+            walkpointSet = true;
         }
     }
 
-    void Chase()
+    void SwitchState()
     {
-        float distToPlayer = Vector3.Distance(transform.position, player.transform.position);
-
-        if (distToPlayer > stoppingRange)
-        {
-            agent.SetDestination(player.transform.position);
-            GetComponentInChildren<Enemydamagedealer>().StartDealDamage();
-            GetComponentInChildren<Enemydamagedealer>().EndDealDamage();
-        }
-        else
-        {
-            agent.ResetPath();
-
-        }
+        StartCoroutine(currentState);
     }
 
-   /* public void StartDealDamage()
+    /// <summary>
+    /// Couroutine makes AI detect whether NPC is roaming, and where it roams
+    /// </summary>
+    IEnumerator Roaming()
     {
-        GetComponentInChildren<Enemydamagedealer>().StartDealDamage();
-    }*/
+        //Transition into state
+        SearchForDest();
+
+        //Check whether current state is "Roaming"
+        while (currentState == "Roaming")
+        {
+            if (!walkpointSet)
+            {
+                SearchForDest();
+            }
+            else if (walkpointSet)
+            {
+                agent.SetDestination(destPoint);
+            }
+            if (Vector3.Distance(transform.position, destPoint) < 10)
+            {
+                walkpointSet = false;
+            }
+
+            if (sightRange > Vector3.Distance(transform.position, player.transform.position))
+            {
+                nextState = "Chase";
+            }
+            yield return new WaitForEndOfFrame();
+        }
+
+        //Transition out of state
+        SwitchState();
+    }
+
+    /// <summary>
+    /// Couroutine makes AI detect whether NPC is roaming, and where it roams
+    /// </summary>
+    IEnumerator Chase()
+    {
+        //Check whether current state is "Chase"
+        while (currentState == "Chase")
+        {
+            float distToPlayer = Vector3.Distance(transform.position, player.transform.position);
+
+            if (distToPlayer > stoppingRange)
+            {
+                agent.SetDestination(player.transform.position);
+            }
+            else
+            {
+                agent.SetDestination(transform.position);
+            }
+
+            if (sightRange < Vector3.Distance(transform.position, player.transform.position))
+            {
+                nextState = "Roaming";
+            }
+            yield return new WaitForEndOfFrame();
+        }
+
+        //Transition out of state
+        SwitchState();
+    }
+
+    /* public void StartDealDamage()
+     {
+         GetComponentInChildren<Enemydamagedealer>().StartDealDamage();
+     }*/
     /*public void EndDealDamage()
     {
         GetComponentInChildren<Enemydamagedealer>().EndDealDamage();
@@ -144,13 +167,13 @@ public class EnemyAi : MonoBehaviour
     ///<summary>
     /// Highlights the enemy's detection range for when aggro-ed or attack
     /// </summary>
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, aggroRange);
-    }
+    }*/
 }
 
 
