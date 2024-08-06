@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
          { 
     
             playerHealth -= damageAmt;
+            Debug.Log("damage taken");
         }
 
 

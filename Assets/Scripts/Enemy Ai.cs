@@ -61,7 +61,7 @@ public class EnemyAi : MonoBehaviour
         {
             Chase();
         }
-        if (timeBtwnAttack >= attackCool)
+       if (timeBtwnAttack >= attackCool)
         {
             if (Vector3.Distance(player.transform.position, transform.position) <= attackRange)
             {
@@ -122,12 +122,24 @@ public class EnemyAi : MonoBehaviour
         if (distToPlayer > stoppingRange)
         {
             agent.SetDestination(player.transform.position);
+            GetComponentInChildren<Enemydamagedealer>().StartDealDamage();
+            GetComponentInChildren<Enemydamagedealer>().EndDealDamage();
         }
         else
         {
             agent.ResetPath();
+
         }
     }
+
+   /* public void StartDealDamage()
+    {
+        GetComponentInChildren<Enemydamagedealer>().StartDealDamage();
+    }*/
+    /*public void EndDealDamage()
+    {
+        GetComponentInChildren<Enemydamagedealer>().EndDealDamage();
+    }*/
 
     ///<summary>
     /// Highlights the enemy's detection range for when aggro-ed or attack

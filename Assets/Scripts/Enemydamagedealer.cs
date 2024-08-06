@@ -40,6 +40,7 @@ public class Enemydamagedealer : MonoBehaviour
                     {
                         playerHealth.TakeDamage(weaponDamage);
                         hasDealtDamage = true;
+                        Debug.Log("yeaaa im touching you");
                     }
                 }
             }
@@ -61,7 +62,12 @@ public class Enemydamagedealer : MonoBehaviour
     /// </summary>
     public void EndDealDamage()
     {
-        canDealDamage = false;
+        if (hasDealtDamage = true)
+        {
+            canDealDamage = false;
+            Debug.Log("End");
+        }
+        
     }
 
     /// <summary>
