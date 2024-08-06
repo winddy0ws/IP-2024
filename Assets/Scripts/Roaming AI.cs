@@ -15,6 +15,8 @@ public class RoamingAI : MonoBehaviour
     /// <summary>
     /// Setting up references for later call
     /// </summary>
+    /// 
+    [SerializeField]
     GameObject player;
     NavMeshAgent agent;
     [SerializeField]
@@ -35,46 +37,30 @@ public class RoamingAI : MonoBehaviour
     [SerializeField]
     float sightRange, stoppingRange;
     bool playerInSight;
+    string currentState;
+    string nextState;
     
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        player = GameObject.FindGameObjectWithTag("Player");
+
+        //Setting NPC's intial states
+        currentState = "Roaming";
+        nextState = currentState;
+        SwitchState();
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerInSight = Vector3.Distance(transform.position, player.transform.position) <= sightRange;
-        if (!playerInSight)
+        if(currentState != nextState)
         {
-            Patrol();
+            currentState = nextState;
         }
-        else if (playerInSight)
-        {
-            Chase();
-        }
-    }
 
-    /// <summary>
-    /// Function makes AI detect whether NPC is roaming, and where it roams
-    /// </summary>
-    void Patrol()
-    {
-        if (!walkpointSet)
-        {
-            SearchForDest();
-        }
-        else if(walkpointSet)
-        {
-            agent.SetDestination(destPoint);
-        }
-        if (Vector3.Distance(transform.position, destPoint) < 10)
-        {
-            walkpointSet = false;
-        }    
+        Debug.Log(currentState);
     }
 
     /// <summary>
@@ -89,21 +75,77 @@ public class RoamingAI : MonoBehaviour
 
         if (Physics.Raycast(destPoint, Vector3.down, groundLayer))
         {
-            walkpointSet |= true;
+            walkpointSet = true;
         }
     }
 
-    void Chase()
+    void SwitchState()
     {
-        float distToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        StartCoroutine(currentState);
+    }
 
-        if (distToPlayer > stoppingRange)
+    /// <summary>
+    /// Couroutine makes AI detect whether NPC is roaming, and where it roams
+    /// </summary>
+    IEnumerator Roaming()
+    {
+        //Transition into state
+        SearchForDest();
+
+        //Check whether current state is "Roaming"
+        while (currentState == "Roaming")
         {
-            agent.SetDestination(player.transform.position);
+            if (!walkpointSet)
+            {
+                SearchForDest();
+            }
+            else if (walkpointSet)
+            {
+                agent.SetDestination(destPoint);
+            }
+            if (Vector3.Distance(transform.position, destPoint) < 10)
+            {
+                walkpointSet = false;
+            }
+
+            if (sightRange > Vector3.Distance(transform.position, player.transform.position))
+            {
+                nextState = "Chase";
+            }
+            yield return new WaitForEndOfFrame();
         }
-        else
+
+        //Transition out of state
+        SwitchState();
+    }
+
+    /// <summary>
+    /// Couroutine makes AI detect whether NPC is roaming, and where it roams
+    /// </summary>
+    IEnumerator Chase()
+    {
+        //Check whether current state is "Chase"
+        while (currentState == "Chase")
         {
-            agent.ResetPath();
+            float distToPlayer = Vector3.Distance(transform.position, player.transform.position);
+
+            if (distToPlayer > stoppingRange)
+            {
+                agent.SetDestination(player.transform.position);
+            }
+            else
+            {
+                agent.SetDestination(transform.position);
+            }
+
+            if (sightRange < Vector3.Distance(transform.position, player.transform.position))
+            {
+                nextState = "Roaming";
+            }
+            yield return new WaitForEndOfFrame();
         }
+
+        //Transition out of state
+        SwitchState();
     }
 }
