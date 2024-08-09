@@ -13,6 +13,10 @@ public class GameManager : MonoBehaviour
 
     public bool BagCollected = false;
 
+    public bool WoodCollected = false;
+
+    public bool MushroomCollected = false;
+
 
 
 

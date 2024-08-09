@@ -6,6 +6,8 @@ public class DailogueTrigger : Interactable
 {
     public Dailogue dailogue;
 
+    
+
     public override void OnPress()
     {
         base.OnPress();
@@ -13,6 +15,6 @@ public class DailogueTrigger : Interactable
     }
     public void TriggerDailogue ()
     {
-        FindAnyObjectByType<DailogueManager>().StartDailogue(dailogue );
+        FindAnyObjectByType<DailogueManager>().StartDailogue(dailogue);
     }
 }

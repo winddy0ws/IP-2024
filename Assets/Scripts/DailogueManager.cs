@@ -10,6 +10,9 @@ public class DailogueManager : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
 
+
+    public GameObject roamingQuest;
+    public GameObject Mayor;
     public Animator animator;
 
     private Queue<string> sentences;
@@ -18,6 +21,8 @@ public class DailogueManager : MonoBehaviour
     void Awake()
     {
         sentences = new Queue<string>();
+        GameObject.Find("Roaming Quest");
+
         
     }
 
@@ -34,8 +39,9 @@ public class DailogueManager : MonoBehaviour
 
        
 
-        if (GameManager.Instance.BagCollected == false)
+        if (GameManager.Instance.BagCollected == false && roamingQuest == true)
         {
+            Debug.Log("help");
 
             foreach (string sentence in dailogue.sentences)
             {
@@ -43,9 +49,19 @@ public class DailogueManager : MonoBehaviour
             }
         }
 
-        else
+        else if (GameManager.Instance.BagCollected == true && roamingQuest == true)
         {
             foreach (string sentence in dailogue.sentences2)
+            {
+                sentences.Enqueue(sentence);
+            }
+
+
+        }
+
+        else if (Mayor == true)
+        {
+            foreach (string sentence in dailogue.sentences)
             {
                 sentences.Enqueue(sentence);
             }
