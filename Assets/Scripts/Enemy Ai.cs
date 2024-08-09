@@ -29,7 +29,7 @@ public class EnemyAi : MonoBehaviour
     /// State Change
     /// </summary>
     [SerializeField]
-    float sightRange, stoppingRange, attackRange;
+    float sightRange, attackRange;
     string currentState;
     string nextState;
 
@@ -119,16 +119,7 @@ public class EnemyAi : MonoBehaviour
         //Check whether current state is "Chase"
         while (currentState == "Chase")
         {
-            float distToPlayer = Vector3.Distance(transform.position, player.transform.position);
-
-            if (distToPlayer > stoppingRange)
-            {
-                agent.SetDestination(player.transform.position);
-            }
-            else
-            {
-                agent.SetDestination(transform.position);
-            }
+            agent.SetDestination(player.transform.position);
 
             if (sightRange < Vector3.Distance(transform.position, player.transform.position))
             {
@@ -136,7 +127,7 @@ public class EnemyAi : MonoBehaviour
             }
             else if (attackRange > Vector3.Distance(transform.position, player.transform.position))
             {
-                Attack();
+                nextState = "Attack";
             }
             yield return new WaitForEndOfFrame();
         }
@@ -145,16 +136,38 @@ public class EnemyAi : MonoBehaviour
         SwitchState();
     }
 
-    void Attack()
+    /*IEnumerator Attack()
+    {
+        while (currentState == "Attack")
+        {
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Cactus_Attack01"))
+            {
+                animator.SetTrigger("Attack");
+                agent.SetDestination(transform.position);
+            }
+
+            if (sightRange > Vector3.Distance(transform.position, player.transform.position))
+            {
+                nextState = "Chase";
+            }
+            else if (sightRange < Vector3.Distance(transform.position, player.transform.position))
+            {
+                nextState = "Roaming";
+            }
+            yield return new WaitForEndOfFrame();
+        }
+    }*/
+
+    /*void Attack()
     {
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Cactus_Attack01"))
         {
             animator.SetTrigger("Attack");
             agent.SetDestination(transform.position);
         }
-    }
+    }*/
 
-    void EnableAttack()
+    /*void EnableAttack()
     {
         boxCollider.enabled = true;
     }
@@ -172,7 +185,7 @@ public class EnemyAi : MonoBehaviour
         {
             Debug.Log("hit");
         }
-    }
+    }*/
 }
 
 
