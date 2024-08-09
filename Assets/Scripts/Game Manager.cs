@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject healthBar;
 
+    public bool BagCollected = false;
+
 
 
 

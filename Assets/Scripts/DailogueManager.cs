@@ -15,7 +15,7 @@ public class DailogueManager : MonoBehaviour
     private Queue<string> sentences;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         sentences = new Queue<string>();
         
@@ -30,16 +30,42 @@ public class DailogueManager : MonoBehaviour
         nameText.text = dailogue.name;
 
         sentences.Clear ();
+        Debug.Log("clear");
 
-        foreach (string sentence in dailogue.sentences)
+       
+
+        if (GameManager.Instance.BagCollected == false)
         {
-            sentences.Enqueue (sentence);
+
+            foreach (string sentence in dailogue.sentences)
+            {
+                sentences.Enqueue(sentence);
+            }
+        }
+
+        else
+        {
+            foreach (string sentence in dailogue.sentences2)
+            {
+                sentences.Enqueue(sentence);
+            }
+
+
         }
 
         DisplayNextSentence();
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        /*foreach (string sentence in dailogue.sentences)
+        {
+            sentences.Enqueue(sentence);
+        }
+
+        DisplayNextSentence();
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;*/
     }
 
     public void DisplayNextSentence()

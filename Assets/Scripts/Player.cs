@@ -6,6 +6,7 @@ using UnityEngine.ProBuilder.Shapes;
 using UnityEngine.ProBuilder.MeshOperations;
 using UnityEngine.SceneManagement;
 
+
 public class Player : MonoBehaviour
 {
     public TextMeshProUGUI displaytext;
@@ -41,15 +42,22 @@ public class Player : MonoBehaviour
 
             }
 
-            
+            if (hitInfo.transform.name == "Roaming Quest")
+            {
+                displaytext.text = "Press [E] to interact";
+            }
 
+            else
+            {
+                displaytext.text = "";
+            }
 
 
 
 
         }
         else
-        {
+        { 
             curretInteractable = null;
 
 
