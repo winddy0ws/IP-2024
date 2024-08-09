@@ -14,6 +14,9 @@ public class EnemyAi : MonoBehaviour
     [SerializeField]
     LayerMask groundLayer;
 
+    Animator animator;
+    BoxCollider boxCollider;
+
     /// <summary>
     /// Variables to determine NPC's roam abilities
     /// </summary>
@@ -26,8 +29,7 @@ public class EnemyAi : MonoBehaviour
     /// State Change
     /// </summary>
     [SerializeField]
-    float sightRange, stoppingRange;
-    bool playerInSight;
+    float sightRange, stoppingRange, attackRange;
     string currentState;
     string nextState;
 
@@ -35,6 +37,8 @@ public class EnemyAi : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
+        boxCollider = GetComponentInChildren<BoxCollider>();
 
         //Setting NPC's intial states
         currentState = "Roaming";
@@ -45,24 +49,6 @@ public class EnemyAi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (timeBtwnAttack >= attackCool)
-         {
-             if (Vector3.Distance(player.transform.position, transform.position) <= attackRange)
-             {
-                 timeBtwnAttack = 0;
-             }
-         }
-
-         timeBtwnAttack += Time.deltaTime;
-
-         if (newDestCool <= 0 && Vector3.Distance(player.transform.position, transform.position) <= aggroRange)
-         {
-             newDestCool = 0.5f;
-             agent.SetDestination(player.transform.position);
-         }
-         newDestCool -= Time.deltaTime;
-         transform.LookAt(player.transform);*/
-
         if (currentState != nextState)
         {
             currentState = nextState;
@@ -148,6 +134,10 @@ public class EnemyAi : MonoBehaviour
             {
                 nextState = "Roaming";
             }
+            else if (attackRange > Vector3.Distance(transform.position, player.transform.position))
+            {
+                Attack();
+            }
             yield return new WaitForEndOfFrame();
         }
 
@@ -155,25 +145,34 @@ public class EnemyAi : MonoBehaviour
         SwitchState();
     }
 
-    /* public void StartDealDamage()
-     {
-         GetComponentInChildren<Enemydamagedealer>().StartDealDamage();
-     }*/
-    /*public void EndDealDamage()
+    void Attack()
     {
-        GetComponentInChildren<Enemydamagedealer>().EndDealDamage();
-    }*/
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Cactus_Attack01"))
+        {
+            animator.SetTrigger("Attack");
+            agent.SetDestination(transform.position);
+        }
+    }
 
-    ///<summary>
-    /// Highlights the enemy's detection range for when aggro-ed or attack
-    /// </summary>
-    /*private void OnDrawGizmos()
+    void EnableAttack()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, aggroRange);
-    }*/
+        boxCollider.enabled = true;
+    }
+
+    void DisableAttack()
+    {
+        boxCollider.enabled = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        var player = other.GetComponent<CharacterController>();
+
+        if (player != null)
+        {
+            Debug.Log("hit");
+        }
+    }
 }
 
 
