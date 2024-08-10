@@ -2,7 +2,7 @@
  * Author: Livinia Poo
  * Date: 02/08/2024
  * Description: 
- * NPC/Quest Giver random roaming movement
+ * NPC/Quest Giver random roaming movement and FSM
  */
 
 using System.Collections;
@@ -38,7 +38,11 @@ public class RoamingAI : MonoBehaviour
     bool playerInSight;
     string currentState;
     string nextState;
-    
+
+    /// <summary>
+    /// Setting up quest management
+    /// </summary>
+    public bool questGiven = false;
 
     // Start is called before the first frame update
     void Start()
@@ -78,6 +82,9 @@ public class RoamingAI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Function to start all coroutines
+    /// </summary>
     void SwitchState()
     {
         StartCoroutine(currentState);

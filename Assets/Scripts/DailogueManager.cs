@@ -1,3 +1,10 @@
+/*
+ * Author: Yau Wai Lam
+ * Date: 09/08/24
+ * Description: 
+ * Managing the display of text-dialogue based on situations
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +17,9 @@ using UnityEngine.SceneManagement;
 public class DailogueManager : MonoBehaviour
 
 {
+    /// <summary>
+    /// References and Calls
+    /// </summary>
     public TextMeshProUGUI displaytext;
     [SerializeField]
     Transform playerCamera;
@@ -22,25 +32,24 @@ public class DailogueManager : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
 
-
     public GameObject roamingQuest;
     public GameObject Mayor;
     public GameObject woodQuest;
     public Animator animator;
 
+    /// <summary>
+    /// Setting up dialogue
+    /// </summary>
     private Queue<string> sentences;
 
     // Start is called before the first frame update
     void Awake()
     {
         sentences = new Queue<string>();
-        GameObject.Find("Roaming Quest");
-
-        
+        GameObject.Find("Roaming Quest");    
     }
     void Update()
     {
-
         bool Raycast = Physics.Raycast(
             playerCamera.position,
             playerCamera.TransformDirection(Vector3.forward),
@@ -61,17 +70,10 @@ public class DailogueManager : MonoBehaviour
                 curretInteractable = null;
 
             }
-
-       
-
-
-
-
         }
         else
         {
             curretInteractable = null;
-
 
             if (displaytext == null && SceneManager.GetActiveScene().name == "Game")
             {
@@ -79,6 +81,11 @@ public class DailogueManager : MonoBehaviour
             }
         }
     }
+
+    /// <summary>
+    /// Function starts the dialogue animation, and which dialogue
+    /// </summary>
+    /// <param name="dailogue"></param>
     public void StartDailogue (Dailogue dailogue)
     {
         Debug.Log ("Starting converstation with" + dailogue.name);
@@ -162,6 +169,9 @@ public class DailogueManager : MonoBehaviour
         Cursor.visible = true;*/
     }
 
+    /// <summary>
+    /// String appearance
+    /// </summary>
     public void DisplayNextSentence()
     {
         if (sentences.Count == 0 )
@@ -187,6 +197,9 @@ public class DailogueManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Ends dialogue
+    /// </summary>
     void EndDialogue()
     {
         animator.SetBool("IsOpen", false);

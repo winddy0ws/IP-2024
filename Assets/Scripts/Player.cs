@@ -1,3 +1,10 @@
+/*
+ * Author: Yau Wai Lam
+ * Date: 02/08/24
+ * Description: 
+ * Managing Player's aspects of game
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,11 +25,8 @@ public class Player : MonoBehaviour
     Interactable curretInteractable;
     public RaycastHit hitInfo;
 
-    public float health = 100;
-
     void Update()
     {
-
         bool Raycast = Physics.Raycast(
             playerCamera.position,
             playerCamera.TransformDirection(Vector3.forward),
@@ -85,7 +89,10 @@ public class Player : MonoBehaviour
         GameManager.Instance.currentScore += score;
         Debug.Log(score);
     }*/
-
+    
+    /// <summary>
+    /// Null check for players
+    /// </summary>
     void OnPress()
     {
         if (curretInteractable != null)

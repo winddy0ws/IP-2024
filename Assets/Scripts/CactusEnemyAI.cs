@@ -1,3 +1,10 @@
+/*
+ * Author: Yau Wai Lam
+ * Date: 06/08/2024
+ * Description: 
+ * FSM and Damage dealing script
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,7 +40,10 @@ public class CactusEnemyAI : MonoBehaviour
     string currentState;
     string nextState;
 
-    Player playerObj;
+    /// <summary>
+    /// Damage Dealing
+    /// </summary>
+    GameManager playerObj;
     public float attackDmg = 10;
 
 
@@ -43,7 +53,7 @@ public class CactusEnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         boxCollider = GetComponentInChildren<BoxCollider>();
-        playerObj = player.GetComponent<Player>();
+        playerObj = player.GetComponent<GameManager>();
 
         //Setting NPC's intial states
         currentState = "Roaming";
@@ -76,6 +86,9 @@ public class CactusEnemyAI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Function to start each coroutine
+    /// </summary>
     void SwitchState()
     {
         StartCoroutine(currentState);
@@ -168,22 +181,32 @@ public class CactusEnemyAI : MonoBehaviour
         SwitchState();
     }
 
+    /// <summary>
+    /// Starts animation event
+    /// </summary>
     void EnableAttack()
     {
         boxCollider.enabled = true;
     }
 
+    /// <summary>
+    /// Ends animation event
+    /// </summary>
     void DisableAttack()
     {
         boxCollider.enabled = false;
     }
 
+    /// <summary>
+    /// Deals damage according to hitbox impact
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            playerObj.health -= attackDmg;
-            Debug.Log(playerObj.health);
+            playerObj.playerHealth -= attackDmg;
+            Debug.Log(playerObj.playerHealth);
         }
     }
 }

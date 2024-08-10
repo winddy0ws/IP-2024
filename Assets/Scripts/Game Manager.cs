@@ -1,3 +1,10 @@
+/*
+ * Author: Yau Wai Lam
+ * Date: 06/08/24
+ * Description: 
+ * Game Manager script
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,9 +12,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    /// <summary>
+    /// Sets to the current scene
+    /// </summary>
     public static GameManager Instance;
 
-    public static float playerHealth = 100;
+    public float playerHealth = 100;
 
     public GameObject healthBar;
 
@@ -21,25 +31,26 @@ public class GameManager : MonoBehaviour
 
     public int woodCount = 0;
 
-
-
-        private void Awake()
+    private void Awake()
+    {
+        if (Instance == null)
         {
-            if (Instance == null)
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else if (Instance != this && Instance != null)
-            {
-                Destroy(gameObject);
-            }
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
+        else if (Instance != this && Instance != null)
+        {
+            Destroy(gameObject);
+        }
+    }
 
+    /// <summary>
+    /// Tracking Wood Quest
+    /// </summary>
+    /// <param name="woodscore"></param>
     public void IncreaseScore(int woodscore)
     {
         woodCount += woodscore;
-
     }
     // Update is called once per frame
     void Update()
@@ -49,14 +60,4 @@ public class GameManager : MonoBehaviour
                 healthBar = GameObject.Find("healthBar");
             }
         }
-
-        public void TakeDamage(float damageAmt)
-         { 
-    
-            playerHealth -= damageAmt;
-            Debug.Log("damage taken");
-        }
-
-
-
    }
