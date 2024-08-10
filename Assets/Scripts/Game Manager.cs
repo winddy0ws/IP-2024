@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
 
     public bool MushroomCollected = false;
 
+    public bool woodCollected = false;
+
+    public int woodCount = 0;
 
 
 
@@ -33,9 +36,13 @@ public class GameManager : MonoBehaviour
             }
         }
 
+    public void IncreaseScore(int woodscore)
+    {
+        woodCount += woodscore;
 
-        // Update is called once per frame
-        void Update()
+    }
+    // Update is called once per frame
+    void Update()
         {
             if (healthBar == null && SceneManager.GetActiveScene().name == "forest")
             {

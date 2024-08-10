@@ -47,6 +47,16 @@ public class Player : MonoBehaviour
                 displaytext.text = "Press [E] to interact";
             }
 
+            else if (hitInfo.transform.name == "Mayor")
+            {
+                displaytext.text = "Press [E] to interact";
+            }
+
+            else if (hitInfo.transform.name == "Wood")
+            {
+                displaytext.text = "Press [E] to interact";
+            }
+
             else
             {
                 displaytext.text = "";

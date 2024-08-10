@@ -3,16 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor.PackageManager;
+using UnityEngine.SceneManagement;
+
 
 public class DailogueManager : MonoBehaviour
 
 {
+    public TextMeshProUGUI displaytext;
+    [SerializeField]
+    Transform playerCamera;
+
+    [SerializeField]
+    float seeDistance;
+    Interactable curretInteractable;
+    public RaycastHit hitInfo;
+
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
 
 
     public GameObject roamingQuest;
     public GameObject Mayor;
+    public GameObject woodQuest;
     public Animator animator;
 
     private Queue<string> sentences;
@@ -25,7 +38,47 @@ public class DailogueManager : MonoBehaviour
 
         
     }
+    void Update()
+    {
 
+        bool Raycast = Physics.Raycast(
+            playerCamera.position,
+            playerCamera.TransformDirection(Vector3.forward),
+            out hitInfo,
+            seeDistance
+        );
+        Debug.DrawRay(
+            playerCamera.position,
+            playerCamera.TransformDirection(Vector3.forward) * seeDistance,
+            Color.green
+        );
+        if (Raycast)
+        {
+            Debug.Log(hitInfo.transform.name);
+            if (hitInfo.transform.TryGetComponent<Interactable>(out curretInteractable)) { }
+            else
+            {
+                curretInteractable = null;
+
+            }
+
+       
+
+
+
+
+        }
+        else
+        {
+            curretInteractable = null;
+
+
+            if (displaytext == null && SceneManager.GetActiveScene().name == "Game")
+            {
+                displaytext = GameObject.Find("Text").GetComponent<TextMeshProUGUI>();
+            }
+        }
+    }
     public void StartDailogue (Dailogue dailogue)
     {
         Debug.Log ("Starting converstation with" + dailogue.name);
@@ -39,7 +92,7 @@ public class DailogueManager : MonoBehaviour
 
        
 
-        if (GameManager.Instance.BagCollected == false && roamingQuest == true)
+        if (GameManager.Instance.BagCollected == false && hitInfo.transform.name == "Roaming Quest")
         {
             Debug.Log("help");
 
@@ -49,8 +102,9 @@ public class DailogueManager : MonoBehaviour
             }
         }
 
-        else if (GameManager.Instance.BagCollected == true && roamingQuest == true)
+        else if (GameManager.Instance.BagCollected == true && hitInfo.transform.name == "Roaming Quest" )
         {
+            Debug.Log("help2.0");
             foreach (string sentence in dailogue.sentences2)
             {
                 sentences.Enqueue(sentence);
@@ -59,9 +113,33 @@ public class DailogueManager : MonoBehaviour
 
         }
 
-        else if (Mayor == true)
+
+        else if (hitInfo.transform.name == "Mayor")
         {
+            Debug.Log("help3.0");
             foreach (string sentence in dailogue.sentences)
+            {
+                sentences.Enqueue(sentence);
+            }
+
+
+        }
+
+        else if (hitInfo.transform.name == "Wood" && GameManager.Instance.woodCollected == false )
+        {
+            Debug.Log("help4.0");
+            foreach (string sentence in dailogue.sentences)
+            {
+                sentences.Enqueue(sentence);
+            }
+
+
+        }
+
+        else if (hitInfo.transform.name == "Wood" && GameManager.Instance.woodCount >= 5 )
+        {
+            Debug.Log("help5.0");
+            foreach (string sentence in dailogue.sentences2)
             {
                 sentences.Enqueue(sentence);
             }
