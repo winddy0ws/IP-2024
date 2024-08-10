@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     Interactable curretInteractable;
     public RaycastHit hitInfo;
 
+    public float health = 100;
+
     void Update()
     {
 

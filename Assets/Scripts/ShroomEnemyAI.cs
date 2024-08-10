@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAi : MonoBehaviour
+public class ShroomEnemyAI : MonoBehaviour
 {
     /// <summary>
     /// Setting up references for later call
@@ -33,12 +33,17 @@ public class EnemyAi : MonoBehaviour
     string currentState;
     string nextState;
 
+    Player playerObj;
+    public float attackDmg = 10;
+
+
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         boxCollider = GetComponentInChildren<BoxCollider>();
+        playerObj = player.GetComponent<Player>();
 
         //Setting NPC's intial states
         currentState = "Roaming";
@@ -112,7 +117,7 @@ public class EnemyAi : MonoBehaviour
     }
 
     /// <summary>
-    /// Couroutine makes AI detect whether NPC is roaming, and where it roams
+    /// Couroutine makes AI detect whether NPC is chasing, and locks onto player
     /// </summary>
     IEnumerator Chase()
     {
@@ -136,38 +141,34 @@ public class EnemyAi : MonoBehaviour
         SwitchState();
     }
 
-    /*IEnumerator Attack()
+    /// <summary>
+    /// Couroutine makes AI detect whether NPC is attacking
+    /// </summary>
+    IEnumerator Attack()
     {
         while (currentState == "Attack")
         {
-            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Cactus_Attack01"))
+            if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Mushroom_Attack01Angry"))
             {
                 animator.SetTrigger("Attack");
-                agent.SetDestination(transform.position);
             }
+            agent.SetDestination(transform.position);
 
-            if (sightRange > Vector3.Distance(transform.position, player.transform.position))
+            if (Vector3.Distance(transform.position, player.transform.position) > attackRange)
             {
                 nextState = "Chase";
             }
-            else if (sightRange < Vector3.Distance(transform.position, player.transform.position))
+            else if (Vector3.Distance(transform.position, player.transform.position) > sightRange)
             {
                 nextState = "Roaming";
             }
             yield return new WaitForEndOfFrame();
         }
-    }*/
 
-    /*void Attack()
-    {
-        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Cactus_Attack01"))
-        {
-            animator.SetTrigger("Attack");
-            agent.SetDestination(transform.position);
-        }
-    }*/
+        SwitchState();
+    }
 
-    /*void EnableAttack()
+    void EnableAttack()
     {
         boxCollider.enabled = true;
     }
@@ -179,13 +180,12 @@ public class EnemyAi : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var player = other.GetComponent<CharacterController>();
-
-        if (player != null)
+        if (other.tag == "Player")
         {
-            Debug.Log("hit");
+            playerObj.health -= attackDmg;
+            Debug.Log(playerObj.health);
         }
-    }*/
+    }
 }
 
 
