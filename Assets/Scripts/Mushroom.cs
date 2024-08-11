@@ -22,7 +22,7 @@ public class Mushroom : Interactable
         base.OnPress();/*
         AudioSource.PlayClipAtPoint(collectAudio, transform.position, 1f);*/
         Destroy(gameObject);
-        GameManager.Instance.mushroomCollected = true;
+        GameManager.shroomCollected = true;
         GameManager.shroomCount += 1;
 
     }
