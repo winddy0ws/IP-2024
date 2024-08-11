@@ -16,6 +16,10 @@ public class SceneChange : MonoBehaviour
     /// Variable for which scene to change to
     /// </summary>
     public int scene;
+    [SerializeField]
+    private string sceneToLoad;
+    [SerializeField]
+    private string exitPointName;
 
     /// <summary>
     /// Player will change between scene upon entering area
@@ -25,7 +29,8 @@ public class SceneChange : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(scene);
+
+            SceneManager.LoadScene(sceneToLoad);
         }
     }
 }

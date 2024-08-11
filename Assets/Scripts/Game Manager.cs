@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public static GameManager Instance;
 
+    public string lastExitPoint;
+
     public float playerHealth = 100;
 
     public GameObject healthBar;
@@ -31,6 +33,7 @@ public class GameManager : MonoBehaviour
     public static int mushroomCount = 0;
     public static int bagCount = 0;
     public static int shroomCount = 0;
+
 
     private void Awake()
     {
