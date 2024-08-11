@@ -22,7 +22,7 @@ public class DialogueTrigger : Interactable
     public override void OnPress()
     {
         base.OnPress();
-        FindAnyObjectByType<DialogueManager>().StartDailogue(dialogue);
+        FindAnyObjectByType<DialogueManager>().StartDialogue(dialogue);
     }
 
     /// <summary>
