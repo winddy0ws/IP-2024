@@ -97,9 +97,9 @@ public class DialogueManager : MonoBehaviour
         sentences.Clear ();
         Debug.Log("clear");
 
-       
 
-        if (GameManager.Instance.bagCollected == false && hitInfo.transform.name == "Roaming Quest")
+
+        if (QuestManager.bagQuestGiven == false && hitInfo.transform.name == "Roaming Quest")
         {
             Debug.Log("help");
 
@@ -108,8 +108,7 @@ public class DialogueManager : MonoBehaviour
                 sentences.Enqueue(sentence);
             }
         }
-
-        else if (GameManager.Instance.bagCollected == true && hitInfo.transform.name == "Roaming Quest" )
+        else if (QuestManager.bagQuestGiven == true && GameManager.bagCollected == true && hitInfo.transform.name == "Roaming Quest")
         {
             Debug.Log("help2.0");
             foreach (string sentence in dialogue.sentences2)
@@ -121,7 +120,7 @@ public class DialogueManager : MonoBehaviour
         }
 
 
-        else if (hitInfo.transform.name == "Mayor")
+        if (hitInfo.transform.name == "Mayor")
         {
             Debug.Log("help3.0");
             foreach (string sentence in dialogue.sentences)
@@ -132,40 +131,33 @@ public class DialogueManager : MonoBehaviour
 
         }
 
-        else if (hitInfo.transform.name == "Wood" && GameManager.Instance.woodCollected == false )
+        if (QuestManager.woodQuestGiven == false && hitInfo.transform.name == "Wood")
         {
             Debug.Log("help4.0");
             foreach (string sentence in dialogue.sentences)
             {
                 sentences.Enqueue(sentence);
             }
-
-
         }
-
-        else if (hitInfo.transform.name == "Wood" && GameManager.Instance.woodCount >= 5 )
+        else if (QuestManager.woodQuestGiven == true && hitInfo.transform.name == "Wood" && GameManager.woodCollected == true )
         {
             Debug.Log("help5.0");
             foreach (string sentence in dialogue.sentences2)
             {
                 sentences.Enqueue(sentence);
             }
-
-
         }
 
-        else if (hitInfo.transform.name == "Mushroom" && GameManager.Instance.mushroomCollected == false)
+        if (QuestManager.shroomQuestGiven == false && hitInfo.transform.name == "Mushroom")
         {
             Debug.Log("help6.0");
             foreach (string sentence in dialogue.sentences)
             {
                 sentences.Enqueue(sentence);
             }
-
-
         }
 
-        else if (hitInfo.transform.name == "Mushroom" && GameManager.Instance.mushroomCount >= 8)
+        else if (QuestManager.shroomQuestGiven == true && hitInfo.transform.name == "Mushroom" && GameManager.shroomCollected == true)
         {
             Debug.Log("help7.0");
             foreach (string sentence in dialogue.sentences2)
@@ -191,9 +183,8 @@ public class DialogueManager : MonoBehaviour
         if (sentences.Count == 0 )
         {
             EndDialogue();
+            QuestManager.StartQuest();
             return;
-
-
         }
 
         string sentence = sentences.Dequeue ();

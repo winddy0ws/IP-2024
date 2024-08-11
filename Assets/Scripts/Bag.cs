@@ -20,7 +20,8 @@ public class Bag : Interactable
     {
         base.OnPress();
         Destroy(gameObject);
-        GameManager.Instance.bagCollected = true;
+        GameManager.bagCollected = true;
+        GameManager.bagCount = 1;
 
     }
 }
