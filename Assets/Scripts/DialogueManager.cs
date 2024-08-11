@@ -99,7 +99,7 @@ public class DialogueManager : MonoBehaviour
 
        
 
-        if (GameManager.Instance.BagCollected == false && hitInfo.transform.name == "Roaming Quest")
+        if (GameManager.Instance.bagCollected == false && hitInfo.transform.name == "Roaming Quest")
         {
             Debug.Log("help");
 
@@ -109,7 +109,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        else if (GameManager.Instance.BagCollected == true && hitInfo.transform.name == "Roaming Quest" )
+        else if (GameManager.Instance.bagCollected == true && hitInfo.transform.name == "Roaming Quest" )
         {
             Debug.Log("help2.0");
             foreach (string sentence in dialogue.sentences2)
@@ -154,19 +154,33 @@ public class DialogueManager : MonoBehaviour
 
         }
 
-        DisplayNextSentence();
-
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        /*foreach (string sentence in dailogue.sentences)
+        else if (hitInfo.transform.name == "Mushroom" && GameManager.Instance.mushroomCollected == false)
         {
-            sentences.Enqueue(sentence);
+            Debug.Log("help6.0");
+            foreach (string sentence in dialogue.sentences)
+            {
+                sentences.Enqueue(sentence);
+            }
+
+
+        }
+
+        else if (hitInfo.transform.name == "Mushroom" && GameManager.Instance.mushroomCount >= 8)
+        {
+            Debug.Log("help7.0");
+            foreach (string sentence in dialogue.sentences2)
+            {
+                sentences.Enqueue(sentence);
+            }
+
+
         }
 
         DisplayNextSentence();
 
         Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;*/
+        Cursor.visible = true;
+
     }
 
     /// <summary>

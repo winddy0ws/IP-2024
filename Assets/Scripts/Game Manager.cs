@@ -21,15 +21,15 @@ public class GameManager : MonoBehaviour
 
     public GameObject healthBar;
 
-    public bool BagCollected = false;
-
-    public bool WoodCollected = false;
-
-    public bool MushroomCollected = false;
+    public bool bagCollected = false;
 
     public bool woodCollected = false;
 
+    public bool mushroomCollected = false;
+
     public int woodCount = 0;
+
+    public int mushroomCount = 0;
 
     private void Awake()
     {
@@ -51,6 +51,15 @@ public class GameManager : MonoBehaviour
     public void IncreaseScore(int woodscore)
     {
         woodCount += woodscore;
+    }
+
+    /// <summary>
+    /// Tracking Wood Quest
+    /// </summary>
+    /// <param name="shroomscore"></param>
+    public void IncreaseScoreshroom(int shroomscore)
+    {
+        mushroomCount += shroomscore;
     }
     // Update is called once per frame
     void Update()
