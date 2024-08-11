@@ -20,7 +20,7 @@ public class Collectible : Interactable
     {
         base.OnPress();
         Destroy(gameObject);
-
+        AudioManager.instance.PlaySFX("Collect");
     }
 
 }
