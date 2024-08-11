@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -637,6 +637,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_Mesh: {fileID: 5779197439840542771, guid: e7ce7a50c56a9594b968fc2644cc2141, type: 3}
 =======
@@ -1279,6 +1280,9 @@ Transform:
   m_PrefabInstance: {fileID: 51195554}
   m_PrefabAsset: {fileID: 0}
 >>>>>>> origin/livinia
+=======
+  m_Mesh: {fileID: 5779197439840542771, guid: e7ce7a50c56a9594b968fc2644cc2141, type: 3}
+>>>>>>> livinia
 --- !u!1 &65629448
 GameObject:
   m_ObjectHideFlags: 0
@@ -2211,10 +2215,14 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> livinia
   m_GameObject: {fileID: 100161058}
   m_Mesh: {fileID: -6809199787671980371, guid: 4f2037c4c10e0ce419080175572ca2a4, type: 3}
 --- !u!64 &100161062
 MeshCollider:
+<<<<<<< HEAD
 =======
   m_GameObject: {fileID: 104879553}
   m_Mesh: {fileID: 972614196974622048, guid: 1da7040a66d4fbc4bb75c94c8ee95a15, type: 3}
@@ -2323,6 +2331,8 @@ Canvas:
 --- !u!1001 &125864212
 PrefabInstance:
 >>>>>>> origin/livinia
+=======
+>>>>>>> livinia
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -8668,6 +8678,7 @@ MeshFilter:
   m_GameObject: {fileID: 378957668}
   m_Mesh: {fileID: 9042771077998628582, guid: 44f48f9ee5e7af445a1098215d1feb09, type: 3}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &381846960
 GameObject:
 =======
@@ -8808,6 +8819,10 @@ MonoBehaviour:
 --- !u!1001 &396244962
 PrefabInstance:
 >>>>>>> origin/livinia
+=======
+--- !u!1 &381846960
+GameObject:
+>>>>>>> livinia
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -29817,7 +29832,7 @@ Transform:
   m_GameObject: {fileID: 1303722304}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -142.66, y: 2.62, z: -130.03}
+  m_LocalPosition: {x: -125.48, y: 2.62, z: -147}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -35970,7 +35985,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000015259, y: -212}
+  m_AnchoredPosition: {x: -0.000015259, y: -297.61807}
   m_SizeDelta: {x: 1322.3232, y: 406.8634}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1599298384
@@ -36423,7 +36438,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1627167914}
   - component: {fileID: 1627167913}
-  - component: {fileID: 1627167915}
   m_Layer: 0
   m_Name: Game manager
   m_TagString: Untagged
@@ -36445,6 +36459,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: 100
   healthBar: {fileID: 0}
+  bagCollected: 0
+  woodCollected: 0
+  mushroomCollected: 0
+  woodCount: 0
+  mushroomCount: 0
 --- !u!4 &1627167914
 Transform:
   m_ObjectHideFlags: 0
@@ -36457,10 +36476,10 @@ Transform:
   m_LocalPosition: {x: -120.72, y: 2.52, z: -121.817505}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 122396133}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!1 &1628404643
 GameObject:
@@ -36483,6 +36502,10 @@ MonoBehaviour:
 --- !u!1001 &1629863718
 PrefabInstance:
 >>>>>>> origin/livinia
+=======
+--- !u!1 &1628404643
+GameObject:
+>>>>>>> livinia
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -37577,6 +37600,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> livinia
   - {fileID: 1909735427}
   m_Father: {fileID: 1564406523}
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
@@ -37653,6 +37679,7 @@ MeshCollider:
   m_CookingOptions: 30
   m_Mesh: {fileID: 299882996745314397, guid: e7ce7a50c56a9594b968fc2644cc2141, type: 3}
 --- !u!1 &1663886455
+<<<<<<< HEAD
 =======
   - {fileID: 396244963}
   - {fileID: 2124659877}
@@ -37662,6 +37689,8 @@ MeshCollider:
   m_LocalEulerAnglesHint: {x: 0, y: 68.367, z: 0}
 --- !u!1 &1686225508
 >>>>>>> origin/livinia
+=======
+>>>>>>> livinia
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37670,12 +37699,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> livinia
   - component: {fileID: 1663886456}
   - component: {fileID: 1663886458}
   - component: {fileID: 1663886457}
   - component: {fileID: 1663886459}
   m_Layer: 0
   m_Name: sweep3
+<<<<<<< HEAD
 =======
   - component: {fileID: 1686225511}
   - component: {fileID: 1686225510}
@@ -37683,12 +37716,17 @@ GameObject:
   m_Layer: 0
   m_Name: Quest Progress
 >>>>>>> origin/livinia
+=======
+>>>>>>> livinia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> livinia
 --- !u!4 &1663886456
 Transform:
   m_ObjectHideFlags: 0
@@ -38322,15 +38360,21 @@ MeshRenderer:
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &1686574896
+<<<<<<< HEAD
 =======
 --- !u!114 &1686225509
 >>>>>>> origin/livinia
+=======
+>>>>>>> livinia
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> livinia
   m_GameObject: {fileID: 1686574891}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -38594,6 +38638,7 @@ MeshCollider:
   m_Mesh: {fileID: 227162172}
 --- !u!1 &1687700440
 GameObject:
+<<<<<<< HEAD
 =======
   m_GameObject: {fileID: 1686225508}
   m_Enabled: 1
@@ -38681,11 +38726,16 @@ GameObject:
 --- !u!222 &1686225510
 CanvasRenderer:
 >>>>>>> origin/livinia
+=======
+>>>>>>> livinia
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> livinia
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1687700441}
@@ -38701,12 +38751,15 @@ CanvasRenderer:
   m_IsActive: 1
 --- !u!4 &1687700441
 Transform:
+<<<<<<< HEAD
 =======
   m_GameObject: {fileID: 1686225508}
   m_CullTransparentMesh: 1
 --- !u!224 &1686225511
 RectTransform:
 >>>>>>> origin/livinia
+=======
+>>>>>>> livinia
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -39328,6 +39381,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3894313099011520035, guid: e7ce7a50c56a9594b968fc2644cc2141, type: 3}
+<<<<<<< HEAD
 =======
   m_GameObject: {fileID: 1686225508}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -39343,6 +39397,8 @@ MeshCollider:
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 >>>>>>> origin/livinia
+=======
+>>>>>>> livinia
 --- !u!1 &1697151343
 GameObject:
   m_ObjectHideFlags: 0
@@ -47196,6 +47252,7 @@ MonoBehaviour:
   playerCamera: {fileID: 1331203336}
   seeDistance: 5
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &2076669994
 GameObject:
 =======
@@ -47217,6 +47274,10 @@ MonoBehaviour:
 --- !u!1001 &2074460591
 PrefabInstance:
 >>>>>>> origin/livinia
+=======
+--- !u!1 &2076669994
+GameObject:
+>>>>>>> livinia
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -48299,10 +48360,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2073266811}
-    - targetCorrespondingSourceObject: {fileID: 453084650579209855, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2073266812}
   m_SourcePrefab: {fileID: 100100000, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
 --- !u!1 &2112568397
 GameObject:
