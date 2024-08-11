@@ -33,8 +33,11 @@ public class Pausemenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PauseMenuCanvas.SetActive(false);
+
         Time.timeScale = 1f;
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
         AudioManager instance = FindObjectOfType<AudioManager>();
         if (instance != null)
@@ -52,8 +55,6 @@ public class Pausemenu : MonoBehaviour
             if (Paused)
             {
                 Play();
-                if (Input.GetKey(KeyCode.Space))
-                    Cursor.lockState = CursorLockMode.None;
             }
             else
             {
