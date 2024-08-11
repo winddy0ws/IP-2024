@@ -51,26 +51,25 @@ public class Player : MonoBehaviour
             if (hitInfo.transform.name == "Roaming Quest")
             {
                 displaytext.text = "Press [E] to interact";
+                QuestManager.questGiver = "bagQuest";
             }
 
             else if (hitInfo.transform.name == "Mayor")
             {
                 displaytext.text = "Press [E] to interact";
+                QuestManager.questGiver = "mayorQuest";
             }
 
             else if (hitInfo.transform.name == "Wood")
             {
                 displaytext.text = "Press [E] to interact";
+                QuestManager.questGiver = "woodQuest";
             }
 
             else
             {
                 displaytext.text = "";
             }
-
-
-
-
         }
         else
         { 

@@ -22,8 +22,8 @@ public class Wood : Interactable
         base.OnPress();/*
         AudioSource.PlayClipAtPoint(collectAudio, transform.position, 1f);*/
         Destroy(gameObject);
-        GameManager.Instance.woodCollected = true;
-        GameManager.Instance.woodCount += 1;
+        GameManager.woodCollected = true;
+        GameManager.woodCount += 1;
 
     }
 }
