@@ -9,12 +9,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DailogueTrigger : Interactable
+public class DialogueTrigger : Interactable
 {
     /// <summary>
     /// Referencing
     /// </summary>
-    public Dailogue dailogue;
+    public Dialogue dialogue;
 
     /// <summary>
     /// Interacting with NPCs
@@ -22,14 +22,14 @@ public class DailogueTrigger : Interactable
     public override void OnPress()
     {
         base.OnPress();
-        FindAnyObjectByType<DailogueManager>().StartDailogue(dailogue);
+        FindAnyObjectByType<DialogueManager>().StartDailogue(dialogue);
     }
 
     /// <summary>
     /// Starts dialogue after interaction
     /// </summary>
-    public void TriggerDailogue ()
+    public void TriggerDialogue ()
     {
-        FindAnyObjectByType<DailogueManager>().StartDailogue(dailogue);
+        FindAnyObjectByType<DialogueManager>().StartDialogue(dialogue);
     }
 }

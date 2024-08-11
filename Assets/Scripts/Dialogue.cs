@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Dailogue
+public class Dialogue
 {
     /// <summary>
     /// Allows to put characters' names

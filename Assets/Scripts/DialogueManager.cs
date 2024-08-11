@@ -14,7 +14,7 @@ using UnityEditor.PackageManager;
 using UnityEngine.SceneManagement;
 
 
-public class DailogueManager : MonoBehaviour
+public class DialogueManager : MonoBehaviour
 
 {
     /// <summary>
