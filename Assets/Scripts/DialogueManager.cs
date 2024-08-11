@@ -85,14 +85,14 @@ public class DialogueManager : MonoBehaviour
     /// <summary>
     /// Function starts the dialogue animation, and which dialogue
     /// </summary>
-    /// <param name="dailogue"></param>
-    public void StartDailogue (Dailogue dailogue)
+    /// <param name="dialogue"></param>
+    public void StartDialogue (Dialogue dialogue)
     {
-        Debug.Log ("Starting converstation with" + dailogue.name);
+        Debug.Log ("Starting converstation with" + dialogue.name);
 
         animator.SetBool("IsOpen", true);
 
-        nameText.text = dailogue.name;
+        nameText.text = dialogue.name;
 
         sentences.Clear ();
         Debug.Log("clear");
@@ -103,7 +103,7 @@ public class DialogueManager : MonoBehaviour
         {
             Debug.Log("help");
 
-            foreach (string sentence in dailogue.sentences)
+            foreach (string sentence in dialogue.sentences)
             {
                 sentences.Enqueue(sentence);
             }
@@ -112,7 +112,7 @@ public class DialogueManager : MonoBehaviour
         else if (GameManager.Instance.BagCollected == true && hitInfo.transform.name == "Roaming Quest" )
         {
             Debug.Log("help2.0");
-            foreach (string sentence in dailogue.sentences2)
+            foreach (string sentence in dialogue.sentences2)
             {
                 sentences.Enqueue(sentence);
             }
@@ -124,7 +124,7 @@ public class DialogueManager : MonoBehaviour
         else if (hitInfo.transform.name == "Mayor")
         {
             Debug.Log("help3.0");
-            foreach (string sentence in dailogue.sentences)
+            foreach (string sentence in dialogue.sentences)
             {
                 sentences.Enqueue(sentence);
             }
@@ -135,7 +135,7 @@ public class DialogueManager : MonoBehaviour
         else if (hitInfo.transform.name == "Wood" && GameManager.Instance.woodCollected == false )
         {
             Debug.Log("help4.0");
-            foreach (string sentence in dailogue.sentences)
+            foreach (string sentence in dialogue.sentences)
             {
                 sentences.Enqueue(sentence);
             }
@@ -146,7 +146,7 @@ public class DialogueManager : MonoBehaviour
         else if (hitInfo.transform.name == "Wood" && GameManager.Instance.woodCount >= 5 )
         {
             Debug.Log("help5.0");
-            foreach (string sentence in dailogue.sentences2)
+            foreach (string sentence in dialogue.sentences2)
             {
                 sentences.Enqueue(sentence);
             }
