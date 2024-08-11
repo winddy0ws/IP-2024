@@ -20,18 +20,16 @@ public class QuestManager : MonoBehaviour
     public static bool shroomQuestGiven = false;
     public static bool bagQuestGiven = false;
 
-    /// <summary>
-    /// Booleans for activating quests
-    /// </summary>
-    /*public static bool mayorQuestActivate = false;
-    public static bool woodQuestActivate = false;
-    public static bool mushroomQuestActivate = false;
-    public static bool bagQuestActivate = false;*/
-
     public static string questGiver;
 
     public TextMeshProUGUI questName;
     public TextMeshProUGUI questProgress;
+    public GameObject questSpace;
+
+    private void Start()
+    {
+        questSpace.SetActive(false);
+    }
 
     private void Update()
     {
@@ -55,10 +53,17 @@ public class QuestManager : MonoBehaviour
             questName.text = "Find XXX's bag";
             questProgress.text = $"{GameManager.shroomCount} || 8";
         }
+        else
+        {
+            questName.text = "";
+            questProgress.text = "";
+        }
     }
 
-    public static void StartQuest()
+    public void StartQuest()
     {
+        /*questSpace.SetActive (true);*/
+
         if (questGiver == "bagQuest")
         {
             bagQuestGiven = true;

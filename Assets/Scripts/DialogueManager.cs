@@ -37,6 +37,8 @@ public class DialogueManager : MonoBehaviour
     public GameObject woodQuest;
     public Animator animator;
 
+    QuestManager quest;
+
     /// <summary>
     /// Setting up dialogue
     /// </summary>
@@ -183,7 +185,8 @@ public class DialogueManager : MonoBehaviour
         if (sentences.Count == 0 )
         {
             EndDialogue();
-            QuestManager.StartQuest();
+            quest.StartQuest();
+            quest.questSpace.SetActive(true);
             return;
         }
 
