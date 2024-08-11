@@ -38,6 +38,7 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
 
     QuestManager quest;
+    RoamingAI npcControl;
 
     /// <summary>
     /// Setting up dialogue
@@ -48,7 +49,7 @@ public class DialogueManager : MonoBehaviour
     void Awake()
     {
         sentences = new Queue<string>();
-        GameObject.Find("Roaming Quest");    
+        quest = FindObjectOfType<QuestManager>();
     }
     void Update()
     {
@@ -100,8 +101,12 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("clear");
 
 
+        /*if (QuestManager.questGiver == "bagQuest" && GameManager.bagCollected)
+        {
+            npcControl.Celebrate();
+        }*/
 
-        if (QuestManager.bagQuestGiven == false && hitInfo.transform.name == "Roaming Quest")
+        if (QuestManager.bagQuestGiven == false && QuestManager.questGiver == "bagQuest")
         {
             Debug.Log("help");
 
@@ -110,15 +115,13 @@ public class DialogueManager : MonoBehaviour
                 sentences.Enqueue(sentence);
             }
         }
-        else if (QuestManager.bagQuestGiven == true && GameManager.bagCollected == true && hitInfo.transform.name == "Roaming Quest")
+        else if (QuestManager.bagQuestGiven == true && GameManager.bagCollected == true && QuestManager.questGiver == "bagQuest")
         {
             Debug.Log("help2.0");
             foreach (string sentence in dialogue.sentences2)
             {
                 sentences.Enqueue(sentence);
             }
-
-
         }
 
 
@@ -187,6 +190,12 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
             quest.StartQuest();
             quest.questSpace.SetActive(true);
+
+            if (QuestManager.bagQuestGiven)
+            {
+                quest.CompleteBagQuest();
+            }
+
             return;
         }
 
@@ -212,6 +221,15 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("IsOpen", false);
         Debug.Log("End of conversation");
+
+        if (QuestManager.questGiver == "bagQuest" && GameManager.bagCollected)
+        {
+            if (npcControl != null)
+            {
+                npcControl.currentState = "Roaming";
+            }
+        }
+
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = false;

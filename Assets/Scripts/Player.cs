@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
 
             }
 
-            if (hitInfo.transform.name == "Roaming Quest")
+            if (hitInfo.transform.name == "Bag")
             {
                 displaytext.text = "Press [E] to interact";
                 QuestManager.questGiver = "bagQuest";
@@ -64,6 +64,12 @@ public class Player : MonoBehaviour
             {
                 displaytext.text = "Press [E] to interact";
                 QuestManager.questGiver = "woodQuest";
+            }
+
+            else if (hitInfo.transform.name == "Mushroom")
+            {
+                displaytext.text = "Press [E] to interact";
+                QuestManager.questGiver = "shroomQuest";
             }
 
             else
@@ -83,11 +89,6 @@ public class Player : MonoBehaviour
         }
     }
 
-   /* public void IncreaseScore(int score)
-    {
-        GameManager.Instance.currentScore += score;
-        Debug.Log(score);
-    }*/
     
     /// <summary>
     /// Null check for players

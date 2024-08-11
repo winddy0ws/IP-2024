@@ -20,6 +20,8 @@ public class QuestManager : MonoBehaviour
     public static bool shroomQuestGiven = false;
     public static bool bagQuestGiven = false;
 
+    public static bool bagQuestCompleted = false;
+
     public static string questGiver;
 
     public TextMeshProUGUI questName;
@@ -35,7 +37,7 @@ public class QuestManager : MonoBehaviour
     {
         if (questGiver == "bagQuest")
         {
-            questName.text = "Find XXX's bag";
+            questName.text = "Find Mr T.'s bag";
             questProgress.text = $"{GameManager.bagCount} || 1";
         }
         else if (questGiver == "mayorQuest")
@@ -62,11 +64,11 @@ public class QuestManager : MonoBehaviour
 
     public void StartQuest()
     {
-        /*questSpace.SetActive (true);*/
 
         if (questGiver == "bagQuest")
         {
             bagQuestGiven = true;
+            bagQuestCompleted = false;
         }
 
         if (questGiver == "mayorQuest")
@@ -83,5 +85,10 @@ public class QuestManager : MonoBehaviour
         {
             shroomQuestGiven = true;
         }
+    }
+
+    public void CompleteBagQuest()
+    {
+        bagQuestCompleted = true;
     }
 }
