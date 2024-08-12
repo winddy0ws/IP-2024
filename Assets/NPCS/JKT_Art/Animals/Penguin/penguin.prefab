@@ -1354,6 +1354,9 @@ GameObject:
   - component: {fileID: -5727523165833396713}
   - component: {fileID: 4046505998886480546}
   - component: {fileID: 3823388208545206762}
+  - component: {fileID: 859600158689352677}
+  - component: {fileID: 7923029872957261731}
+  - component: {fileID: 8564837737293868696}
   m_Layer: 0
   m_Name: penguin
   m_TagString: Untagged
@@ -1465,3 +1468,66 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 9.517157, y: 10.375283, z: 10.74369}
   m_Center: {x: 0.30572414, y: 5.0888896, z: -0.053925514}
+--- !u!54 &859600158689352677
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175374}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &7923029872957261731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b345d8e6c88c7d249a030eff9550b915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Mr T.
+    sentences: []
+    sentences2: []
+--- !u!114 &8564837737293868696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f00d4f75bfd1cc941a3e7f6c5363f675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  range: 50
+  sightRange: 10
+  stoppingRange: 3
+  currentState: 

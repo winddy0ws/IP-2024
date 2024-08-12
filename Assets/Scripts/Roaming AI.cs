@@ -145,7 +145,7 @@ public class RoamingAI : MonoBehaviour
                 animator.SetTrigger("Talk");
             }
 
-            if (sightRange < Vector3.Distance(transform.position, player.transform.position))
+            if (sightRange < Vector3.Distance(transform.position, player.transform.position) || QuestManager.bagQuestCompleted)
             {
                 nextState = "Roaming";
                 animator.SetTrigger("EndChase");
