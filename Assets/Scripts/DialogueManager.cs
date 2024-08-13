@@ -1,8 +1,8 @@
 /*
- * Author: Yau Wai Lam
+ * Author: Yau Wai Lam and Livinia Poo
  * Date: 09/08/24
  * Description: 
- * Managing the display of text-dialogue based on situations
+ * Managing the display of text-dialogue based on situations and following actions
  */
 
 using System.Collections;
@@ -38,7 +38,7 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
 
     QuestManager quest;
-    QuestUI questBox;
+    QuestUI questText;
     RoamingAI npcControl;
 
     /// <summary>
@@ -51,6 +51,7 @@ public class DialogueManager : MonoBehaviour
     {
         sentences = new Queue<string>();
         quest = FindObjectOfType<QuestManager>();
+        questText = FindObjectOfType<QuestUI>();
     }
     void Update()
     {
@@ -128,8 +129,6 @@ public class DialogueManager : MonoBehaviour
             {
                 sentences.Enqueue(sentence);
             }
-
-
         }
 
         if (QuestManager.woodQuestGiven == false && hitInfo.transform.name == "Wood")
@@ -203,8 +202,6 @@ public class DialogueManager : MonoBehaviour
                 QuestManager.shroomQuestGiven = true;
             }
 
-            questBox.questSpace.SetActive(true);
-
             if (QuestManager.bagQuestGiven)
             {
                 quest.CompleteBagQuest();
@@ -242,8 +239,15 @@ public class DialogueManager : MonoBehaviour
             {
                 npcControl.currentState = "Roaming";
             }
-        }
 
+            QuestManager.bagQuestGiven = false;
+            if (questText != null)
+            {
+                Debug.Log("Updating QuestUI");
+                questText.Update();
+                questText.SetQuestUITextActive(false);
+            }
+        }
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = false;

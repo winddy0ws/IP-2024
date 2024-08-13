@@ -131,7 +131,7 @@ public class RoamingAI : MonoBehaviour
         animator.SetTrigger("Run");
 
         //Check if quest is already completed
-        if (QuestManager.bagQuestGiven)
+        if (QuestManager.bagQuestGiven || QuestManager.bagQuestCompleted)
         {
             nextState = "Roaming";
             animator.SetTrigger("Walk");
