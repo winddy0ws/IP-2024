@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Forest.unity
     guid: 2b1965107aae3dc438f2bfdfcb9e938e
+  - enabled: 1
+    path: Assets/Scenes/Working Spaces/Death.unity
+    guid: daa323720bb148f468f5f65150d9b97a
   m_configObjects: {}
