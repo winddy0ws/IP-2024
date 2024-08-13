@@ -22,6 +22,15 @@ public class QuestUI : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<Player>();
+
+        if (!QuestManager.mayorQuestGiven)
+        {
+            Debug.Log("Speaking to Mayor");
+            questName.text = "";
+            questProgress.text = "";
+            questDefault.text = "Talk to the Mayor";
+            questDefault.gameObject.SetActive(true);
+        }
     }
 
     public void Update()
@@ -30,7 +39,8 @@ public class QuestUI : MonoBehaviour
 
         Debug.Log($"hasQuest: {player.hasQuest}, bagQuestGiven: {QuestManager.bagQuestGiven}, bagQuestCompleted: {QuestManager.bagQuestCompleted}");
 
-        if (!inExcludedScenes && !player.hasQuest)
+        
+        if (!inExcludedScenes && !player.hasQuest && QuestManager.mayorQuestGiven)
         {
             Debug.Log("Showing default text");
             questName.text = "";
