@@ -42,6 +42,7 @@ public class ShroomEnemyAI : MonoBehaviour
     string nextState;
 
     public float attackDmg = 10;
+    public static bool attack = false;
 
 
     // Start is called before the first frame update
@@ -189,6 +190,7 @@ public class ShroomEnemyAI : MonoBehaviour
     /// </summary>
     void EnableAttack()
     {
+        attack = true;
         boxCollider.enabled = true;
     }
 
@@ -197,6 +199,7 @@ public class ShroomEnemyAI : MonoBehaviour
     /// </summary>
     void DisableAttack()
     {
+        attack = false;
         boxCollider.enabled = false;
     }
 

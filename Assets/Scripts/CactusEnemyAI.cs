@@ -46,6 +46,7 @@ public class CactusEnemyAI : MonoBehaviour
     /// Damage Dealing
     /// </summary>
     public float attackDmg = 10;
+    public static bool attack = false;
 
 
     // Start is called before the first frame update
@@ -192,6 +193,7 @@ public class CactusEnemyAI : MonoBehaviour
     /// </summary>
     void EnableAttack()
     {
+        attack = true;
         boxCollider.enabled = true;
     }
 
@@ -200,6 +202,7 @@ public class CactusEnemyAI : MonoBehaviour
     /// </summary>
     void DisableAttack()
     {
+        attack = false;
         boxCollider.enabled = false;
     }
 

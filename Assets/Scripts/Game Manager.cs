@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public static GameManager Instance;
 
-    public float playerHealth = 100;
+    public float playerHealth = 100f;
 
     public GameObject HealthBar;
 
@@ -44,19 +44,16 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+     
+
     }
 
     // Update is called once per frame
     void Update()
         {
-            if (HealthBar == null && SceneManager.GetActiveScene().name == "Wai lams space")
-            {
-                HealthBar = GameObject.Find("HealthBar");
-            }
-            if (SceneManager.GetActiveScene().name == "Wai Lams space")
-            {
-                HealthBar.GetComponent<Image>().fillAmount = playerHealth / 100f;
-            }
+            Debug.Log("weeee");
+            HealthBar.GetComponent<Image>().fillAmount = playerHealth / 100f;
+     
         }
 
     /*void Die()
