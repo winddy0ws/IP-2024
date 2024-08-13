@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     public RaycastHit hitInfo;
 
     public bool hasQuest = false;
+    Pausemenu pausemenu;
 
     void Update()
     {
@@ -102,6 +103,18 @@ public class Player : MonoBehaviour
             curretInteractable.OnPress();
         }
 
+    }
+
+    void OnEscape()
+    {
+        if (Pausemenu.Paused)
+        {
+            pausemenu.Play();
+        }
+        else
+        {
+            pausemenu.Stop();
+        }
     }
 
     public void SetHasQuest(bool value)
