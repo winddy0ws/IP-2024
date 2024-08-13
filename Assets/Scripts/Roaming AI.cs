@@ -128,7 +128,15 @@ public class RoamingAI : MonoBehaviour
     /// </summary>
     IEnumerator Chase()
     {
-        animator.SetTrigger("Chase");
+        animator.SetTrigger("Run");
+
+        //Check if quest is already completed
+        if (QuestManager.bagQuestGiven)
+        {
+            nextState = "Roaming";
+            animator.SetTrigger("Walk");
+            yield break;
+        }
 
         //Check whether current state is "Chase"
         while (currentState == "Chase")
@@ -142,13 +150,13 @@ public class RoamingAI : MonoBehaviour
             else
             {
                 agent.SetDestination(transform.position);
-                animator.SetTrigger("Talk");
+                animator.SetTrigger("Idle");
             }
 
             if (sightRange < Vector3.Distance(transform.position, player.transform.position) || QuestManager.bagQuestCompleted)
             {
                 nextState = "Roaming";
-                animator.SetTrigger("EndChase");
+                animator.SetTrigger("Walk");
             }
             yield return new WaitForEndOfFrame();
         }
@@ -159,6 +167,6 @@ public class RoamingAI : MonoBehaviour
 
     public void Celebrate()
     {
-        animator.SetTrigger("Celebrate");
+        animator.SetTrigger("Jump");
     }
 }

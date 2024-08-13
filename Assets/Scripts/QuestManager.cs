@@ -24,43 +24,6 @@ public class QuestManager : MonoBehaviour
 
     public static string questGiver;
 
-    public TextMeshProUGUI questName;
-    public TextMeshProUGUI questProgress;
-    public GameObject questSpace;
-
-    private void Start()
-    {
-        questSpace.SetActive(false);
-    }
-
-    private void Update()
-    {
-        if (questGiver == "bagQuest")
-        {
-            questName.text = "Find Mr T.'s bag";
-            questProgress.text = $"{GameManager.bagCount} || 1";
-        }
-        else if (questGiver == "mayorQuest")
-        {
-            questName.text = "Find and talk to the Mayor";
-            questProgress.text = "";
-        }
-        else if (questGiver == "woodQuest")
-        {
-            questName.text = "Find 5 pieces of wood";
-            questProgress.text = $"{GameManager.woodCount} || 5";
-        }
-        else if (questGiver == "shroomQuest")
-        {
-            questName.text = "Find XXX's bag";
-            questProgress.text = $"{GameManager.shroomCount} || 8";
-        }
-        else
-        {
-            questName.text = "";
-            questProgress.text = "";
-        }
-    }
 
     public void StartQuest()
     {
@@ -80,7 +43,7 @@ public class QuestManager : MonoBehaviour
         {
             woodQuestGiven = true;
         }
-
+     
         if (questGiver == "shroomQuest")
         {
             shroomQuestGiven = true;

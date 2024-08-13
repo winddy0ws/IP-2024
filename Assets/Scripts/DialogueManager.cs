@@ -38,6 +38,7 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
 
     QuestManager quest;
+    QuestUI questBox;
     RoamingAI npcControl;
 
     /// <summary>
@@ -100,11 +101,6 @@ public class DialogueManager : MonoBehaviour
         sentences.Clear ();
         Debug.Log("clear");
 
-
-        /*if (QuestManager.questGiver == "bagQuest" && GameManager.bagCollected)
-        {
-            npcControl.Celebrate();
-        }*/
 
         if (QuestManager.bagQuestGiven == false && QuestManager.questGiver == "bagQuest")
         {
@@ -189,7 +185,25 @@ public class DialogueManager : MonoBehaviour
         {
             EndDialogue();
             quest.StartQuest();
-            quest.questSpace.SetActive(true);
+
+            if (QuestManager.questGiver == "bagQuest")
+            {
+                QuestManager.bagQuestGiven = true;
+            }
+            else if (QuestManager.questGiver == "mayorQuest")
+            {
+                QuestManager.mayorQuestGiven = true;
+            }
+            else if (QuestManager.questGiver == "woodQuest")
+            {
+                QuestManager.woodQuestGiven = true;
+            }
+            else if (QuestManager.questGiver == "shroomQuest")
+            {
+                QuestManager.shroomQuestGiven = true;
+            }
+
+            questBox.questSpace.SetActive(true);
 
             if (QuestManager.bagQuestGiven)
             {

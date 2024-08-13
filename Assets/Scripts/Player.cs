@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
 
             }
 
-            if (hitInfo.transform.name == "Bag")
+            if (hitInfo.transform.name == "Penguin")
             {
                 displaytext.text = "Press [E] to interact";
                 QuestManager.questGiver = "bagQuest";
