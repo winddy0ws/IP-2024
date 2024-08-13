@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
     public static int bagCount = 0;
     public static int shroomCount = 0;
 
+    public int Scene;
+
     private void Awake()
     {
         if (Instance == null)
@@ -53,11 +55,12 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("weeee");
             HealthBar.GetComponent<Image>().fillAmount = playerHealth / 100f;
-     
-        }
+            if (playerHealth <= 0)
+            {
+                SceneManager.LoadScene(Scene);
+            }
 
-    /*void Die()
-    {
-        if playerHealth >= 0
-    }*/
-   }
+    }
+
+   
+}
