@@ -5993,7 +5993,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1819578250}
+      - m_Target: {fileID: 1556899091}
         m_TargetAssemblyTypeName: Pausemenu, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 1
@@ -7872,7 +7872,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1819578250}
+      - m_Target: {fileID: 1556899091}
         m_TargetAssemblyTypeName: Pausemenu, Assembly-CSharp
         m_MethodName: SFXVolume
         m_Mode: 1
@@ -10570,7 +10570,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1819578250}
+      - m_Target: {fileID: 1556899091}
         m_TargetAssemblyTypeName: Pausemenu, Assembly-CSharp
         m_MethodName: Quitgame
         m_Mode: 1
@@ -31028,7 +31028,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1819578250}
+      - m_Target: {fileID: 1556899091}
         m_TargetAssemblyTypeName: Pausemenu, Assembly-CSharp
         m_MethodName: BGMVolume
         m_Mode: 1
@@ -37088,6 +37088,54 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6809199787671980371, guid: 4f2037c4c10e0ce419080175572ca2a4, type: 3}
+--- !u!1 &1556899090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1556899092}
+  - component: {fileID: 1556899091}
+  m_Layer: 0
+  m_Name: Menu Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1556899091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556899090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fafe7e4680af92745a061c56b5406089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Scene: 0
+  _bgmSlider: {fileID: 1248847051}
+  _sfxSlider: {fileID: 318754168}
+  PauseMenuCanvas: {fileID: 1147209051}
+--- !u!4 &1556899092
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556899090}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -132.3482, y: -2.8197556, z: -126.25548}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1563578774
 GameObject:
   m_ObjectHideFlags: 0
@@ -44455,7 +44503,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1819578250}
+      - m_Target: {fileID: 1556899091}
         m_TargetAssemblyTypeName: Pausemenu, Assembly-CSharp
         m_MethodName: Mainmenu
         m_Mode: 1
@@ -44623,7 +44671,6 @@ GameObject:
   - component: {fileID: 1819578248}
   - component: {fileID: 1819578247}
   - component: {fileID: 1819578246}
-  - component: {fileID: 1819578250}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -44715,22 +44762,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1819578250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1819578245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fafe7e4680af92745a061c56b5406089, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Scene: 0
-  _bgmSlider: {fileID: 1248847051}
-  _sfxSlider: {fileID: 318754168}
-  PauseMenuCanvas: {fileID: 1819578245}
 --- !u!1 &1831504878
 GameObject:
   m_ObjectHideFlags: 0
@@ -62156,6 +62187,7 @@ SceneRoots:
   - {fileID: 1348080642}
   - {fileID: 1627167914}
   - {fileID: 1735551324}
+  - {fileID: 1556899092}
   - {fileID: 1147209052}
   - {fileID: 2112310611}
   - {fileID: 410087041}
