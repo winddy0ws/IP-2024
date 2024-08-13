@@ -1,5 +1,5 @@
 /*
- * Author: Yau Wai Lam
+ * Author: Yau Wai Lam and Livinia Poo
  * Date: 02/08/24
  * Description: 
  * Managing Player's aspects of game
@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
     Interactable curretInteractable;
     public RaycastHit hitInfo;
 
+    public bool hasQuest = false;
+
     void Update()
     {
         bool Raycast = Physics.Raycast(
@@ -48,7 +50,7 @@ public class Player : MonoBehaviour
 
             }
 
-            if (hitInfo.transform.name == "Roaming Quest")
+            if (hitInfo.transform.name == "Penguin")
             {
                 displaytext.text = "Press [E] to interact";
                 QuestManager.questGiver = "bagQuest";
@@ -64,6 +66,12 @@ public class Player : MonoBehaviour
             {
                 displaytext.text = "Press [E] to interact";
                 QuestManager.questGiver = "woodQuest";
+            }
+
+            else if (hitInfo.transform.name == "Mushroom")
+            {
+                displaytext.text = "Press [E] to interact";
+                QuestManager.questGiver = "shroomQuest";
             }
 
             else
@@ -83,11 +91,6 @@ public class Player : MonoBehaviour
         }
     }
 
-   /* public void IncreaseScore(int score)
-    {
-        GameManager.Instance.currentScore += score;
-        Debug.Log(score);
-    }*/
     
     /// <summary>
     /// Null check for players
@@ -99,6 +102,11 @@ public class Player : MonoBehaviour
             curretInteractable.OnPress();
         }
 
+    }
+
+    public void SetHasQuest(bool value)
+    {
+        hasQuest = value;
     }
 }
 

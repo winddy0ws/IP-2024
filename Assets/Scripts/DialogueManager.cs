@@ -1,8 +1,8 @@
 /*
- * Author: Yau Wai Lam
+ * Author: Yau Wai Lam and Livinia Poo
  * Date: 09/08/24
  * Description: 
- * Managing the display of text-dialogue based on situations
+ * Managing the display of text-dialogue based on situations and following actions
  */
 
 using System.Collections;
@@ -13,9 +13,7 @@ using TMPro;
 using UnityEditor.PackageManager;
 using UnityEngine.SceneManagement;
 
-
 public class DialogueManager : MonoBehaviour
-
 {
     /// <summary>
     /// References and Calls
@@ -38,6 +36,8 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
 
     QuestManager quest;
+    QuestUI questText;
+    RoamingAI npcControl;
 
     /// <summary>
     /// Setting up dialogue
@@ -48,7 +48,8 @@ public class DialogueManager : MonoBehaviour
     void Awake()
     {
         sentences = new Queue<string>();
-        GameObject.Find("Roaming Quest");    
+        quest = FindObjectOfType<QuestManager>();
+        /*questText = FindObjectOfType<QuestUI>();*/
     }
     void Update()
     {
@@ -100,8 +101,7 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("clear");
 
 
-
-        if (QuestManager.bagQuestGiven == false && hitInfo.transform.name == "Roaming Quest")
+        if (QuestManager.bagQuestGiven == false && QuestManager.questGiver == "bagQuest")
         {
             Debug.Log("help");
 
@@ -110,15 +110,13 @@ public class DialogueManager : MonoBehaviour
                 sentences.Enqueue(sentence);
             }
         }
-        else if (QuestManager.bagQuestGiven == true && GameManager.bagCollected == true && hitInfo.transform.name == "Roaming Quest")
+        else if (QuestManager.bagQuestGiven == true && GameManager.bagCollected == true && QuestManager.questGiver == "bagQuest")
         {
             Debug.Log("help2.0");
             foreach (string sentence in dialogue.sentences2)
             {
                 sentences.Enqueue(sentence);
             }
-
-
         }
 
 
@@ -129,8 +127,6 @@ public class DialogueManager : MonoBehaviour
             {
                 sentences.Enqueue(sentence);
             }
-
-
         }
 
         if (QuestManager.woodQuestGiven == false && hitInfo.transform.name == "Wood")
@@ -186,7 +182,24 @@ public class DialogueManager : MonoBehaviour
         {
             EndDialogue();
             quest.StartQuest();
-            quest.questSpace.SetActive(true);
+
+            if (QuestManager.questGiver == "bagQuest")
+            {
+                QuestManager.bagQuestGiven = true;
+            }
+            else if (QuestManager.questGiver == "mayorQuest")
+            {
+                QuestManager.mayorQuestGiven = true;
+            }
+            else if (QuestManager.questGiver == "woodQuest")
+            {
+                QuestManager.woodQuestGiven = true;
+            }
+            else if (QuestManager.questGiver == "shroomQuest")
+            {
+                QuestManager.shroomQuestGiven = true;
+            }
+
             return;
         }
 
@@ -212,6 +225,21 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("IsOpen", false);
         Debug.Log("End of conversation");
+
+        if (QuestManager.questGiver == "bagQuest" && GameManager.bagCollected)
+        {
+            quest.CompleteBagQuest();
+
+            if (npcControl != null)
+            {
+                npcControl.currentState = "Roaming";
+            }
+
+            if (questText != null)
+            {
+                questText.Update();
+            }
+        }
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = false;
