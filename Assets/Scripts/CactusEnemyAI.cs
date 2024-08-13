@@ -24,6 +24,8 @@ public class CactusEnemyAI : MonoBehaviour
     Animator animator;
     BoxCollider boxCollider;
 
+    GameManager gameManager;
+
     /// <summary>
     /// Variables to determine NPC's roam abilities
     /// </summary>
@@ -43,7 +45,6 @@ public class CactusEnemyAI : MonoBehaviour
     /// <summary>
     /// Damage Dealing
     /// </summary>
-    GameManager playerObj;
     public float attackDmg = 10;
 
 
@@ -53,7 +54,12 @@ public class CactusEnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         boxCollider = GetComponentInChildren<BoxCollider>();
-        playerObj = player.GetComponent<GameManager>();
+        gameManager = FindObjectOfType<GameManager>();
+
+        if (gameManager != null )
+        {
+            Debug.Log("GM not found");
+        }
 
         //Setting NPC's intial states
         currentState = "Roaming";
@@ -205,8 +211,15 @@ public class CactusEnemyAI : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            playerObj.playerHealth -= attackDmg;
-            Debug.Log(playerObj.playerHealth);
+            if (gameManager != null)
+            {
+                gameManager.playerHealth -= attackDmg;
+                Debug.Log(gameManager.playerHealth);
+            }
+            else
+            {
+                Debug.Log("gameManager is null");
+            }
         }
     }
 }

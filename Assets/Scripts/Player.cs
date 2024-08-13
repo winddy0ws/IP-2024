@@ -26,7 +26,6 @@ public class Player : MonoBehaviour
     public RaycastHit hitInfo;
 
     public bool hasQuest = false;
-   /* public Pausemenu pausemenu;*/
 
     void Update()
     {
@@ -84,7 +83,6 @@ public class Player : MonoBehaviour
         { 
             curretInteractable = null;
 
-
             if (displaytext == null && SceneManager.GetActiveScene().name == "Game")
             {
                 displaytext = GameObject.Find("Text").GetComponent<TextMeshProUGUI>();
@@ -97,7 +95,7 @@ public class Player : MonoBehaviour
     }
 
     
-  /*  /// <summary>
+    /// <summary>
     /// Null check for players
     /// </summary>
     void OnPress()
@@ -108,19 +106,6 @@ public class Player : MonoBehaviour
         }
 
     }
-*/
-  /*  void OnEscape()
-    {
-        Debug.Log("PAUSE WORKS");
-        if (Pausemenu.Paused)
-        {
-            pausemenu.Stop();
-        }
-        else
-        {
-            pausemenu.Play();
-        }
-    }*/
 
     public void SetHasQuest(bool value)
     {
