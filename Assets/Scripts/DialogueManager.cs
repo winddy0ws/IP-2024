@@ -13,9 +13,7 @@ using TMPro;
 using UnityEditor.PackageManager;
 using UnityEngine.SceneManagement;
 
-
 public class DialogueManager : MonoBehaviour
-
 {
     /// <summary>
     /// References and Calls
@@ -51,7 +49,7 @@ public class DialogueManager : MonoBehaviour
     {
         sentences = new Queue<string>();
         quest = FindObjectOfType<QuestManager>();
-        questText = FindObjectOfType<QuestUI>();
+        /*questText = FindObjectOfType<QuestUI>();*/
     }
     void Update()
     {
@@ -202,11 +200,6 @@ public class DialogueManager : MonoBehaviour
                 QuestManager.shroomQuestGiven = true;
             }
 
-            if (QuestManager.bagQuestGiven)
-            {
-                quest.CompleteBagQuest();
-            }
-
             return;
         }
 
@@ -235,17 +228,16 @@ public class DialogueManager : MonoBehaviour
 
         if (QuestManager.questGiver == "bagQuest" && GameManager.bagCollected)
         {
+            quest.CompleteBagQuest();
+
             if (npcControl != null)
             {
                 npcControl.currentState = "Roaming";
             }
 
-            QuestManager.bagQuestGiven = false;
             if (questText != null)
             {
-                Debug.Log("Updating QuestUI");
                 questText.Update();
-                questText.SetQuestUITextActive(false);
             }
         }
 

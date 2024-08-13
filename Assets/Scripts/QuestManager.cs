@@ -8,7 +8,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class QuestManager : MonoBehaviour
 {
@@ -24,34 +23,47 @@ public class QuestManager : MonoBehaviour
 
     public static string questGiver;
 
+    private Player player;
+    QuestUI questText;
+
+    private void Start()
+    {
+        player = FindObjectOfType<Player>();
+    }
 
     public void StartQuest()
     {
-
         if (questGiver == "bagQuest")
         {
             bagQuestGiven = true;
             bagQuestCompleted = false;
+            player.SetHasQuest(true);
         }
 
         if (questGiver == "mayorQuest")
         {
             mayorQuestGiven = true;
+            player.SetHasQuest(true);
         }
 
         if (questGiver == "woodQuest")
         {
             woodQuestGiven = true;
+            player.SetHasQuest(true);
         }
      
         if (questGiver == "shroomQuest")
         {
             shroomQuestGiven = true;
+            player.SetHasQuest(true);
         }
     }
 
     public void CompleteBagQuest()
     {
         bagQuestCompleted = true;
+        player.SetHasQuest(false);
+        Debug.Log("Bag quest completed, Setting hasQuest to false.");
+        questText.Update();
     }
 }

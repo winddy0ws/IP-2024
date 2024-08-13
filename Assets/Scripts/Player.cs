@@ -1,5 +1,5 @@
 /*
- * Author: Yau Wai Lam
+ * Author: Yau Wai Lam and Livinia Poo
  * Date: 02/08/24
  * Description: 
  * Managing Player's aspects of game
@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
     float seeDistance;
     Interactable curretInteractable;
     public RaycastHit hitInfo;
+
+    public bool hasQuest = false;
 
     void Update()
     {
@@ -100,6 +102,11 @@ public class Player : MonoBehaviour
             curretInteractable.OnPress();
         }
 
+    }
+
+    public void SetHasQuest(bool value)
+    {
+        hasQuest = value;
     }
 }
 
