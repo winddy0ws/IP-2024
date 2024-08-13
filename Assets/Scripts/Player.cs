@@ -97,7 +97,7 @@ public class Player : MonoBehaviour
     }
 
     
-    /// <summary>
+  /*  /// <summary>
     /// Null check for players
     /// </summary>
     void OnPress()
@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
         }
 
     }
-
+*/
   /*  void OnEscape()
     {
         Debug.Log("PAUSE WORKS");

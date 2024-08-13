@@ -9,6 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     public float playerHealth = 100;
 
-    public GameObject healthBar;
+    public GameObject HealthBar;
 
     public static bool bagCollected = false;
 
@@ -48,9 +49,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
         {
-            if (healthBar == null && SceneManager.GetActiveScene().name == "forest")
+            if (HealthBar == null && SceneManager.GetActiveScene().name == "Wai lams space")
             {
-                healthBar = GameObject.Find("healthBar");
+                HealthBar = GameObject.Find("HealthBar");
+            }
+            if (SceneManager.GetActiveScene().name == "Wai Lams space")
+            {
+                HealthBar.GetComponent<Image>().fillAmount = playerHealth / 100f;
             }
         }
 
