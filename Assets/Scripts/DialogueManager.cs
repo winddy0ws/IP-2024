@@ -95,6 +95,9 @@ public class DialogueManager : MonoBehaviour
 
         animator.SetBool("IsOpen", true);
 
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         nameText.text = dialogue.name;
 
         sentences.Clear ();
@@ -168,9 +171,6 @@ public class DialogueManager : MonoBehaviour
 
         DisplayNextSentence();
 
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-
     }
 
     /// <summary>
@@ -226,6 +226,9 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", false);
         Debug.Log("End of conversation");
 
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = false;
+
         if (QuestManager.questGiver == "bagQuest" && GameManager.bagCollected)
         {
             quest.CompleteBagQuest();
@@ -240,8 +243,5 @@ public class DialogueManager : MonoBehaviour
                 questText.Update();
             }
         }
-
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = false;
     }
 }

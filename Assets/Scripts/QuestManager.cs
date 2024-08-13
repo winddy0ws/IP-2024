@@ -19,7 +19,10 @@ public class QuestManager : MonoBehaviour
     public static bool shroomQuestGiven = false;
     public static bool bagQuestGiven = false;
 
+    public static bool mayorQuestCompleted = false;
     public static bool bagQuestCompleted = false;
+    public static bool woodQuestCompleted = false;
+    public static bool shroomQuestCompleted = false;
 
     public static string questGiver;
 

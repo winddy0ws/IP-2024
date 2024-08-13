@@ -71,10 +71,10 @@ public class Pausemenu : MonoBehaviour
     {
         Debug.Log("sabe me");
         PauseMenuCanvas.SetActive(true);
-        Time.timeScale = 0f;
-        Paused = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        Time.timeScale = 0f;
+        Paused = true;
     }
 
     /// <summary>
@@ -83,10 +83,10 @@ public class Pausemenu : MonoBehaviour
     public void Play()
     {
         PauseMenuCanvas.SetActive(false);
-        Time.timeScale = 1f;
-        Paused = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = false;
+        Time.timeScale = 1f;
+        Paused = false;
     }
 
     /// <summary>
