@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -27292,7 +27292,7 @@ PrefabInstance:
     - target: {fileID: 6161794856029153095, guid: 7bac94070a4df4440bc77e3a93c4a90b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.96
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 6161794856029153095, guid: 7bac94070a4df4440bc77e3a93c4a90b,
         type: 3}
@@ -38558,7 +38558,7 @@ Transform:
   m_GameObject: {fileID: 1637892327}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.5962753, y: 0.05000019, z: 26.863525}
+  m_LocalPosition: {x: 7.5962753, y: -1.67, z: 26.863525}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -49499,6 +49499,7 @@ MonoBehaviour:
   displaytext: {fileID: 945251448}
   playerCamera: {fileID: 1331203336}
   seeDistance: 5
+  hasQuest: 0
 --- !u!1 &2076669994
 GameObject:
   m_ObjectHideFlags: 0

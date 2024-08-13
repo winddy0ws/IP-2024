@@ -33,7 +33,7 @@ public class Pausemenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PauseMenuCanvas.SetActive(false);
+
 
         Time.timeScale = 1f;
         Cursor.visible = false;
@@ -48,8 +48,9 @@ public class Pausemenu : MonoBehaviour
     }
 
     // Update is called once per frame
-    /*void Update()
+    void Update()
     {
+        Debug.Log("PAUSE PLS");
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (Paused)
@@ -61,13 +62,14 @@ public class Pausemenu : MonoBehaviour
                 Stop();
             }
         }
-    }*/
+    }
 
     /// <summary>
     /// Stops game while Pause is enabled
     /// </summary>
     public void Stop()
     {
+        Debug.Log("sabe me");
         PauseMenuCanvas.SetActive(true);
         Time.timeScale = 0f;
         Paused = true;

@@ -53,4 +53,9 @@ public class GameManager : MonoBehaviour
                 healthBar = GameObject.Find("healthBar");
             }
         }
+
+    /*void Die()
+    {
+        if playerHealth >= 0
+    }*/
    }
