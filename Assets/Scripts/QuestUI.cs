@@ -18,12 +18,13 @@ public class QuestUI : MonoBehaviour
     public TextMeshProUGUI questDefault;
 
     private Player player;
+    int currentScene = SceneManager.GetActiveScene().buildIndex;
 
     private void Start()
     {
         player = FindObjectOfType<Player>();
 
-        if (!QuestManager.mayorQuestGiven)
+        if (!QuestManager.mayorQuestGiven && currentScene == 1;)
         {
             Debug.Log("Speaking to Mayor");
             questName.text = "";
