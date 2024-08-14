@@ -9,6 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,9 +18,9 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public static GameManager Instance;
 
-    public float playerHealth = 100;
+    public float playerHealth = 100f;
 
-    public GameObject healthBar;
+    public GameObject HealthBar;
 
     public static bool bagCollected = false;
 
@@ -32,6 +33,8 @@ public class GameManager : MonoBehaviour
     public static int bagCount = 0;
     public static int shroomCount = 0;
 
+    public int Scene;
+
     private void Awake()
     {
         if (Instance == null)
@@ -43,14 +46,21 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+     
+
     }
 
     // Update is called once per frame
     void Update()
         {
-            if (healthBar == null && SceneManager.GetActiveScene().name == "forest")
+            Debug.Log("weeee");
+            HealthBar.GetComponent<Image>().fillAmount = playerHealth / 100f;
+            if (playerHealth <= 0)
             {
-                healthBar = GameObject.Find("healthBar");
+                SceneManager.LoadScene(Scene);
             }
-        }
-   }
+
+    }
+
+   
+}

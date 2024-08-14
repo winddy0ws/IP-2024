@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5860,7 +5860,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0.54432565, b: 0.49999988, a: 0.7176471}
+    m_NormalColor: {r: 0.81568635, g: 0.72156864, b: 0.36078432, a: 0.7176471}
     m_HighlightedColor: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
     m_PressedColor: {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -5883,7 +5883,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1819578250}
+      - m_Target: {fileID: 1909678914}
         m_TargetAssemblyTypeName: Pausemenu, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 1
@@ -7733,8 +7733,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 0.8160377, b: 0.8160377, a: 1}
-    m_PressedColor: {r: 1, g: 0.5801887, b: 0.5801887, a: 1}
+    m_HighlightedColor: {r: 0.8196079, g: 0.76470596, b: 0.37647063, a: 1}
+    m_PressedColor: {r: 0.8196079, g: 0.7254902, b: 0.35686275, a: 1}
     m_SelectedColor: {r: 0.8207547, g: 0.80139726, b: 0.80139726, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -10437,7 +10437,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0.54432565, b: 0.49999988, a: 0.7176471}
+    m_NormalColor: {r: 0.8196079, g: 0.7254902, b: 0.35686275, a: 0.7176471}
     m_HighlightedColor: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
     m_PressedColor: {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -10460,7 +10460,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1819578250}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Pausemenu, Assembly-CSharp
         m_MethodName: Quitgame
         m_Mode: 1
@@ -20808,8 +20808,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: -0.000061035156}
-  m_SizeDelta: {x: 1920, y: 1041.1827}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0.8009}
+  m_SizeDelta: {x: 1920, y: 1079.3724}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &832828173
 MonoBehaviour:
@@ -20824,7 +20824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.11764706}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -23884,8 +23884,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -71.99998, y: -18.86026}
-  m_SizeDelta: {x: 1211.0991, y: 105.46222}
+  m_AnchoredPosition: {x: -71.99997, y: -17.951}
+  m_SizeDelta: {x: 1211.0991, y: 147.2893}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &984716158
 MonoBehaviour:
@@ -23900,7 +23900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.11764706}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -27292,7 +27292,7 @@ PrefabInstance:
     - target: {fileID: 6161794856029153095, guid: 7bac94070a4df4440bc77e3a93c4a90b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.96
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 6161794856029153095, guid: 7bac94070a4df4440bc77e3a93c4a90b,
         type: 3}
@@ -30440,8 +30440,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 0.8160377, b: 0.8160377, a: 1}
-    m_PressedColor: {r: 1, g: 0.5801887, b: 0.5801887, a: 1}
+    m_HighlightedColor: {r: 0.8196079, g: 0.76470596, b: 0.37647063, a: 1}
+    m_PressedColor: {r: 0.8235295, g: 0.7294118, b: 0.36078432, a: 1}
     m_SelectedColor: {r: 0.8207547, g: 0.80139726, b: 0.80139726, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -32260,7 +32260,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0.54432565, b: 0.49999988, a: 0.7176471}
+    m_NormalColor: {r: 0.81568635, g: 0.72156864, b: 0.35686275, a: 0.7176471}
     m_HighlightedColor: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
     m_PressedColor: {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -38056,7 +38056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: 100
-  healthBar: {fileID: 0}
+  HealthBar: {fileID: 0}
 --- !u!4 &1627167914
 Transform:
   m_ObjectHideFlags: 0
@@ -38331,7 +38331,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0.54432565, b: 0.49999988, a: 0.7176471}
+    m_NormalColor: {r: 0.8235295, g: 0.74509805, b: 0.49803925, a: 0.7176471}
     m_HighlightedColor: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
     m_PressedColor: {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -38558,7 +38558,7 @@ Transform:
   m_GameObject: {fileID: 1637892327}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.5962753, y: 0.05000019, z: 26.863525}
+  m_LocalPosition: {x: 7.5962753, y: -1.67, z: 26.863525}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43716,7 +43716,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0.54432565, b: 0.49999988, a: 0.7176471}
+    m_NormalColor: {r: 0.8196079, g: 0.7254902, b: 0.36078432, a: 0.7176471}
     m_HighlightedColor: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
     m_PressedColor: {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -43739,7 +43739,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1819578250}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Pausemenu, Assembly-CSharp
         m_MethodName: Mainmenu
         m_Mode: 1
@@ -43907,7 +43907,6 @@ GameObject:
   - component: {fileID: 1819578248}
   - component: {fileID: 1819578247}
   - component: {fileID: 1819578246}
-  - component: {fileID: 1819578250}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -43999,22 +43998,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1819578250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1819578245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fafe7e4680af92745a061c56b5406089, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Scene: 0
-  _bgmSlider: {fileID: 1248847051}
-  _sfxSlider: {fileID: 318754168}
-  PauseMenuCanvas: {fileID: 1819578245}
 --- !u!1 &1831504878
 GameObject:
   m_ObjectHideFlags: 0
@@ -45631,6 +45614,54 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 299882996745314397, guid: e7ce7a50c56a9594b968fc2644cc2141, type: 3}
+--- !u!1 &1909678913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1909678915}
+  - component: {fileID: 1909678914}
+  m_Layer: 0
+  m_Name: Menu Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1909678914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909678913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fafe7e4680af92745a061c56b5406089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Scene: 0
+  _bgmSlider: {fileID: 1248847051}
+  _sfxSlider: {fileID: 318754168}
+  PauseMenuCanvas: {fileID: 1147209051}
+--- !u!4 &1909678915
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909678913}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2282.7053, y: 448.54095, z: 319.06686}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1909735426
 GameObject:
   m_ObjectHideFlags: 0
@@ -49499,6 +49530,7 @@ MonoBehaviour:
   displaytext: {fileID: 945251448}
   playerCamera: {fileID: 1331203336}
   seeDistance: 5
+  hasQuest: 0
 --- !u!1 &2076669994
 GameObject:
   m_ObjectHideFlags: 0
@@ -61390,3 +61422,4 @@ SceneRoots:
   - {fileID: 678717508}
   - {fileID: 1026810064}
   - {fileID: 1925915071}
+  - {fileID: 1909678915}

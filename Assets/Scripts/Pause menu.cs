@@ -44,12 +44,13 @@ public class Pausemenu : MonoBehaviour
         {
             Debug.Log("AudioManager found");
         }
-        Debug.Log($"AudioManager instance in Mainmenu: {AudioManager.instance}");
+        Debug.Log($"AudioManager instance in Pausemenu: {AudioManager.instance}");
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("PAUSE PLS");
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (Paused)
@@ -66,13 +67,14 @@ public class Pausemenu : MonoBehaviour
     /// <summary>
     /// Stops game while Pause is enabled
     /// </summary>
-    void Stop()
+    public void Stop()
     {
+        Debug.Log("sabe me");
         PauseMenuCanvas.SetActive(true);
-        Time.timeScale = 0f;
-        Paused = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        Time.timeScale = 0f;
+        Paused = true;
     }
 
     /// <summary>
@@ -81,10 +83,10 @@ public class Pausemenu : MonoBehaviour
     public void Play()
     {
         PauseMenuCanvas.SetActive(false);
-        Time.timeScale = 1f;
-        Paused = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = false;
+        Time.timeScale = 1f;
+        Paused = false;
     }
 
     /// <summary>

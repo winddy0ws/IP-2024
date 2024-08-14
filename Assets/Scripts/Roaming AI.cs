@@ -36,18 +36,16 @@ public class RoamingAI : MonoBehaviour
     [SerializeField]
     float sightRange, stoppingRange;
     bool playerInSight;
-    string currentState;
+    public string currentState;
     string nextState;
 
-    /// <summary>
-    /// Setting up quest management
-    /// </summary>
-    public bool questGiven = false;
+    Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
 
         //Setting NPC's intial states
         currentState = "Roaming";
@@ -130,6 +128,16 @@ public class RoamingAI : MonoBehaviour
     /// </summary>
     IEnumerator Chase()
     {
+        animator.SetTrigger("Run");
+
+        //Check if quest is already completed
+        if (QuestManager.bagQuestGiven || QuestManager.bagQuestCompleted)
+        {
+            nextState = "Roaming";
+            animator.SetTrigger("Walk");
+            yield break;
+        }
+
         //Check whether current state is "Chase"
         while (currentState == "Chase")
         {
@@ -142,16 +150,23 @@ public class RoamingAI : MonoBehaviour
             else
             {
                 agent.SetDestination(transform.position);
+                animator.SetTrigger("Idle");
             }
 
-            if (sightRange < Vector3.Distance(transform.position, player.transform.position))
+            if (sightRange < Vector3.Distance(transform.position, player.transform.position) || QuestManager.bagQuestCompleted)
             {
                 nextState = "Roaming";
+                animator.SetTrigger("Walk");
             }
             yield return new WaitForEndOfFrame();
         }
 
         //Transition out of state
         SwitchState();
+    }
+
+    public void Celebrate()
+    {
+        animator.SetTrigger("Jump");
     }
 }
