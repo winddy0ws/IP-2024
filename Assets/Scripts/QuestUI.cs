@@ -19,19 +19,24 @@ public class QuestUI : MonoBehaviour
 
     private Player player;
 
+    
+
     private void Start()
     {
         player = FindObjectOfType<Player>();
+        Debug.Log($"Active Scene Name: {SceneManager.GetActiveScene().name}");
 
         Debug.Log($"wakeupQuestGiven: {QuestManager.wakeupQuestGiven}, hasQuest: {player.hasQuest}, Scene: {SceneManager.GetActiveScene().name}");
 
-        if (QuestManager.wakeupQuestGiven && player.hasQuest && SceneManager.GetActiveScene().name == "House_Livi")
+        if (QuestManager.wakeupQuestGiven == true && player.hasQuest && SceneManager.GetActiveScene().name == "House_Livi") ;
         {
             Debug.Log("Need to speak to Mayor");
             questDefault.text = "Talk to the Mayor";
-            questDefault.gameObject.SetActive(true);
+            questName.text = "";
+            questProgress.text = "";
+           /* questDefault.gameObject.SetActive(true);
             questName.gameObject.SetActive(false);
-            questProgress.gameObject.SetActive(false);
+            questProgress.gameObject.SetActive(false);*/
         }
     }
 
@@ -48,12 +53,13 @@ public class QuestUI : MonoBehaviour
             Debug.Log("Showing default text");
             questDefault.text = "Help the villagers";
             questDefault.gameObject.SetActive(true);
-            questName.gameObject .SetActive(false);
-            questProgress.gameObject .SetActive(false);
+            questName.gameObject.SetActive(false);
+            questProgress.gameObject.SetActive(false);
         }
-        else
+        else if (!inExcludedScenes && player.hasQuest)
         {
-            questDefault.gameObject.SetActive(false);
+       
+            
 
             if (QuestManager.questGiver == "bagQuest" && QuestManager.bagQuestGiven)
             {
@@ -62,17 +68,27 @@ public class QuestUI : MonoBehaviour
                 questProgress.text = $"{GameManager.bagCount} / 1";
                 questName.gameObject.SetActive(true);
                 questProgress.gameObject.SetActive(true);
+                questDefault.gameObject.SetActive(false);
             }
             else if (QuestManager.questGiver == "woodQuest" && QuestManager.woodQuestGiven)
             {
                 questName.text = "Find 5 pieces of wood";
                 questProgress.text = $"{GameManager.woodCount} || 5";
+                questDefault.gameObject.SetActive(false);
             }
             else if (QuestManager.questGiver == "shroomQuest" && QuestManager.shroomQuestGiven)
             {
                 questName.text = "Find XXX's bag";
                 questProgress.text = $"{GameManager.shroomCount} || 8";
+                questDefault.gameObject.SetActive(false);
             }
-        } 
+            else if (QuestManager.wakeupQuestGiven == true && player.hasQuest)
+            {
+                questDefault.text = "Talk to the Mayor";
+                questName.gameObject.SetActive(false);
+                questProgress.gameObject.SetActive(false);
+
+            }
+        }
     }
 }

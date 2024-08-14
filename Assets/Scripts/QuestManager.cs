@@ -38,6 +38,7 @@ public class QuestManager : MonoBehaviour
         {
             player.SetHasQuest(true);
         }
+        Debug.Log("theres a quest");
     }
 
     public void StartQuest()
