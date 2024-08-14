@@ -68,18 +68,21 @@ public class QuestUI : MonoBehaviour
             }
             else if (QuestManager.questGiver == "woodQuest" && QuestManager.woodQuestGiven)
             {
+                Debug.Log("woodie");
                 questName.text = "Find 5 pieces of wood";
                 questProgress.text = $"{GameManager.woodCount} || 5";
                 questDefault.gameObject.SetActive(false);
             }
             else if (QuestManager.questGiver == "shroomQuest" && QuestManager.shroomQuestGiven)
             {
-                questName.text = "Find XXX's bag";
+                Debug.Log("shroomie");
+                questName.text = "Find 8 Mushrooms";
                 questProgress.text = $"{GameManager.shroomCount} || 8";
                 questDefault.gameObject.SetActive(false);
             }
-            else if (QuestManager.wakeupQuestGiven == true && player.hasQuest)
+            else if (QuestManager.wakeupQuestGiven == true && player.hasQuest && QuestManager.questGiver == "mayorQuest")
             {
+                Debug.Log("mayorrru");
                 questDefault.text = "Talk to the Mayor";
                 questName.gameObject.SetActive(false);
                 questProgress.gameObject.SetActive(false);

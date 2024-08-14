@@ -66,6 +66,7 @@ public class QuestManager : MonoBehaviour
      
         if (questGiver == "shroomQuest")
         {
+            Debug.Log("SHROOMQUEST");
             shroomQuestGiven = true;
             shroomQuestCompleted = false;
             player.SetHasQuest(true);
