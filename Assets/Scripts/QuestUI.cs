@@ -18,36 +18,38 @@ public class QuestUI : MonoBehaviour
     public TextMeshProUGUI questDefault;
 
     private Player player;
-    int currentScene = SceneManager.GetActiveScene().buildIndex;
 
     private void Start()
     {
         player = FindObjectOfType<Player>();
 
-        if (!QuestManager.mayorQuestGiven && currentScene == 1;)
+        Debug.Log($"wakeupQuestGiven: {QuestManager.wakeupQuestGiven}, hasQuest: {player.hasQuest}, Scene: {SceneManager.GetActiveScene().name}");
+
+        if (QuestManager.wakeupQuestGiven && player.hasQuest && SceneManager.GetActiveScene().name == "House_Livi")
         {
-            Debug.Log("Speaking to Mayor");
-            questName.text = "";
-            questProgress.text = "";
+            Debug.Log("Need to speak to Mayor");
             questDefault.text = "Talk to the Mayor";
             questDefault.gameObject.SetActive(true);
+            questName.gameObject.SetActive(false);
+            questProgress.gameObject.SetActive(false);
         }
     }
 
     public void Update()
     {
-        bool inExcludedScenes = SceneManager.GetActiveScene().buildIndex == 0 || SceneManager.GetActiveScene().buildIndex == 1;
+        bool inExcludedScenes = SceneManager.GetActiveScene().name == "House_Livi" || SceneManager.GetActiveScene().name == "Main menu";
 
-        Debug.Log($"hasQuest: {player.hasQuest}, bagQuestGiven: {QuestManager.bagQuestGiven}, bagQuestCompleted: {QuestManager.bagQuestCompleted}");
+        /*Debug.Log($"hasQuest: {player.hasQuest}, bagQuestGiven: {QuestManager.bagQuestGiven}, bagQuestCompleted: {QuestManager.bagQuestCompleted}");*/
+        Debug.Log($"hasQuest: {player.hasQuest}, wakeupQuestGiven: {QuestManager.wakeupQuestGiven}, wakeupQuestCompleted: {QuestManager.wakeupQuestCompleted}");
 
-        
-        if (!inExcludedScenes && !player.hasQuest && QuestManager.mayorQuestGiven)
+
+        if (!inExcludedScenes && !player.hasQuest)
         {
             Debug.Log("Showing default text");
-            questName.text = "";
-            questProgress.text = "";
             questDefault.text = "Help the villagers";
             questDefault.gameObject.SetActive(true);
+            questName.gameObject .SetActive(false);
+            questProgress.gameObject .SetActive(false);
         }
         else
         {
@@ -57,12 +59,9 @@ public class QuestUI : MonoBehaviour
             {
                 Debug.Log("Showing quest text for Mr T.'s bag");
                 questName.text = "Find Mr T.'s bag";
-                questProgress.text = $"{GameManager.bagCount} || 1";
-            }
-            else if (QuestManager.questGiver == "mayorQuest" && QuestManager.mayorQuestGiven)
-            {
-                questName.text = "aaa";
-                questProgress.text = "";
+                questProgress.text = $"{GameManager.bagCount} / 1";
+                questName.gameObject.SetActive(true);
+                questProgress.gameObject.SetActive(true);
             }
             else if (QuestManager.questGiver == "woodQuest" && QuestManager.woodQuestGiven)
             {

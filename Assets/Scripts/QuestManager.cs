@@ -18,11 +18,13 @@ public class QuestManager : MonoBehaviour
     public static bool woodQuestGiven = false;
     public static bool shroomQuestGiven = false;
     public static bool bagQuestGiven = false;
+    public static bool wakeupQuestGiven = true;
 
     public static bool mayorQuestCompleted = false;
     public static bool bagQuestCompleted = false;
     public static bool woodQuestCompleted = false;
     public static bool shroomQuestCompleted = false;
+    public static bool wakeupQuestCompleted = false;
 
     public static string questGiver;
 
@@ -32,6 +34,10 @@ public class QuestManager : MonoBehaviour
     private void Start()
     {
         player = FindObjectOfType<Player>();
+        if (wakeupQuestGiven)
+        {
+            player.SetHasQuest(true);
+        }
     }
 
     public void StartQuest()
@@ -46,20 +52,41 @@ public class QuestManager : MonoBehaviour
         if (questGiver == "mayorQuest")
         {
             mayorQuestGiven = true;
+            mayorQuestCompleted = false;
             player.SetHasQuest(true);
         }
 
         if (questGiver == "woodQuest")
         {
             woodQuestGiven = true;
+            woodQuestCompleted = false;
             player.SetHasQuest(true);
         }
      
         if (questGiver == "shroomQuest")
         {
             shroomQuestGiven = true;
+            shroomQuestCompleted = false;
             player.SetHasQuest(true);
         }
+    }
+
+    public void CompleteWakeupQuest()
+    {
+        wakeupQuestCompleted = true;
+        wakeupQuestGiven = false;
+        mayorQuestGiven = true;
+        player.SetHasQuest(false);
+        Debug.Log("Wakeup quest completed, Mayor's quest started");
+        questText.Update();
+    }
+
+    public void CompleteMayorQuest()
+    { 
+        mayorQuestCompleted = true;
+        player.SetHasQuest(false);
+        Debug.Log("Mayor quest completed, all Quests completed");
+        questText.Update();
     }
 
     public void CompleteBagQuest()
@@ -67,6 +94,22 @@ public class QuestManager : MonoBehaviour
         bagQuestCompleted = true;
         player.SetHasQuest(false);
         Debug.Log("Bag quest completed, Setting hasQuest to false.");
+        questText.Update();
+    }
+
+    public void CompleteWoodQuest()
+    {
+        woodQuestCompleted = true;
+        player.SetHasQuest(false);
+        Debug.Log("Wood quest completed, Setting hasQuest to false.");
+        questText.Update();
+    }
+
+    public void CompleteShroomQuest()
+    {
+        shroomQuestCompleted = true;
+        player.SetHasQuest(false);
+        Debug.Log("Shroom quest completed, Setting hasQuest to false.");
         questText.Update();
     }
 }
