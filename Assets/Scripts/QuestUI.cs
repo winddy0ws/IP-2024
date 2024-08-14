@@ -44,7 +44,6 @@ public class QuestUI : MonoBehaviour
     {
         bool inExcludedScenes = SceneManager.GetActiveScene().name == "House_Livi" || SceneManager.GetActiveScene().name == "Main menu";
 
-        /*Debug.Log($"hasQuest: {player.hasQuest}, bagQuestGiven: {QuestManager.bagQuestGiven}, bagQuestCompleted: {QuestManager.bagQuestCompleted}");*/
         Debug.Log($"hasQuest: {player.hasQuest}, wakeupQuestGiven: {QuestManager.wakeupQuestGiven}, wakeupQuestCompleted: {QuestManager.wakeupQuestCompleted}");
 
 
@@ -58,9 +57,6 @@ public class QuestUI : MonoBehaviour
         }
         else if (!inExcludedScenes && player.hasQuest)
         {
-       
-            
-
             if (QuestManager.questGiver == "bagQuest" && QuestManager.bagQuestGiven)
             {
                 Debug.Log("Showing quest text for Mr T.'s bag");

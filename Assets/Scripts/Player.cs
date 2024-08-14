@@ -56,19 +56,19 @@ public class Player : MonoBehaviour
                 QuestManager.questGiver = "bagQuest";
             }
 
-            else if (hitInfo.transform.name == "Mayor")
+            else if (hitInfo.transform.name == "mole_attack")
             {
                 displaytext.text = "Press [E] to interact";
                 QuestManager.questGiver = "mayorQuest";
             }
 
-            else if (hitInfo.transform.name == "Wood")
+            else if (hitInfo.transform.name == "sheep")
             {
                 displaytext.text = "Press [E] to interact";
                 QuestManager.questGiver = "woodQuest";
             }
 
-            else if (hitInfo.transform.name == "Mushroom")
+            else if (hitInfo.transform.name == "Cat")
             {
                 displaytext.text = "Press [E] to interact";
                 QuestManager.questGiver = "shroomQuest";

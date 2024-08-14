@@ -123,7 +123,7 @@ public class DialogueManager : MonoBehaviour
         }
 
 
-        if (hitInfo.transform.name == "Mayor")
+        if (!QuestManager.mayorQuestGiven && QuestManager.questGiver == "mayorQuest")
         {
             Debug.Log("help3.0");
             foreach (string sentence in dialogue.sentences)
@@ -182,24 +182,6 @@ public class DialogueManager : MonoBehaviour
         {
             EndDialogue();
             quest.StartQuest();
-
-            if (QuestManager.questGiver == "bagQuest")
-            {
-                QuestManager.bagQuestGiven = true;
-            }
-            else if (QuestManager.questGiver == "mayorQuest")
-            {
-                QuestManager.mayorQuestGiven = true;
-            }
-            else if (QuestManager.questGiver == "woodQuest")
-            {
-                QuestManager.woodQuestGiven = true;
-            }
-            else if (QuestManager.questGiver == "shroomQuest")
-            {
-                QuestManager.shroomQuestGiven = true;
-            }
-
             return;
         }
 
