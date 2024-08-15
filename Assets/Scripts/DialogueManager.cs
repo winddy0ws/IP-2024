@@ -123,7 +123,7 @@ public class DialogueManager : MonoBehaviour
         }
 
 
-        if (hitInfo.transform.name == "Mayor")
+        if (!QuestManager.mayorQuestGiven && QuestManager.questGiver == "mayorQuest")
         {
             Debug.Log("help3.0");
             foreach (string sentence in dialogue.sentences)
@@ -132,7 +132,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        if (QuestManager.woodQuestGiven == false && hitInfo.transform.name == "Wood")
+        if (QuestManager.woodQuestGiven == false && QuestManager.questGiver == "woodQuest")
         {
             Debug.Log("help4.0");
             foreach (string sentence in dialogue.sentences)
@@ -140,7 +140,7 @@ public class DialogueManager : MonoBehaviour
                 sentences.Enqueue(sentence);
             }
         }
-        else if (QuestManager.woodQuestGiven == true && hitInfo.transform.name == "Wood" && GameManager.woodCollected == true )
+        else if (QuestManager.woodQuestGiven == true && QuestManager.questGiver == "woodQuest" && GameManager.woodCollected == true )
         {
             Debug.Log("help5.0");
             foreach (string sentence in dialogue.sentences2)
@@ -149,7 +149,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        if (QuestManager.shroomQuestGiven == false && hitInfo.transform.name == "Mushroom")
+        if (QuestManager.shroomQuestGiven == false && QuestManager.questGiver == "shroomQuest")
         {
             Debug.Log("help6.0");
             foreach (string sentence in dialogue.sentences)
@@ -158,7 +158,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        else if (QuestManager.shroomQuestGiven == true && hitInfo.transform.name == "Mushroom" && GameManager.shroomCollected == true)
+        else if (QuestManager.shroomQuestGiven == true && QuestManager.questGiver == "shroomQuest" && GameManager.shroomCollected == true)
         {
             Debug.Log("help7.0");
             foreach (string sentence in dialogue.sentences2)
@@ -182,24 +182,6 @@ public class DialogueManager : MonoBehaviour
         {
             EndDialogue();
             quest.StartQuest();
-
-            if (QuestManager.questGiver == "bagQuest")
-            {
-                QuestManager.bagQuestGiven = true;
-            }
-            else if (QuestManager.questGiver == "mayorQuest")
-            {
-                QuestManager.mayorQuestGiven = true;
-            }
-            else if (QuestManager.questGiver == "woodQuest")
-            {
-                QuestManager.woodQuestGiven = true;
-            }
-            else if (QuestManager.questGiver == "shroomQuest")
-            {
-                QuestManager.shroomQuestGiven = true;
-            }
-
             return;
         }
 
@@ -242,6 +224,28 @@ public class DialogueManager : MonoBehaviour
             {
                 questText.Update();
             }
+        }
+        else if (QuestManager.questGiver == "shroomQuest" && GameManager.shroomCollected)
+        {
+            quest.CompleteShroomQuest();
+
+            if (questText != null)
+            {
+                questText.Update();
+            }
+        }
+        else if (QuestManager.questGiver == "woodQuest" && GameManager.woodCollected)
+        {
+            quest.CompleteWoodQuest();
+
+            if (questText != null)
+            {
+                questText.Update();
+            }
+        }
+        else if (QuestManager.questGiver == "mayorQuest")
+        {
+            quest.CompleteWakeupQuest();
         }
     }
 }

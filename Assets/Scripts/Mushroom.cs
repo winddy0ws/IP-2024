@@ -22,8 +22,13 @@ public class Mushroom : Interactable
         base.OnPress();/*
         AudioSource.PlayClipAtPoint(collectAudio, transform.position, 1f);*/
         Destroy(gameObject);
-        GameManager.shroomCollected = true;
         GameManager.shroomCount += 1;
+
+        if (GameManager.shroomCount == 8)
+        {
+            Debug.Log("MUSHROOMS COLLECTED");
+            GameManager.shroomCollected = true;
+        }
 
     }
 }
