@@ -22,6 +22,10 @@ public class GameManager : MonoBehaviour
 
     public GameObject HealthBar;
 
+    public GameObject Die;
+    
+    
+
     public static bool bagCollected = false;
 
     public static bool woodCollected = false;
@@ -33,34 +37,46 @@ public class GameManager : MonoBehaviour
     public static int bagCount = 0;
     public static int shroomCount = 0;
 
-    public int Scene;
+  /*  public int Scene;
+    public int Level;*/
 
-    private void Awake()
+    private void Start()
     {
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            
         }
         else if (Instance != this && Instance != null)
         {
             Destroy(gameObject);
         }
      
+       
 
     }
 
     // Update is called once per frame
     void Update()
-        {
-            Debug.Log("weeee");
-            HealthBar.GetComponent<Image>().fillAmount = playerHealth / 100f;
-            if (playerHealth <= 0)
-            {
-                SceneManager.LoadScene(Scene);
-            }
-
+    { 
+        
+                Debug.Log("weeee");
+                HealthBar.GetComponent<Image>().fillAmount = playerHealth / 100f;
+                
     }
+
+    /*void Die()
+    {
+
+    }*/
+
+    /*public void RestartLevel()
+    {
+        SceneManager.LoadScene(Level);
+        playerHealth = 100f;
+    }
+*/
 
    
 }
