@@ -39542,7 +39542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: 100
   HealthBar: {fileID: 0}
-  Scene: 0
+  Die: {fileID: 0}
 --- !u!4 &1627167914
 Transform:
   m_ObjectHideFlags: 0
