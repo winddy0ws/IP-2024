@@ -52,6 +52,6 @@ public class GameManager : MonoBehaviour
     void Update()
     { 
         Debug.Log("weeee");
-        HealthBar.GetComponent<Image>().fillAmount = playerHealth / 100f;        
+        HealthBar.GetComponent<Image>().fillAmount = playerHealth / 100;        
     }
 }
