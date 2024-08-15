@@ -1,3 +1,9 @@
+/*
+ * Author: Arwen Loh
+ * Date: 11/08/24
+ * Description: Mayor Idly Wandering TownHall
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
