@@ -108,6 +108,9 @@ public class DialogueManager : MonoBehaviour
         {
             Debug.Log("help");
 
+            npcControl.agent.isStopped = true;
+            npcControl.animator.SetTrigger("Idle");
+
             foreach (string sentence in dialogue.sentences)
             {
                 sentences.Enqueue(sentence);
@@ -217,6 +220,7 @@ public class DialogueManager : MonoBehaviour
 
             if (npcControl != null)
             {
+                npcControl.agent.isStopped = false;
                 npcControl.currentState = "Roaming";
             }
 

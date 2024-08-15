@@ -18,7 +18,7 @@ public class RoamingAI : MonoBehaviour
     /// 
     [SerializeField]
     GameObject player;
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
     [SerializeField]
     LayerMask groundLayer;
 
@@ -39,7 +39,7 @@ public class RoamingAI : MonoBehaviour
     public string currentState;
     string nextState;
 
-    Animator animator;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -128,15 +128,15 @@ public class RoamingAI : MonoBehaviour
     /// </summary>
     IEnumerator Chase()
     {
-        animator.SetTrigger("Run");
-
         //Check if quest is already completed
-        if (QuestManager.bagQuestGiven || QuestManager.bagQuestCompleted)
+        if (/*QuestManager.bagQuestGiven || */QuestManager.bagQuestCompleted)
         {
             nextState = "Roaming";
             animator.SetTrigger("Walk");
             yield break;
         }
+
+        animator.SetTrigger("Run");
 
         //Check whether current state is "Chase"
         while (currentState == "Chase")
@@ -163,10 +163,5 @@ public class RoamingAI : MonoBehaviour
 
         //Transition out of state
         SwitchState();
-    }
-
-    public void Celebrate()
-    {
-        animator.SetTrigger("Jump");
     }
 }
