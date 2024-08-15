@@ -77,6 +77,16 @@ public class Player : MonoBehaviour
                 QuestManager.questGiver = "shroomQuest";
             }
 
+            else if (hitInfo.transform.name == "mushroom")
+            {
+                displaytext.text = "Press [E] to collect";
+            }
+
+            else if (hitInfo.transform.name == "wood")
+            {
+                displaytext.text = "Press [E] to collect";
+            }
+
             else
             {
                 displaytext.text = "";
