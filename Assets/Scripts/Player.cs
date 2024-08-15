@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        bool Raycast = Physics.Raycast(
+        bool hitSomething = Physics.Raycast(
             playerCamera.position,
             playerCamera.TransformDirection(Vector3.forward),
             out hitInfo,
@@ -40,14 +40,17 @@ public class Player : MonoBehaviour
             playerCamera.TransformDirection(Vector3.forward) * seeDistance,
             Color.green
         );
-        if (Raycast)
+
+        if (hitSomething)
         {
             Debug.Log(hitInfo.transform.name);
-            if (hitInfo.transform.TryGetComponent<Interactable>(out curretInteractable)) { }
+            if (hitInfo.transform.TryGetComponent<Interactable>(out curretInteractable)) 
+            { 
+            }
             else
             {
                 curretInteractable = null;
-
+                displaytext.text = "";
             }
 
             if (hitInfo.transform.name == "Penguin")
@@ -82,16 +85,13 @@ public class Player : MonoBehaviour
         else
         { 
             curretInteractable = null;
+            displaytext.text = "";
 
             if (displaytext == null && SceneManager.GetActiveScene().name == "Game")
             {
                 displaytext = GameObject.Find("Text").GetComponent<TextMeshProUGUI>();
             }
         }
-       /* if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            OnEscape();
-        }*/
     }
 
     

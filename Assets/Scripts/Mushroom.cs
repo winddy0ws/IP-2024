@@ -26,7 +26,6 @@ public class Mushroom : Interactable
 
         if (GameManager.shroomCount == 8)
         {
-            Debug.Log("MUSHROOMS COLLECTED");
             GameManager.shroomCollected = true;
         }
 
