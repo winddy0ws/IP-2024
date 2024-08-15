@@ -79,6 +79,8 @@ public class QuestUI : MonoBehaviour
                 questName.text = "Find 8 Mushrooms";
                 questProgress.text = $"{GameManager.shroomCount} || 8";
                 questDefault.gameObject.SetActive(false);
+                questName.gameObject.SetActive(true);
+                questProgress.gameObject.SetActive(true);
             }
             else if (QuestManager.wakeupQuestGiven == true && player.hasQuest && QuestManager.questGiver == "mayorQuest")
             {
