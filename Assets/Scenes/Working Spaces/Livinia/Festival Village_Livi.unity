@@ -40147,6 +40147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: 100
   HealthBar: {fileID: 1711397005}
+  HealthBarObj: {fileID: 922719074}
   Die: {fileID: 940782593}
   player: {fileID: 2073266804}
 --- !u!4 &1627167914
@@ -43533,6 +43534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: 7
+  healthbar: {fileID: 922719074}
 --- !u!65 &1735551323
 BoxCollider:
   m_ObjectHideFlags: 0
