@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -28841,9 +28841,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: RestartLevel, Assembly-CSharp
-        m_MethodName: RestartLvl
+      - m_Target: {fileID: 1556899093}
+        m_TargetAssemblyTypeName: Death, Assembly-CSharp
+        m_MethodName: Restart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -38083,6 +38083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Scene: 0
   DeathCanvas: {fileID: 940782593}
+  deathEnabled: 0
 --- !u!1 &1563578774
 GameObject:
   m_ObjectHideFlags: 0
@@ -40094,9 +40095,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: 100
   HealthBar: {fileID: 1711397005}
-  Die: {fileID: 0}
-  Scene: 4
-  Level: 0
+  Die: {fileID: 940782593}
+  player: {fileID: 2073266804}
+  initialPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &1627167914
 Transform:
   m_ObjectHideFlags: 0

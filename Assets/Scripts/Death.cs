@@ -9,12 +9,17 @@ public class Death : MonoBehaviour
     public int Scene;
     public GameObject DeathCanvas;
     private GameManager gameManager;
+
+    public bool deathEnabled;
+
     // Start is called before the first frame update
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
         DeathCanvas.SetActive(false);
         Time.timeScale = 1f;
+
+        deathEnabled = false;
     }
 
     // Update is called once per frame
@@ -27,15 +32,17 @@ public class Death : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             Time.timeScale = 0f;
+
+            deathEnabled=true;
         }
     }
 
     public void Restart()
     {
         GameManager.Instance.playerHealth = 100;
+
         if (GameManager.shroomCount != 0)
         {
-
             GameManager.shroomCount = 0;
         }
         else if (GameManager.woodCount != 0)
@@ -46,5 +53,7 @@ public class Death : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = false;
         Time.timeScale = 1f;
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

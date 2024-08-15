@@ -19,17 +19,12 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public float playerHealth = 100f;
-
     public GameObject HealthBar;
-
     public GameObject Die;
-    
-    
+    public GameObject player;
 
     public static bool bagCollected = false;
-
     public static bool woodCollected = false;
-
     public static bool shroomCollected = false;
 
     public static int woodCount = 0;
@@ -45,38 +40,18 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
-            
+            DontDestroyOnLoad(gameObject);  
         }
         else if (Instance != this && Instance != null)
         {
             Destroy(gameObject);
         }
-     
-       
-
     }
 
     // Update is called once per frame
     void Update()
     { 
-        
-                Debug.Log("weeee");
-                HealthBar.GetComponent<Image>().fillAmount = playerHealth / 100f;
-                
+        Debug.Log("weeee");
+        HealthBar.GetComponent<Image>().fillAmount = playerHealth / 100f;        
     }
-
-    /*void Die()
-    {
-
-    }*/
-
-    /*public void RestartLevel()
-    {
-        SceneManager.LoadScene(Level);
-        playerHealth = 100f;
-    }
-*/
-
-   
 }
