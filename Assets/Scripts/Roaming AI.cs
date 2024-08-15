@@ -37,7 +37,7 @@ public class RoamingAI : MonoBehaviour
     float sightRange, stoppingRange;
     bool playerInSight;
     public string currentState;
-    string nextState;
+    public string nextState;
 
     public Animator animator;
 
@@ -112,7 +112,7 @@ public class RoamingAI : MonoBehaviour
                 walkpointSet = false;
             }
 
-            if (sightRange > Vector3.Distance(transform.position, player.transform.position))
+            if (!QuestManager.bagQuestGiven && sightRange > Vector3.Distance(transform.position, player.transform.position))
             {
                 nextState = "Chase";
             }
@@ -129,7 +129,7 @@ public class RoamingAI : MonoBehaviour
     IEnumerator Chase()
     {
         //Check if quest is already completed
-        if (/*QuestManager.bagQuestGiven || */QuestManager.bagQuestCompleted)
+        if (QuestManager.bagQuestGiven || QuestManager.bagQuestCompleted)
         {
             nextState = "Roaming";
             animator.SetTrigger("Walk");

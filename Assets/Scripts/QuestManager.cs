@@ -30,6 +30,7 @@ public class QuestManager : MonoBehaviour
 
     private Player player;
     QuestUI questText;
+    RoamingAI roamingAI;
 
     private void Start()
     {
@@ -48,6 +49,7 @@ public class QuestManager : MonoBehaviour
             bagQuestGiven = true;
             bagQuestCompleted = false;
             player.SetHasQuest(true);
+            roamingAI.nextState = "Roaming";
         }
 
         if (questGiver == "mayorQuest")
@@ -59,6 +61,7 @@ public class QuestManager : MonoBehaviour
 
         if (questGiver == "woodQuest")
         {
+            woodQuestGiven = true;
             woodQuestGiven = true;
             woodQuestCompleted = false;
             player.SetHasQuest(true);
