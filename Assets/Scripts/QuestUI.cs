@@ -70,14 +70,16 @@ public class QuestUI : MonoBehaviour
             {
                 Debug.Log("woodie");
                 questName.text = "Find 5 pieces of wood";
-                questProgress.text = $"{GameManager.woodCount} || 5";
+                questProgress.text = $"{GameManager.woodCount} / 5";
                 questDefault.gameObject.SetActive(false);
+                questName.gameObject.SetActive(true);
+                questProgress.gameObject.SetActive(true);
             }
             else if (QuestManager.questGiver == "shroomQuest" && QuestManager.shroomQuestGiven)
             {
                 Debug.Log("shroomie");
                 questName.text = "Find 8 Mushrooms";
-                questProgress.text = $"{GameManager.shroomCount} || 8";
+                questProgress.text = $"{GameManager.shroomCount} / 8";
                 questDefault.gameObject.SetActive(false);
                 questName.gameObject.SetActive(true);
                 questProgress.gameObject.SetActive(true);
