@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Working Spaces/Livinia/Festival Village_Livi.unity
     guid: 6255287b049d0554c849b3ddff5b78cf
+  - enabled: 1
+    path: Assets/Scenes/Working Spaces/Livinia/Forest_Livi.unity
+    guid: 80a0f604fbdb1644cac2272541f1da16
   m_configObjects: {}

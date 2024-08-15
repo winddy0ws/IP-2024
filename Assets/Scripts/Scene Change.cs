@@ -15,7 +15,7 @@ public class SceneChange : MonoBehaviour
     /// <summary>
     /// Variable for which scene to change to
     /// </summary>
-    public string scene;
+    public int scene;
 
     /// <summary>
     /// Player will change between scene upon entering area

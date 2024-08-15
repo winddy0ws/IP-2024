@@ -225,6 +225,24 @@ public class DialogueManager : MonoBehaviour
                 questText.Update();
             }
         }
+        else if (QuestManager.questGiver == "shroomQuest" && GameManager.shroomCollected)
+        {
+            quest.CompleteShroomQuest();
+
+            if (questText != null)
+            {
+                questText.Update();
+            }
+        }
+        else if (QuestManager.questGiver == "woodQuest" && GameManager.woodCollected)
+        {
+            quest.CompleteWoodQuest();
+
+            if (questText != null)
+            {
+                questText.Update();
+            }
+        }
         else if (QuestManager.questGiver == "mayorQuest")
         {
             quest.CompleteWakeupQuest();
