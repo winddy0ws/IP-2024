@@ -19,8 +19,8 @@ public class Collectible : Interactable
     public override void OnPress()
     {
         base.OnPress();
+        AudioManager.instance.PlaySFX("Collect", transform.position);
         Destroy(gameObject);
-        AudioManager.instance.PlaySFX("Collect");
     }
 
 }

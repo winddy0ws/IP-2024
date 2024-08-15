@@ -47,13 +47,19 @@ public class AudioManager : MonoBehaviour
     /// Function checks for SFX audio
     /// </summary>
     /// <param name="name"></param>
-    public void PlaySFX(string name)
+    public void PlaySFX(string name, Vector3? position = null)
     {
         Sound sound = Array.Find(sfxSounds, x => x.soundName == name);
 
         if (sound == null)
         {
-            Debug.Log("Sound not found");
+            Debug.Log("Sound not found: " + name);
+            return;
+        }
+
+        if (position.HasValue)
+        {
+            AudioSource.PlayClipAtPoint(sound.clip, position.Value);
         }
         else
         {
