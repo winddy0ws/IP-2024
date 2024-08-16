@@ -9,11 +9,11 @@ public class SceneTransition : MonoBehaviour
     private string sceneToLoad;
     [SerializeField]
     private string exitPointName;
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+
             GameManager.Instance.lastExitPoint = exitPointName;
             SceneManager.LoadScene(sceneToLoad);
         }

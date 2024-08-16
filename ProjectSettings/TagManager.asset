@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - CinemachineTarget
+  - Wood
+  - Mushroom
+  - Bag
+  - Penguin
   layers:
   - Default
   - TransparentFX

@@ -51,6 +51,8 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
         quest = FindObjectOfType<QuestManager>();
         /*questText = FindObjectOfType<QuestUI>();*/
+
+        npcControl = FindAnyObjectByType<RoamingAI>();
     }
     void Update()
     {
@@ -110,11 +112,12 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("help");
 
             npcControl.agent.isStopped = true;
-            npcControl.animator.SetTrigger("Idle");
+            npcControl.animator.SetTrigger("Walk");  // NOTE: change trigger string if needed
 
             foreach (string sentence in dialogue.sentences)
             {
                 sentences.Enqueue(sentence);
+                Debug.Log($"enqueued {sentence}");
             }
         }
         else if (QuestManager.bagQuestGiven == true && GameManager.bagCollected == true && QuestManager.questGiver == "bagQuest")
@@ -197,9 +200,10 @@ public class DialogueManager : MonoBehaviour
     {
         if (sentences.Count == 0 )
         {
+            Debug.Log("No more sentences to show, starting quest");
+            
             EndDialogue();
             quest.StartQuest();
-
             return;
         }
 
@@ -229,15 +233,15 @@ public class DialogueManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = false;
 
+        if (npcControl != null)
+        {
+            npcControl.agent.isStopped = false;
+            npcControl.currentState = "Roaming";
+        }
+
         if (QuestManager.questGiver == "bagQuest" && GameManager.bagCollected)
         {
             quest.CompleteBagQuest();
-
-            if (npcControl != null)
-            {
-                npcControl.agent.isStopped = false;
-                npcControl.currentState = "Roaming";
-            }
 
             if (questText != null)
             {

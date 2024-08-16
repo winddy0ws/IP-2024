@@ -30,28 +30,46 @@ public class QuestManager : MonoBehaviour
     public static string questGiver;
 
     private Player player;
-    QuestUI questText;
-    RoamingAI roamingAI;
+    private QuestUI questText;  // not set in Awake/Start/OnEnable, might bug? idk... oh deer...
 
     private void Start()
     {
         player = FindObjectOfType<Player>();
 
-        if (wakeupQuestGiven)
-        {
-            player.SetHasQuest(true);
-        }
+        if (wakeupQuestGiven) player.SetHasQuest(true);
         Debug.Log("theres a quest");
     }
 
     public void StartQuest()
     {
+        Debug.Log($"StartQuest: from {questGiver}");
+
         if (questGiver == "bagQuest")
         {
             bagQuestGiven = true;
             bagQuestCompleted = false;
             player.SetHasQuest(true);
-            roamingAI.nextState = "Roaming";
+            // roamingAI.nextState = "Roaming";
+
+            // find the penguin and get its RoamingAI
+            var penguinMaybe = GameObject.FindGameObjectWithTag("Penguin");
+            if (penguinMaybe)
+            {
+                // MAKE THE PENGUIN MOVE AGAIN
+                var npcControl = penguinMaybe.GetComponentInChildren<RoamingAI>();
+                npcControl.nextState = "Roaming";
+                npcControl.agent.isStopped = false;
+                npcControl.animator.SetTrigger("");
+            }
+            else
+            {
+                throw new System.NullReferenceException("StartQuest: could not get the penguin to roam again because i cant find a 'Penguin' tagged object");
+            }
+            
+
+            // SET TAG ACTIVE BECAUSE WE ALREADY ARE IN THE SCENE WHEN WE START THE QUEST
+            Debug.Log("Starting bag quest, calling SetParentTagActivation");
+            GameManager.Instance.SetParentTagActivation("Bag", true);
         }
 
         if (questGiver == "mayorQuest")
@@ -67,14 +85,16 @@ public class QuestManager : MonoBehaviour
             woodQuestGiven = true;
             woodQuestCompleted = false;
             player.SetHasQuest(true);
+            // GameManager.Instance.SetParentTagActivation("Wood", true);
         }
-     
+
         if (questGiver == "shroomQuest")
         {
             Debug.Log("SHROOMQUEST");
             shroomQuestGiven = true;
             shroomQuestCompleted = false;
             player.SetHasQuest(true);
+            // GameManager.Instance.SetParentTagActivation("Mushroom", true);
         }
     }
 
@@ -100,6 +120,7 @@ public class QuestManager : MonoBehaviour
     {
         bagQuestCompleted = true;
         player.SetHasQuest(false);
+        // GameManager.Instance.SetParentTagActivation("Bag", false);
         Debug.Log("Bag quest completed, Setting hasQuest to false.");
         questText.Update();
     }
@@ -108,6 +129,7 @@ public class QuestManager : MonoBehaviour
     {
         woodQuestCompleted = true;
         player.SetHasQuest(false);
+        // GameManager.Instance.SetParentTagActivation("Wood", false);
         Debug.Log("Wood quest completed, Setting hasQuest to false.");
         questText.Update();
     }
@@ -116,6 +138,7 @@ public class QuestManager : MonoBehaviour
     {
         shroomQuestCompleted = true;
         player.SetHasQuest(false);
+        // GameManager.Instance.SetParentTagActivation("Mushroom", false);
         Debug.Log("Shroom quest completed, Setting hasQuest to false.");
         questText.Update();
     }

@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
 
     private void UpdateHealthBarVisibility(Scene scene)
     {
-        if (scene.buildIndex == 7)
+        if (scene.buildIndex == 2)
         {
             HealthBarObj.SetActive(true);
         }
@@ -81,5 +81,25 @@ public class GameManager : MonoBehaviour
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    
+    public void SetParentTagActivation(string tag, bool activated)
+    {
+        Debug.Log($"SetParentTagActivation: Trying to set children of {tag} tag to {activated}");
+
+        //NOTE: IF THIS ERRORS ADD CURLY BRACKETS THINGS
+        //FIND ALL MUSHROOM PARENT OBJECTS
+        foreach (var parent in GameObject.FindGameObjectsWithTag(tag)) 
+        {
+            Debug.Log($"SetParentTagActivation: Setting children of object {parent}");
+            //GET ALL CHILDREN OF THE PARENT    
+            foreach (Transform child in parent.transform)
+            {
+                Debug.Log($"SetParentTagActivation: Setting child {child} to {activated}");
+                //SET ACTIVATION
+                child.gameObject.SetActive(activated);
+            }
+        }
     }
 }

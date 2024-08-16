@@ -11,22 +11,6 @@ using UnityEngine;
 
 public class Wood : Interactable
 {
-    private void Start()
-    {
-        gameObject.SetActive(false);
-    }
-
-    private void Update()
-    {
-        if (!QuestManager.woodQuestGiven)
-        {
-            gameObject.SetActive(false);
-        }
-        else if (QuestManager.woodQuestGiven)
-        {
-            gameObject.SetActive(true);
-        }
-    }
 
     /// <summary>
     /// Overrides Interactable class to collect and collect and increase woodd count

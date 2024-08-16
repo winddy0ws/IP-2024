@@ -14,9 +14,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/festival village.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Forest.unity
-    guid: 2b1965107aae3dc438f2bfdfcb9e938e
+    guid: 1d7b0fe0ed5a34f4abf829a25b210fbf
   - enabled: 1
     path: Assets/Scenes/Working Spaces/Death.unity
     guid: daa323720bb148f468f5f65150d9b97a

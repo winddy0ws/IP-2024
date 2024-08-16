@@ -11,23 +11,6 @@ using UnityEngine;
 
 public class Mushroom : Interactable
 {
-    private void Start()
-    {
-        gameObject.SetActive(false);
-    }
-
-
-    private void Update()
-    {
-        if (!QuestManager.shroomQuestGiven)
-        {
-            gameObject.SetActive(false);
-        }
-        else if (QuestManager.shroomQuestGiven)
-        {
-            gameObject.SetActive(true);
-        }
-    }
 
     /// <summary>
     /// Overrides Interactable class to collect and collect and increase mushroom count
