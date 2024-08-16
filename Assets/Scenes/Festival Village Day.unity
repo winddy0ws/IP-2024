@@ -6029,7 +6029,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 198342, guid: fe9bab289d42f0244859df1b1359454b,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 283309463}
+      addedObject: {fileID: 283309466}
+    - targetCorrespondingSourceObject: {fileID: 198340, guid: fe9bab289d42f0244859df1b1359454b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 283309465}
+    - targetCorrespondingSourceObject: {fileID: 198340, guid: fe9bab289d42f0244859df1b1359454b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 283309464}
   m_SourcePrefab: {fileID: 100100000, guid: fe9bab289d42f0244859df1b1359454b, type: 3}
 --- !u!4 &283309461 stripped
 Transform:
@@ -6043,7 +6051,47 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 283309460}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &283309463
+--- !u!1 &283309463 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 198340, guid: fe9bab289d42f0244859df1b1359454b,
+    type: 3}
+  m_PrefabInstance: {fileID: 283309460}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &283309464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283309463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28a537c1f04d7943b4535940d7342c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  ppoints: []
+  patrolRadius: 3
+  speed: 2
+  waitTimeAtPoint: 2
+--- !u!114 &283309465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283309463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28a537c1f04d7943b4535940d7342c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  ppoints: []
+  patrolRadius: 3
+  speed: 2
+  waitTimeAtPoint: 2
+--- !u!114 &283309466
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -27363,7 +27411,7 @@ Transform:
   m_GameObject: {fileID: 1261147644}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.6559982, y: 0.110000014, z: 4.1570015}
+  m_LocalPosition: {x: -3.6559982, y: 0.303, z: 4.1570015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
