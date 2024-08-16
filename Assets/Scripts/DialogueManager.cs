@@ -38,7 +38,7 @@ public class DialogueManager : MonoBehaviour
     QuestManager quest;
     QuestUI questText;
     RoamingAI npcControl;
-    public MrMole moleNPC;
+    MrMole moleNPC;
 
     /// <summary>
     /// Setting up dialogue
@@ -254,6 +254,7 @@ public class DialogueManager : MonoBehaviour
         else if (QuestManager.questGiver == "mayorQuest")
         {
             quest.CompleteWakeupQuest();
+            
             moleNPC.EndInteraction();
         }
     }

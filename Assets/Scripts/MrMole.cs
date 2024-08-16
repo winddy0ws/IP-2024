@@ -5,8 +5,6 @@
  */
 
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class MrMole : MonoBehaviour
@@ -15,6 +13,7 @@ public class MrMole : MonoBehaviour
     public Transform[] patrolPoints; // Points for patrolling
     public float speed = 2f; // Speed of movement
     public float waitTimeAtPoint = 2f; // Time to wait at each patrol point
+    public float turnSpeed = 5f; // Speed of turning
 
     private int currentPointIndex = 0; // Index of the current patrol point
     private bool isInteracting = false; // Flag to check interaction state
@@ -39,7 +38,7 @@ public class MrMole : MonoBehaviour
             }
 
             Transform targetPoint = patrolPoints[currentPointIndex];
-            
+
             // Move towards the target point
             while (Vector3.Distance(transform.position, targetPoint.position) > 0.1f)
             {
@@ -49,7 +48,12 @@ public class MrMole : MonoBehaviour
                     break;
                 }
 
+                // Move towards the target point
                 transform.position = Vector3.MoveTowards(transform.position, targetPoint.position, speed * Time.deltaTime);
+
+                // Turn to face the direction of movement
+                TurnToFace(targetPoint.position);
+
                 yield return null; // Wait for the next frame
             }
 
@@ -61,14 +65,31 @@ public class MrMole : MonoBehaviour
         }
     }
 
+    private void TurnToFace(Vector3 targetPosition)
+    {
+        Vector3 direction = targetPosition - transform.position;
+        direction.y = 0; // Keep the rotation on the horizontal plane
+
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
+    }
+
     public void StartInteraction()
     {
-        Debug.Log("i am interacting");
+        Debug.Log("I am interacting");
         isInteracting = true; // Set interacting flag to true
+
+        // Stop movement and face the player
+        StopCoroutine(patrollingCoroutine);
+        TurnToFace(player.position);
     }
 
     public void EndInteraction()
     {
+        Debug.Log("Interaction ended");
         isInteracting = false; // Set interacting flag to false
+
+        // Resume patrolling
+        patrollingCoroutine = StartCoroutine(Patrolling());
     }
 }
