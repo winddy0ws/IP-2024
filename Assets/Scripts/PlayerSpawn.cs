@@ -13,6 +13,7 @@ public class PlayerSpawn : MonoBehaviour
         if (spawnPoint != null)
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
+            player.transform.position = spawnPoint.transform.position;
         }
         else
         {

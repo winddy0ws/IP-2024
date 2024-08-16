@@ -28,6 +28,11 @@ public class Player : MonoBehaviour
     public bool hasQuest = false;
     OpenDoor door;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     void Update()
     {
         bool hitSomething = Physics.Raycast(
