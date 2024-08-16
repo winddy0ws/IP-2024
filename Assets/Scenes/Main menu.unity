@@ -1187,8 +1187,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4648cd175cc4fe74dbf59bcaac5c8817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastExitPoint: 
   playerHealth: 100
-  healthBar: {fileID: 0}
+  HealthBar: {fileID: 0}
+  HealthBarObj: {fileID: 0}
+  Die: {fileID: 0}
+  player: {fileID: 0}
 --- !u!4 &440097187
 Transform:
   m_ObjectHideFlags: 0

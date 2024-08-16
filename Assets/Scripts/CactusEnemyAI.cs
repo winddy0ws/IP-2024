@@ -15,11 +15,10 @@ public class CactusEnemyAI : MonoBehaviour
     /// <summary>
     /// Setting up references for later call
     /// </summary>
-    [SerializeField]
-    GameObject player;
     NavMeshAgent agent;
     [SerializeField]
     LayerMask groundLayer;
+    Player player;
 
     Animator animator;
     BoxCollider boxCollider;
@@ -56,6 +55,7 @@ public class CactusEnemyAI : MonoBehaviour
         animator = GetComponent<Animator>();
         boxCollider = GetComponentInChildren<BoxCollider>();
         gameManager = FindObjectOfType<GameManager>();
+        player = FindObjectOfType<Player>();
 
         if (gameManager != null )
         {

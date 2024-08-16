@@ -16,8 +16,6 @@ public class RoamingAI : MonoBehaviour
     /// Setting up references for later call
     /// </summary>
     /// 
-    [SerializeField]
-    GameObject player;
     public NavMeshAgent agent;
     [SerializeField]
     LayerMask groundLayer;
@@ -40,12 +38,14 @@ public class RoamingAI : MonoBehaviour
     public string nextState;
 
     public Animator animator;
+    public Player player;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        player = FindObjectOfType<Player>();
 
         //Setting NPC's intial states
         currentState = "Roaming";

@@ -1524,6 +1524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  agent: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -1531,3 +1532,5 @@ MonoBehaviour:
   sightRange: 10
   stoppingRange: 3
   currentState: 
+  nextState: 
+  animator: {fileID: 0}
