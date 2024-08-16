@@ -6055,9 +6055,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28a537c1f04d7943b4535940d7342c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 2112310612}
   ppoints:
-  - {fileID: 0}
+  - {fileID: 1264241281}
   - {fileID: 1261147645}
   - {fileID: 2026191858}
   patrolRadius: 3
@@ -25123,6 +25123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd1baf0993a8f3e408a3e950a62c2c7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOpen: 0
 --- !u!65 &1176917749
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34186,9 +34187,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4648cd175cc4fe74dbf59bcaac5c8817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastExitPoint: 
   playerHealth: 100
   HealthBar: {fileID: 0}
+  HealthBarObj: {fileID: 0}
   Die: {fileID: 0}
+  player: {fileID: 0}
 --- !u!4 &1627167914
 Transform:
   m_ObjectHideFlags: 0
@@ -37341,6 +37345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2073266804}
+  agent: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -37348,6 +37353,8 @@ MonoBehaviour:
   sightRange: 10
   stoppingRange: 3
   currentState: 
+  nextState: 
+  animator: {fileID: 0}
 --- !u!195 &1697151350
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -46291,6 +46298,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2073266811}
   m_SourcePrefab: {fileID: 100100000, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
+--- !u!4 &2112310612 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
+    type: 3}
+  m_PrefabInstance: {fileID: 2112310611}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2119965940
 PrefabInstance:
   m_ObjectHideFlags: 0
