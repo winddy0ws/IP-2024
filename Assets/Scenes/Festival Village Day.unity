@@ -6074,6 +6074,8 @@ MonoBehaviour:
   patrolRadius: 3
   speed: 2
   waitTimeAtPoint: 2
+  turnSpeed: 5
+  detectionRange: 5
 --- !u!114 &283309465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6091,6 +6093,8 @@ MonoBehaviour:
   patrolRadius: 3
   speed: 2
   waitTimeAtPoint: 2
+  turnSpeed: 5
+  detectionRange: 5
 --- !u!114 &283309466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6111,6 +6115,8 @@ MonoBehaviour:
   patrolRadius: 3
   speed: 2
   waitTimeAtPoint: 2
+  turnSpeed: 5
+  detectionRange: 2
 --- !u!1 &290545575
 GameObject:
   m_ObjectHideFlags: 0
@@ -46348,7 +46354,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
 --- !u!4 &2112310612 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
+  m_CorrespondingSourceObject: {fileID: 937451010987979973, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
     type: 3}
   m_PrefabInstance: {fileID: 2112310611}
   m_PrefabAsset: {fileID: 0}
