@@ -8,13 +8,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurnTrigger : MonoBehaviour
+public class MrMole : MonoBehaviour
 {
-    public Transform player; //referencing player transform
-    public Transform[] ppoints; //set of patrol points
+    public Transform player; // Referencing player transform
+    public Transform[] ppoints; // Set of patrol points
     public float patrolRadius = 3f; // Radius around each point where the NPC can move to
     public float speed = 2f; // Speed of the NPC
     public float waitTimeAtPoint = 2f; // Time to wait at each point
+    public float turnSpeed = 5f; // Speed of turning to face the player or patrol point
+    public float detectionRange = 5f; // Range within which the player is detected
 
     private int activePPoint = 0;
     private bool playerInRange = false;
@@ -23,13 +25,33 @@ public class TurnTrigger : MonoBehaviour
     {
         if (ppoints.Length > 0)
         {
-                StartCoroutine(Patrolling()); //calling
+            StartCoroutine(Patrolling()); // Start patrolling coroutine
+        }
+    }
+
+    void Update()
+    {
+        // Check the distance to the player
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+        // Update playerInRange based on the distance to the player
+        if (distanceToPlayer <= detectionRange)
+        {
+            if (!playerInRange)
+            {
+                playerInRange = true;
+                StartCoroutine(TurnToFacePlayer()); // Start turning coroutine
+            }
+        }
+        else
+        {
+            playerInRange = false;
         }
     }
 
     IEnumerator Patrolling()
     {
-        while (true) //looping coroutine
+        while (true) // Looping coroutine
         {
             // Check if the player is within range
             if (playerInRange)
@@ -39,6 +61,9 @@ public class TurnTrigger : MonoBehaviour
             }
 
             Vector3 targetPosition = ppoints[activePPoint].position;
+
+            // Rotate towards the target position
+            yield return StartCoroutine(TurnToFaceDirection(targetPosition));
 
             // Move towards the target position
             while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
@@ -62,32 +87,36 @@ public class TurnTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private IEnumerator TurnToFaceDirection(Vector3 targetPosition)
     {
-        //Checking if player has entered the range
-        if (other.transform == player)
+        // Calculate direction towards the target
+        Vector3 direction = targetPosition - transform.position;
+        direction.y = 0; // Keep the rotation on the horizontal plane
+
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+
+        // Rotate smoothly towards the target direction
+        while (Quaternion.Angle(transform.rotation, targetRotation) > 0.1f)
         {
-            //Calling the function to rotate the NPC to face player & player here for coroutine
-            playerInRange = true;
-            TurnToFacePlayer();
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
+            yield return null; // Wait for the next frame
+        }
+
+        transform.rotation = targetRotation; // Snap to the final rotation
+    }
+
+    private IEnumerator TurnToFacePlayer()
+    {
+        // Rotate smoothly to face the player
+        while (playerInRange)
+        {
+            Vector3 direction = player.position - transform.position;
+            direction.y = 0; // Keep the rotation on the horizontal plane
+
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
+
+            yield return null; // Wait for the next frame
         }
     }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.transform == player)
-        {
-                playerInRange = false; //no more player in range, moving on
-        }
-    }
-
-    public void TurnToFacePlayer()
-    {
-        //Rotating them to face player
-        Vector3 direction = player.position - transform.position;
-        direction.y = 0; //npc please dont rotate sideways
-        Quaternion rotation = Quaternion.LookRotation(direction);
-        transform.rotation = rotation;
-    }
-
 }
