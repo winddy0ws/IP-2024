@@ -77,6 +77,10 @@ public class Player : MonoBehaviour
             {
                 displaytext.text = "Press [E] to collect";
             }
+            else if (hitInfo.transform.name == "door_wall" || hitInfo.transform.name == "arc_front" || hitInfo.transform.name == "door")
+            {
+                displaytext.text = "Press [E] to open";
+            }
             else
             {
                 displaytext.text = "";
