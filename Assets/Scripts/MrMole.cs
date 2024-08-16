@@ -3,87 +3,98 @@ using UnityEngine;
 
 public class MrMole : MonoBehaviour
 {
+    [SerializeField] Transform pointA; // First patrol point
+    [SerializeField] Transform pointB; // Second patrol point
+    [SerializeField] float speed = 2f; // Speed of movement
+    [SerializeField] float turnSpeed = 5f; // Speed of turning
+    [SerializeField] float waitTimeAtPoint = 2f; // Time to wait at each patrol point
     public Transform player; // Reference to the player
-    public Transform[] patrolPoints; // Points for patrolling
-    public float speed = 2f; // Speed of movement
-    public float waitTimeAtPoint = 2f; // Time to wait at each patrol point
-    public float turnSpeed = 5f; // Speed of turning
 
-    private int currentPointIndex = 0; // Index of the current patrol point
-    private bool isInteracting = false; // Flag to check interaction state
-    private Coroutine patrollingCoroutine; // Reference to the patrolling coroutine
+    private bool isInteracting = false;
+    private Vector3 targetPoint;
+    private string currentState = "Patrolling";
+    private string nextState = "Patrolling";
 
+    // Start is called before the first frame update
     void Start()
     {
-        if (patrolPoints.Length > 0)
+        if (pointA != null && pointB != null)
         {
-            patrollingCoroutine = StartCoroutine(Patrolling()); // Start patrolling coroutine
+            targetPoint = pointA.position;
+            StartCoroutine(Patrolling());
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (currentState != nextState)
+        {
+            currentState = nextState;
+            SwitchState();
+        }
+
+        if (isInteracting)
+        {
+            FacePlayer();
+        }
+    }
+
+    void SwitchState()
+    {
+        StopAllCoroutines();
+        if (currentState == "Patrolling")
+        {
+            StartCoroutine(Patrolling());
         }
     }
 
     IEnumerator Patrolling()
     {
-        while (true)
+        while (currentState == "Patrolling")
         {
-            if (isInteracting)
+            if (!isInteracting)
             {
-                yield return null; // Stop movement if interacting
-                continue;
-            }
+                MoveTowards(targetPoint);
 
-            Transform targetPoint = patrolPoints[currentPointIndex];
-
-            // Move towards the target point
-            while (Vector3.Distance(transform.position, targetPoint.position) > 0.1f)
-            {
-                if (isInteracting)
+                if (Vector3.Distance(transform.position, targetPoint) < 0.1f)
                 {
-                    yield return null; // Stop movement if interacting
-                    break;
+                    yield return new WaitForSeconds(waitTimeAtPoint);
+
+                    // Switch target point
+                    targetPoint = targetPoint == pointA.position ? pointB.position : pointA.position;
                 }
-
-                // Move towards the target point
-                transform.position = Vector3.MoveTowards(transform.position, targetPoint.position, speed * Time.deltaTime);
-
-                // Turn to face the direction of movement
-                TurnToFace(targetPoint.position);
-
-                yield return null; // Wait for the next frame
             }
 
-            // Wait at the point
-            yield return new WaitForSeconds(waitTimeAtPoint);
-
-            // Move to the next patrol point
-            currentPointIndex = (currentPointIndex + 1) % patrolPoints.Length;
+            yield return new WaitForEndOfFrame();
         }
     }
 
-    private void TurnToFace(Vector3 targetPosition)
+    void MoveTowards(Vector3 target)
     {
-        Vector3 direction = targetPosition - transform.position;
-        direction.y = 0; // Keep the rotation on the horizontal plane
+        Vector3 direction = (target - transform.position).normalized;
+        transform.position += direction * speed * Time.deltaTime;
 
-        Quaternion targetRotation = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed);
     }
 
     public void StartInteraction()
     {
-        Debug.Log("Starting interaction");
-        isInteracting = true; // Set interacting flag to true
-
-        // Stop movement and face the player
-        StopCoroutine(patrollingCoroutine);
-        TurnToFace(player.position);
+        isInteracting = true; // Stop movement
     }
 
     public void EndInteraction()
     {
-        Debug.Log("Ending interaction");
-        isInteracting = false; // Set interacting flag to false
+        isInteracting = false; // Resume movement
+        targetPoint = pointA.position; // Resume patrolling
+        nextState = "Patrolling";
+    }
 
-        // Resume patrolling
-        patrollingCoroutine = StartCoroutine(Patrolling());
+    void FacePlayer()
+    {
+        Vector3 direction = (player.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed);
     }
 }
