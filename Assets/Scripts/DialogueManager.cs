@@ -1,5 +1,5 @@
 /*
- * Author: Yau Wai Lam and Livinia Poo
+ * Author: Yau Wai Lam and Livinia Poo and Arwen Loh
  * Date: 09/08/24
  * Description: 
  * Managing the display of text-dialogue based on situations and following actions
@@ -38,6 +38,7 @@ public class DialogueManager : MonoBehaviour
     QuestManager quest;
     QuestUI questText;
     RoamingAI npcControl;
+    MrMole moleNPC;
 
     /// <summary>
     /// Setting up dialogue
@@ -125,10 +126,12 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-
-        if (!QuestManager.mayorQuestGiven && QuestManager.questGiver == "mayorQuest")
+        if (QuestManager.mayorQuestGiven == false && QuestManager.questGiver == "mayorQuest")
         {
             Debug.Log("help3.0");
+
+            moleNPC.StartInteraction();
+
             foreach (string sentence in dialogue.sentences)
             {
                 sentences.Enqueue(sentence);
@@ -185,6 +188,7 @@ public class DialogueManager : MonoBehaviour
         {
             EndDialogue();
             quest.StartQuest();
+
             return;
         }
 
@@ -250,6 +254,7 @@ public class DialogueManager : MonoBehaviour
         else if (QuestManager.questGiver == "mayorQuest")
         {
             quest.CompleteWakeupQuest();
+            moleNPC.EndInteraction();
         }
     }
 }

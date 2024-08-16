@@ -28,21 +28,18 @@ public class QuestUI : MonoBehaviour
 
         Debug.Log($"wakeupQuestGiven: {QuestManager.wakeupQuestGiven}, hasQuest: {player.hasQuest}, Scene: {SceneManager.GetActiveScene().name}");
 
-        if (QuestManager.wakeupQuestGiven == true && player.hasQuest && SceneManager.GetActiveScene().name == "House_Livi") ;
+        if (QuestManager.wakeupQuestGiven == true && player.hasQuest && SceneManager.GetActiveScene().name == "House")
         {
             Debug.Log("Need to speak to Mayor");
             questDefault.text = "Talk to the Mayor";
             questName.text = "";
             questProgress.text = "";
-           /* questDefault.gameObject.SetActive(true);
-            questName.gameObject.SetActive(false);
-            questProgress.gameObject.SetActive(false);*/
         }
     }
 
     public void Update()
     {
-        bool inExcludedScenes = SceneManager.GetActiveScene().name == "House_Livi" || SceneManager.GetActiveScene().name == "Main menu";
+        bool inExcludedScenes = SceneManager.GetActiveScene().name == "House" || SceneManager.GetActiveScene().name == "Main menu";
 
         Debug.Log($"hasQuest: {player.hasQuest}, wakeupQuestGiven: {QuestManager.wakeupQuestGiven}, wakeupQuestCompleted: {QuestManager.wakeupQuestCompleted}");
 

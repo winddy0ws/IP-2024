@@ -16,10 +16,9 @@ public class MrMole : MonoBehaviour
     public float waitTimeAtPoint = 2f; // Time to wait at each point
     public float turnSpeed = 5f; // Speed of turning to face the player or patrol point
     public float detectionRange = 5f; // Range within which the player is detected
-    public DialogueManager dialogueManager; // Reference to the DialogueManager instance
 
     private int activePPoint = 0;
-    private bool isInteracting = false;
+    public bool isInteracting = false;
     private Coroutine patrollingCoroutine;
 
     void Start()
@@ -30,7 +29,7 @@ public class MrMole : MonoBehaviour
         }
     }
 
-    void Update()
+/*    void Update()
     {
         // Check for interaction with the 'E' key and player in range
         if (Vector3.Distance(transform.position, player.position) <= detectionRange && Input.GetKeyDown(KeyCode.E))
@@ -39,7 +38,7 @@ public class MrMole : MonoBehaviour
             StopPatrolling(); // Stop patrolling when interacting
             StartCoroutine(HandleInteraction()); // Handle interaction
         }
-    }
+    }*/
 
     IEnumerator Patrolling()
     {
@@ -87,13 +86,13 @@ public class MrMole : MonoBehaviour
         while (Quaternion.Angle(transform.rotation, targetRotation) > 0.1f)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
-            yield return null; // Wait for the next frame
+            yield return /*null*/ new WaitForEndOfFrame(); // Wait for the next frame
         }
 
         transform.rotation = targetRotation; // Snap to the final rotation
     }
 
-    private IEnumerator HandleInteraction()
+    public IEnumerator HandleInteraction()
     {
         // Turn to face the player
         Vector3 direction = player.position - transform.position;
@@ -104,21 +103,44 @@ public class MrMole : MonoBehaviour
         while (Quaternion.Angle(transform.rotation, targetRotation) > 0.1f)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, turnSpeed * Time.deltaTime);
-            yield return null; // Wait for the next frame
+            yield return /*null*/ new WaitForEndOfFrame(); // Wait for the next frame
         }
 
-        // Trigger dialogue after turning
-        dialogueManager.StartDialogue();
+        while (isInteracting)
+        {
+            yield return null;
+        }
 
-        isInteracting = false; // Reset the interaction state after dialogue
+        ResumePatrolling();
     }
 
-    private void StopPatrolling()
+    public void StopPatrolling()
     {
         if (patrollingCoroutine != null)
         {
             StopCoroutine(patrollingCoroutine); // Stop the patrolling coroutine
             patrollingCoroutine = null;
         }
+    }
+
+    public void ResumePatrolling()
+    {
+        if (patrollingCoroutine == null && ppoints.Length > 0)
+        {
+            patrollingCoroutine = StartCoroutine(Patrolling());
+        }
+    }
+
+    public void StartInteraction()
+    {
+        isInteracting = true;
+        StopPatrolling();
+        StartCoroutine(HandleInteraction());
+    }
+
+    public void EndInteraction()
+    {
+        isInteracting = false;
+        ResumePatrolling();
     }
 }
