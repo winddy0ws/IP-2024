@@ -6030,6 +6030,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 283309466}
+    - targetCorrespondingSourceObject: {fileID: 198342, guid: fe9bab289d42f0244859df1b1359454b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 283309470}
     - targetCorrespondingSourceObject: {fileID: 198340, guid: fe9bab289d42f0244859df1b1359454b,
         type: 3}
       insertIndex: -1
@@ -6117,6 +6121,23 @@ MonoBehaviour:
   waitTimeAtPoint: 2
   turnSpeed: 5
   detectionRange: 2
+--- !u!114 &283309470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283309462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b345d8e6c88c7d249a030eff9550b915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name: Mr Mole
+    sentences:
+    - HELP THE SJFABFOB
+    sentences2: []
 --- !u!1 &290545575
 GameObject:
   m_ObjectHideFlags: 0
