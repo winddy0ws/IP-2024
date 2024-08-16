@@ -1,9 +1,3 @@
-/*
- * Author: Arwen Loh
- * Date: 11/08/24
- * Description: Mayor Idly Wandering TownHall with State Management
- */
-
 using System.Collections;
 using UnityEngine;
 
@@ -76,7 +70,7 @@ public class MrMole : MonoBehaviour
 
     public void StartInteraction()
     {
-        Debug.Log("I am interacting");
+        Debug.Log("Starting interaction");
         isInteracting = true; // Set interacting flag to true
 
         // Stop movement and face the player
@@ -86,7 +80,7 @@ public class MrMole : MonoBehaviour
 
     public void EndInteraction()
     {
-        Debug.Log("Interaction ended");
+        Debug.Log("Ending interaction");
         isInteracting = false; // Set interacting flag to false
 
         // Resume patrolling
