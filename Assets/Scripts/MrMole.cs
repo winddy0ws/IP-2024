@@ -108,7 +108,7 @@ public class MrMole : MonoBehaviour
         }
 
         // Trigger dialogue after turning
-        dialogueManager.TriggerDialogue();
+        dialogueManager.StartDialogue();
 
         isInteracting = false; // Reset the interaction state after dialogue
     }

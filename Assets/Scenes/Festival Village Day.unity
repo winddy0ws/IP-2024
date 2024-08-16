@@ -6118,7 +6118,7 @@ MonoBehaviour:
   - {fileID: 2026191858}
   patrolRadius: 3
   speed: 2
-  waitTimeAtPoint: 2
+  waitTimeAtPoint: 1
   turnSpeed: 5
   detectionRange: 2
 --- !u!114 &283309470
