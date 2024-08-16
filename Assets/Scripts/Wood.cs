@@ -19,8 +19,8 @@ public class Wood : Interactable
     /// </summary>
     public override void OnPress()
     {
-        base.OnPress();/*
-        AudioSource.PlayClipAtPoint(collectAudio, transform.position, 1f);*/
+        base.OnPress();
+        AudioManager.instance.PlaySFX("Collect", transform.position);
         Destroy(gameObject);
         
         GameManager.woodCount += 1;
