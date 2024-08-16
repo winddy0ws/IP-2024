@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -26721,6 +26721,50 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1065890112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1065890114}
+  - component: {fileID: 1065890113}
+  m_Layer: 0
+  m_Name: VillageExit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1065890113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065890112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dffdaf0f7d9eb4940b87f0c11babb06a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1065890114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065890112}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -149.11, y: 2.3973808, z: -125.94}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1066215685
 GameObject:
   m_ObjectHideFlags: 0
@@ -29464,7 +29508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd1baf0993a8f3e408a3e950a62c2c7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsOpen: 0
+  isOpen: 0
 --- !u!65 &1176917749
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40073,6 +40117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4648cd175cc4fe74dbf59bcaac5c8817, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastExitPoint: 
   playerHealth: 100
   HealthBar: {fileID: 1711397005}
   HealthBarObj: {fileID: 922719074}
@@ -43441,7 +43486,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1735551324}
   - component: {fileID: 1735551323}
-  - component: {fileID: 1735551322}
+  - component: {fileID: 1735551325}
   m_Layer: 0
   m_Name: Scene Changer
   m_TagString: Untagged
@@ -43449,19 +43494,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1735551322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1735551321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd16f682079d89e4fb0d5830917cbf33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scene: 7
 --- !u!65 &1735551323
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -43499,6 +43531,20 @@ Transform:
   - {fileID: 694941935}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -35.817, z: 0}
+--- !u!114 &1735551325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735551321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26dba540a92d1b94187407da38f4fd20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: Forest_Livi
+  exitPointName: Scene Changer
 --- !u!1 &1740685498
 GameObject:
   m_ObjectHideFlags: 0
@@ -52409,7 +52455,7 @@ PrefabInstance:
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -45.62
+      value: -90.03
       objectReference: {fileID: 0}
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
@@ -63280,3 +63326,4 @@ SceneRoots:
   - {fileID: 636168636}
   - {fileID: 1287564908}
   - {fileID: 1223903788}
+  - {fileID: 1065890114}

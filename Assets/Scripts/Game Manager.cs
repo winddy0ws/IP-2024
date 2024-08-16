@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     /// Sets to the current scene
     /// </summary>
     public static GameManager Instance;
+    public string lastExitPoint;
 
     public float playerHealth = 100f;
     public GameObject HealthBar;
