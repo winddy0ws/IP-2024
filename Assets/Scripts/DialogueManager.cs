@@ -38,7 +38,7 @@ public class DialogueManager : MonoBehaviour
     QuestManager quest;
     QuestUI questText;
     RoamingAI npcControl;
-    MrMole moleNPC;
+    public MrMole moleNPC;
 
     /// <summary>
     /// Setting up dialogue

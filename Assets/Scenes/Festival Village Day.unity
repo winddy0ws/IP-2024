@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18306716, g: 0.22874394, b: 0.30669007, a: 1}
+  m_IndirectSpecularColor: {r: 0.18306738, g: 0.2287443, b: 0.3066908, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15854,7 +15854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displaytext: {fileID: 0}
-  playerCamera: {fileID: 0}
+  playerCamera: {fileID: 812517558}
   seeDistance: 5
   nameText: {fileID: 568646776}
   dialogueText: {fileID: 418977988}
@@ -15862,6 +15862,7 @@ MonoBehaviour:
   Mayor: {fileID: 0}
   woodQuest: {fileID: 0}
   animator: {fileID: 582810072}
+  moleNPC: {fileID: 1357235018}
 --- !u!4 &665787101
 Transform:
   m_ObjectHideFlags: 0
@@ -32680,16 +32681,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 607437383}
-  ppoints:
+  patrolPoints:
   - {fileID: 1264241281}
   - {fileID: 1261147645}
   - {fileID: 2026191858}
-  patrolRadius: 3
   speed: 2
-  waitTimeAtPoint: 2
-  turnSpeed: 5
-  detectionRange: 5
-  isInteracting: 0
+  waitTimeAtPoint: 1
 --- !u!114 &1357235019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32709,7 +32706,8 @@ MonoBehaviour:
     - The preparations for the Harvest Festival are just such a mess...I don't know
       what to do!
     - Say...Maybe you could help your fellow villagers out?
-    sentences2: []
+    sentences2:
+    - Thank you so much! The festival can go on now!
 --- !u!54 &1357235020
 Rigidbody:
   m_ObjectHideFlags: 0
