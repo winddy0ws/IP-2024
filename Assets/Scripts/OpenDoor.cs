@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class OpenDoor : Interactable
 { 
-    public bool IsOpen = false;
+    public bool isOpen = false;
+
     public override void OnPress()
     {
         Debug.Log("rotate");
         
-        if (!IsOpen)
+        if (!isOpen)
         {
             Debug.Log("Open door");
             base.OnPress();
@@ -17,7 +18,7 @@ public class OpenDoor : Interactable
 
             newRotation.y -= 90f;
             transform.eulerAngles = newRotation;
-            IsOpen = true;
+            isOpen = true;
         }
         else 
         {
@@ -27,7 +28,7 @@ public class OpenDoor : Interactable
 
             newRotation.y += 90f;
             transform.eulerAngles = newRotation;
-            IsOpen = false;
+            isOpen = false;
         }
         
     }

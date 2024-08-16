@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     public RaycastHit hitInfo;
 
     public bool hasQuest = false;
+    OpenDoor door;
 
     void Update()
     {
@@ -77,9 +78,9 @@ public class Player : MonoBehaviour
             {
                 displaytext.text = "Press [E] to collect";
             }
-            else if (hitInfo.transform.name == "door_wall" || hitInfo.transform.name == "arc_front" || hitInfo.transform.name == "door")
+            else if (hitInfo.transform.name == "Door hinge")
             {
-                displaytext.text = "Press [E] to open";
+                displaytext.text = "Press [E] to open/close";
             }
             else
             {
