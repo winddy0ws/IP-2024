@@ -83,11 +83,6 @@ public class GameManager : MonoBehaviour
     { 
         Debug.Log("weeee");
         HealthBar.GetComponent<Image>().fillAmount = playerHealth / 100;
-
-        if (SceneManager.GetActiveScene().name == "Cutscene")
-        {
-            Destroy(gameObject);
-        }
     }
 
     /// <summary>
@@ -106,7 +101,7 @@ public class GameManager : MonoBehaviour
     /// <param name="scene"></param>
     private void UpdateHealthBarVisibility(Scene scene)
     {
-        if (scene.buildIndex == 3)
+        if (scene.buildIndex == 2)
         {
             HealthBarObj.SetActive(true);
         }
