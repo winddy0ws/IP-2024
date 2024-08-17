@@ -20,6 +20,9 @@ public class ForestQuestChecker : MonoBehaviour
         Debug.Log($"ForestQuestChecker: shroomQuestGiven is {QuestManager.shroomQuestGiven}");
         GameManager.Instance.SetParentTagActivation("Mushroom", QuestManager.shroomQuestGiven);
 
+        
+        
+
         Debug.Log($"ForestQuestChecker: woodQuestGiven is {QuestManager.woodQuestGiven}");
         GameManager.Instance.SetParentTagActivation("Wood", QuestManager.woodQuestGiven);
     }
