@@ -113,11 +113,11 @@ public class AudioManager : MonoBehaviour
     /// <param name="sceneName"></param>
     void SetBGMForScene(string sceneName)
     {
-        if (SceneManager.GetActiveScene().name == "Main menu")
+        if (SceneManager.GetActiveScene().name == "Main menu" || SceneManager.GetActiveScene().name == "Start Cutscene")
         {
             PlayBGM("Menu BGM");
         }
-        else if (SceneManager.GetActiveScene().name == "Festival Village Day" || SceneManager.GetActiveScene().name == "Forest" || SceneManager.GetActiveScene().name == "House")
+        else if (SceneManager.GetActiveScene().name == "Festival Village Day" || SceneManager.GetActiveScene().name == "Forest" || SceneManager.GetActiveScene().name == "House" || SceneManager.GetActiveScene().name == "Cutscene")
         {
             PlayBGM("Game BGM");
         }
