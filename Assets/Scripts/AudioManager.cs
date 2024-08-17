@@ -83,7 +83,7 @@ public class AudioManager : MonoBehaviour
         {
             PlayBGM("Menu BGM");
         }
-        else
+        else 
         {
             PlayBGM("Game BGM");
         }
