@@ -25149,6 +25149,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fire
       objectReference: {fileID: 0}
+    - target: {fileID: 3980249444641842266, guid: 587774c2a977d244ab7ee73c64d182b1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.55
+      objectReference: {fileID: 0}
     - target: {fileID: 4669375782712601083, guid: 587774c2a977d244ab7ee73c64d182b1,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -25222,7 +25227,17 @@ PrefabInstance:
     - target: {fileID: 4898339516432499682, guid: 587774c2a977d244ab7ee73c64d182b1,
         type: 3}
       propertyPath: m_Intensity
-      value: 20
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898339516432499682, guid: 587774c2a977d244ab7ee73c64d182b1,
+        type: 3}
+      propertyPath: m_BounceIntensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898339516432499682, guid: 587774c2a977d244ab7ee73c64d182b1,
+        type: 3}
+      propertyPath: m_ColorTemperature
+      value: 4532
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
