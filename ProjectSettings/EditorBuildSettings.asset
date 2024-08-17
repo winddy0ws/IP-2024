@@ -17,19 +17,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Forest.unity
     guid: 1d7b0fe0ed5a34f4abf829a25b210fbf
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Working Spaces/Death.unity
     guid: daa323720bb148f468f5f65150d9b97a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Working Spaces/Livinia/House_Livi.unity
     guid: ab47a20eafc59674ebb31837629f78bb
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Working Spaces/Livinia/Festival Village_Livi.unity
     guid: 6255287b049d0554c849b3ddff5b78cf
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Working Spaces/Livinia/Forest_Livi.unity
     guid: 80a0f604fbdb1644cac2272541f1da16
   - enabled: 1
     path: Assets/Scenes/Festival Village Day.unity
     guid: 8518a24976a8f2949b4bc5f425a49214
+  - enabled: 1
+    path: Assets/Scenes/Cutscene.unity
+    guid: bc2fb49f077f5d640b9aefd3b212e11f
   m_configObjects: {}
