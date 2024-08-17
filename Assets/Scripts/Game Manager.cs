@@ -7,6 +7,8 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -25,6 +27,10 @@ public class GameManager : MonoBehaviour
     public GameObject Die;
     public GameObject player;
 
+    public TextMeshProUGUI questName;
+    public TextMeshProUGUI questDefault;
+    public TextMeshProUGUI questProgress;
+
     public static bool bagCollected = false;
     public static bool woodCollected = false;
     public static bool shroomCollected = false;
@@ -36,15 +42,33 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        // check if instance hasn't been set yet
         if (Instance == null)
         {
+            // set this instance as the singleton instance
             Instance = this;
-            DontDestroyOnLoad(gameObject);  
+            // don't destroy this instance on a scene load
+            DontDestroyOnLoad(gameObject);
+
+            Debug.Log("GameManager: Awake as singleton instance");
         }
-        else if (Instance != this)
+        // check if instance is already set and it's not this instance
+        else if (Instance != null && Instance != this)
         {
+            Debug.Log("GameManager: Awake as non-singleton instance, destroying self");
+
+            // destroy the new instance if it's not the singleton instance
             Destroy(gameObject);
         }
+
+        questName = GameObject.FindGameObjectWithTag("QuestTitle").GetComponentInChildren<TextMeshProUGUI>();
+        if (questName == null) throw new System.NullReferenceException($"GameManager: could not get the quest title textmeshpro");
+
+        questDefault = GameObject.FindGameObjectWithTag("QuestDefault").GetComponentInChildren<TextMeshProUGUI>();
+        if (questDefault == null) throw new System.NullReferenceException($"GameManager: could not get the quest default textmeshpro");
+        
+        questProgress = GameObject.FindGameObjectWithTag("QuestProgress").GetComponentInChildren<TextMeshProUGUI>();
+        if (questProgress == null) throw new System.NullReferenceException($"GameManager: could not get the quest progress textmeshpro");
     }
 
     private void Start()
@@ -102,4 +126,14 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    // public void RestartToMainMenu()
+    // {
+    //     Debug.Log("restarting to main menu, killing self");
+    //     AudioManager audioManager = FindObjectOfType<AudioManager>();
+    //     SceneManager.LoadScene(0);
+    //     Destroy(audioManager);
+    //     Destroy(gameObject);
+    //     Debug.LogError("you should NOT be able to see this");
+    // }
 }

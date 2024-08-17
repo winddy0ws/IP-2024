@@ -9,6 +9,10 @@ TagManager:
   - Mushroom
   - Bag
   - Penguin
+  - Mole
+  - QuestTitle
+  - QuestDefault
+  - QuestProgress
   layers:
   - Default
   - TransparentFX

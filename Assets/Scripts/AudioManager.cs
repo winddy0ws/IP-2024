@@ -69,16 +69,26 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        // check if instance hasn't been set yet
         if (instance == null)
         {
+            // set this instance as the singleton instance
             instance = this;
+            // don't destroy this instance on a scene load
             DontDestroyOnLoad(gameObject);
+
+            Debug.Log("AudioManager: Awake as singleton instance");
         }
-        else
+        // check if instance is already set and it's not this instance
+        else if (instance != null && instance != this)
         {
+            Debug.Log("AudioManager: Awake as non-singleton instance, destroying self");
+
+            // destroy the new instance if it's not the singleton instance
             Destroy(gameObject);
         }
 
+        // FIXME
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             PlayBGM("Menu BGM");

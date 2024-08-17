@@ -38,7 +38,6 @@ public class DialogueManager : MonoBehaviour
     QuestManager quest;
     QuestUI questText;
     RoamingAI npcControl;
-    MrMole moleNPC;
 
     /// <summary>
     /// Setting up dialogue
@@ -106,13 +105,31 @@ public class DialogueManager : MonoBehaviour
         sentences.Clear ();
         Debug.Log("clear");
 
-
         if (QuestManager.bagQuestGiven == false && QuestManager.questGiver == "bagQuest")
         {
             Debug.Log("help");
 
-            npcControl.agent.isStopped = true;
-            npcControl.animator.SetTrigger("Walk");  // NOTE: change trigger string if needed
+            // get the penguin
+            var penguinObject = GameObject.FindGameObjectWithTag("Penguin");
+            if (penguinObject != null)
+            {
+                // get its script
+                var penguinAI = penguinObject.GetComponentInChildren<RoamingAI>();
+                // start interaction
+                if (penguinAI != null)
+                {
+                    penguinAI.agent.isStopped = true;
+                    penguinAI.animator.SetTrigger("Idle");  // NOTE: change trigger string if needed
+                }
+                else
+                {
+                    Debug.Log("Could not get the RoamingAI object from inside of the 'Penguin' tagged object");
+                }
+            }
+            else
+            {
+                Debug.Log("Could not get the game object tagged with 'Penguin'");
+            }
 
             foreach (string sentence in dialogue.sentences)
             {
@@ -133,23 +150,42 @@ public class DialogueManager : MonoBehaviour
         {
             Debug.Log("help3.0");
 
-            moleNPC.StartInteraction();
+            // get the mole
+            var moleObject = GameObject.FindGameObjectWithTag("Mole");
+            if (moleObject != null)
+            {
+                // get its script
+                var moleNPC = moleObject.GetComponentInChildren<MrMole>();
+                // start interaction
+                if (moleNPC != null)
+                {
+                    moleNPC.StartInteraction();
+                }
+                else
+                {
+                    Debug.Log("Could not get the MrMole object from inside of the 'Mole' tagged object");
+                }
+            }
+            else
+            {
+                Debug.Log("Could not get the game object tagged with 'Mole'");
+            }
 
             foreach (string sentence in dialogue.sentences)
             {
                 sentences.Enqueue(sentence);
             }
         }
-        else if (QuestManager.mayorQuestGiven == true && QuestManager.questGiver == "bagQuest")
+        else if (QuestManager.questGiver == "mayorQuest" && QuestManager.bagQuestCompleted == true && QuestManager.woodQuestCompleted == true && QuestManager.shroomQuestCompleted == true)
         {
-            if (QuestManager.bagQuestCompleted == true && QuestManager.woodQuestCompleted == true && QuestManager.shroomQuestCompleted == true)
-            {
+            
+            
                 Debug.Log("help8.0");
                 foreach (string sentence in dialogue.sentences2)
                 {
                     sentences.Enqueue(sentence);
                 }
-            }
+            
         }
 
         if (QuestManager.woodQuestGiven == false && QuestManager.questGiver == "woodQuest")
@@ -185,12 +221,11 @@ public class DialogueManager : MonoBehaviour
             {
                 sentences.Enqueue(sentence);
             }
-
-
         }
 
-        DisplayNextSentence();
+        
 
+        DisplayNextSentence();
     }
 
     /// <summary>
@@ -203,7 +238,10 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("No more sentences to show, starting quest");
             
             EndDialogue();
+
+            // check if we need to start a quest
             quest.StartQuest();
+
             return;
         }
 
@@ -241,15 +279,39 @@ public class DialogueManager : MonoBehaviour
 
         if (QuestManager.questGiver == "bagQuest" && GameManager.bagCollected)
         {
+            Debug.Log($"EndDialogue: bag quest completion path (questText='{questText}')");
             quest.CompleteBagQuest();
 
             if (questText != null)
             {
                 questText.Update();
             }
+
+            // get the penguin
+            var penguinObject = GameObject.FindGameObjectWithTag("Penguin");
+            if (penguinObject != null)
+            {
+                // get its script
+                var penguinAI = penguinObject.GetComponentInChildren<RoamingAI>();
+                // start interaction
+                if (penguinAI != null)
+                {
+                    penguinAI.agent.isStopped = false;
+                    penguinAI.animator.SetTrigger("Walk");  // NOTE: change trigger string if needed
+                }
+                else
+                {
+                    Debug.Log("Could not get the RoamingAI object from inside of the 'Penguin' tagged object");
+                }
+            }
+            else
+            {
+                Debug.Log("Could not get the game object tagged with 'Penguin'");
+            }
         }
         else if (QuestManager.questGiver == "shroomQuest" && GameManager.shroomCollected)
         {
+            Debug.Log($"EndDialogue: shroom quest completion path (questText='{questText}')");
             quest.CompleteShroomQuest();
 
             if (questText != null)
@@ -259,6 +321,7 @@ public class DialogueManager : MonoBehaviour
         }
         else if (QuestManager.questGiver == "woodQuest" && GameManager.woodCollected)
         {
+            Debug.Log($"EndDialogue: wood quest completion path (questText='{questText}')");
             quest.CompleteWoodQuest();
 
             if (questText != null)
@@ -268,9 +331,29 @@ public class DialogueManager : MonoBehaviour
         }
         else if (QuestManager.questGiver == "mayorQuest")
         {
+            Debug.Log($"EndDialogue: mayor quest completion path (questText='{questText}')");
             quest.CompleteWakeupQuest();
-            
-            moleNPC.EndInteraction();
+
+            // get the mole
+            var moleObject = GameObject.FindGameObjectWithTag("Mole");
+            if (moleObject != null)
+            {
+                // get its script
+                var moleNPC = moleObject.GetComponentInChildren<MrMole>();
+                // start interaction
+                if (moleNPC != null)
+                {
+                    moleNPC.StartInteraction();
+                }
+                else
+                {
+                    Debug.Log("Could not get the MrMole object from inside of the 'Mole' tagged object");
+                }
+            }
+            else
+            {
+                Debug.Log("Could not get the game object tagged with 'Mole'");
+            }
         }
         else if (QuestManager.questGiver == "mayorQuest" && QuestManager.bagQuestCompleted == true && QuestManager.woodQuestCompleted == true && QuestManager.shroomQuestCompleted == true)
         {

@@ -19,10 +19,11 @@ public class Bag : Interactable
     public override void OnPress()
     {
         base.OnPress();
-        AudioManager.instance.PlaySFX("Collect", transform.position);
-        Destroy(gameObject);
+
         GameManager.bagCollected = true;
         GameManager.bagCount = 1;
 
+        AudioManager.instance.PlaySFX("Collect", transform.position);
+        Destroy(gameObject);
     }
 }

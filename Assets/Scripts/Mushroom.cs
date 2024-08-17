@@ -18,7 +18,7 @@ public class Mushroom : Interactable
     public override void OnPress()
     {
         base.OnPress();
-        AudioManager.instance.PlaySFX("Collect", transform.position);
+        /*AudioManager.instance.PlaySFX("Collect", transform.position);*/
         Destroy(gameObject);
         GameManager.shroomCount += 1;
 

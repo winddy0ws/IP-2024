@@ -17,13 +17,10 @@ public class ForestQuestChecker : MonoBehaviour
     /// </summary>
     private void OnEnable()
     {
-        Debug.Log($"ForestQuestChecker: shroomQuestGiven is {QuestManager.shroomQuestGiven}");
-        GameManager.Instance.SetParentTagActivation("Mushroom", QuestManager.shroomQuestGiven);
+        Debug.Log($"ForestQuestChecker: shroomQuestGiven={QuestManager.shroomQuestGiven}, shroomQuestCompleted={QuestManager.shroomQuestCompleted}");
+        GameManager.Instance.SetParentTagActivation("Mushroom", (QuestManager.shroomQuestGiven && !QuestManager.shroomQuestCompleted));
 
-        
-        
-
-        Debug.Log($"ForestQuestChecker: woodQuestGiven is {QuestManager.woodQuestGiven}");
-        GameManager.Instance.SetParentTagActivation("Wood", QuestManager.woodQuestGiven);
+        Debug.Log($"ForestQuestChecker: woodQuestGiven is {QuestManager.woodQuestGiven}, woodQuestCompleted={QuestManager.woodQuestCompleted}");
+        GameManager.Instance.SetParentTagActivation("Wood", (QuestManager.woodQuestGiven && !QuestManager.woodQuestCompleted));
     }
 }

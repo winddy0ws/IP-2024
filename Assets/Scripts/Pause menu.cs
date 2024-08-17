@@ -94,7 +94,7 @@ public class Pausemenu : MonoBehaviour
     /// </summary>
     public void Mainmenu()
     {
-       SceneManager.LoadScene(Scene);
+        // GameManager.Instance.RestartToMainMenu(); 
     }
 
     /// <summary>

@@ -93,6 +93,14 @@ public class MrMole : MonoBehaviour
 
     void FacePlayer()
     {
+        // get the player first
+        var playerObject = GameObject.FindAnyObjectByType<Player>();
+        if (playerObject == null)
+        {
+            Debug.LogError("FacePlayer: cannot find 'Player' type object to face (what??)");
+        }
+        player = playerObject.transform;
+
         Vector3 direction = (player.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed);

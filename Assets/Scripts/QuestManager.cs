@@ -40,16 +40,42 @@ public class QuestManager : MonoBehaviour
         Debug.Log("theres a quest");
     }
 
+    /// <summary>
+    /// Helper function to get the Quest UI Text and update it
+    /// </summary>
+    private void FinishQuest()
+    {
+        // get the player and stop the quest
+        Debug.Log("FinishQuest: getting and stopping player");
+        player = GameManager.Instance.player.GetComponentInChildren<Player>();
+        if (player != null)
+        {
+            Debug.Log("FinishQuest: got player");
+            player.SetHasQuest(false);
+        }
+
+        // quest ui is always under game manager so take it from there or smth
+        Debug.Log("FinishQuest: getting and updating quest text");
+        questText = GameManager.Instance.GetComponentInChildren<QuestUI>();
+        // check and update
+        if (questText != null)
+        {
+            Debug.Log("FinishQuest: quest text is not null, updating it");
+            questText.Update();
+        }
+    }
+
     public void StartQuest()
     {
         Debug.Log($"StartQuest: from {questGiver}");
 
         if (questGiver == "bagQuest")
         {
+            // note: if the penguin moves funky move the below code until SetHasQuest(true) to under the penguin moving code
+            if (bagQuestCompleted) return;
             bagQuestGiven = true;
             bagQuestCompleted = false;
             player.SetHasQuest(true);
-            // roamingAI.nextState = "Roaming";
 
             // find the penguin and get its RoamingAI
             var penguinMaybe = GameObject.FindGameObjectWithTag("Penguin");
@@ -74,6 +100,7 @@ public class QuestManager : MonoBehaviour
 
         if (questGiver == "mayorQuest")
         {
+            if (mayorQuestCompleted) return;
             mayorQuestGiven = true;
             mayorQuestCompleted = false;
             player.SetHasQuest(true);
@@ -81,6 +108,7 @@ public class QuestManager : MonoBehaviour
 
         if (questGiver == "woodQuest")
         {
+            if (woodQuestCompleted) return;
             woodQuestGiven = true;
             woodQuestGiven = true;
             woodQuestCompleted = false;
@@ -90,6 +118,7 @@ public class QuestManager : MonoBehaviour
 
         if (questGiver == "shroomQuest")
         {
+            if (shroomQuestCompleted) return;
             Debug.Log("SHROOMQUEST");
             shroomQuestGiven = true;
             shroomQuestCompleted = false;
@@ -103,43 +132,39 @@ public class QuestManager : MonoBehaviour
         wakeupQuestCompleted = true;
         wakeupQuestGiven = false;
         mayorQuestGiven = true;
-        player.SetHasQuest(false);
         Debug.Log("Wakeup quest completed, Mayor's quest started");
-        questText.Update();
+        FinishQuest();
     }
 
     public void CompleteMayorQuest()
-    { 
+    {
         mayorQuestCompleted = true;
         player.SetHasQuest(false);
         Debug.Log("Mayor quest completed, all Quests completed");
-        questText.Update();
+        FinishQuest();
     }
 
     public void CompleteBagQuest()
     {
         bagQuestCompleted = true;
-        player.SetHasQuest(false);
         // GameManager.Instance.SetParentTagActivation("Bag", false);
-        Debug.Log("Bag quest completed, Setting hasQuest to false.");
-        questText.Update();
+        Debug.Log("Bag quest completed, finishing quest.");
+        FinishQuest();
     }
 
     public void CompleteWoodQuest()
     {
         woodQuestCompleted = true;
-        player.SetHasQuest(false);
         // GameManager.Instance.SetParentTagActivation("Wood", false);
-        Debug.Log("Wood quest completed, Setting hasQuest to false.");
-        questText.Update();
+        Debug.Log("Wood quest completed, finishing quest.");
+        FinishQuest();
     }
 
     public void CompleteShroomQuest()
     {
         shroomQuestCompleted = true;
-        player.SetHasQuest(false);
         // GameManager.Instance.SetParentTagActivation("Mushroom", false);
-        Debug.Log("Shroom quest completed, Setting hasQuest to false.");
-        questText.Update();
+        Debug.Log("Shroom quest completed, finishing quest.");
+        FinishQuest();
     }
 }
