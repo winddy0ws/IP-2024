@@ -16,6 +16,9 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    /// <summary>
+    /// References and Calls
+    /// </summary>
     public TextMeshProUGUI displaytext;
     [SerializeField]
     Transform playerCamera;
@@ -117,6 +120,10 @@ public class Player : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Setting quests to help manage quest and UI
+    /// </summary>
+    /// <param name="value"></param>
     public void SetHasQuest(bool value)
     {
         hasQuest = value;

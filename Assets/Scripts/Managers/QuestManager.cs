@@ -65,6 +65,10 @@ public class QuestManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets booleans and quest states based on interactions
+    /// </summary>
+    /// <exception cref="System.NullReferenceException"></exception>
     public void StartQuest()
     {
         Debug.Log($"StartQuest: from {questGiver}");
@@ -127,6 +131,9 @@ public class QuestManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Each quest finish and set booleans
+    /// </summary>
     public void CompleteWakeupQuest()
     {
         wakeupQuestCompleted = true;

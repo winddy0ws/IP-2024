@@ -1,3 +1,10 @@
+/*
+ * Author: Yau Wai Lam
+ * Date: 15/08/24
+ * Description: 
+ * Enabling Death UI
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +13,9 @@ using UnityEngine.UI;
 
 public class Death : MonoBehaviour
 {
+    /// <summary>
+    /// References
+    /// </summary>
     public int Scene;
     public GameObject DeathCanvas;
     private GameManager gameManager;
@@ -37,6 +47,9 @@ public class Death : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Restart button for player to try again
+    /// </summary>
     public void Restart()
     {
         GameManager.Instance.playerHealth = 100;

@@ -97,18 +97,27 @@ public class AudioManager : MonoBehaviour
         SetBGMForScene(SceneManager.GetActiveScene().name);
     }
 
+    /// <summary>
+    /// Sets the corresponding bgm according to current scene
+    /// </summary>
+    /// <param name="scene"></param>
+    /// <param name="mode"></param>
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SetBGMForScene(scene.name);
     }
 
+    /// <summary>
+    /// Sorts BGMs according to scene
+    /// </summary>
+    /// <param name="sceneName"></param>
     void SetBGMForScene(string sceneName)
     {
-        if (SceneManager.GetActiveScene().name == "Main menu")
+        if (SceneManager.GetActiveScene().name == "Main menu" || SceneManager.GetActiveScene().name == "Start Cutscene")
         {
             PlayBGM("Menu BGM");
         }
-        else if (SceneManager.GetActiveScene().name == "Festival Village Day" || SceneManager.GetActiveScene().name == "Forest" || SceneManager.GetActiveScene().name == "House")
+        else if (SceneManager.GetActiveScene().name == "Festival Village Day" || SceneManager.GetActiveScene().name == "Forest" || SceneManager.GetActiveScene().name == "House" || SceneManager.GetActiveScene().name == "Cutscene")
         {
             PlayBGM("Game BGM");
         }

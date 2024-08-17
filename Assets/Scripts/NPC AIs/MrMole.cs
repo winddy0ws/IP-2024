@@ -1,8 +1,18 @@
+/*
+ * Author: Arwen Loh
+ * Date: 16/08/24
+ * Description: 
+ * FSM for Mayor NPC
+ */
+
 using System.Collections;
 using UnityEngine;
 
 public class MrMole : MonoBehaviour
 {
+    /// <summary>
+    /// References and Setup
+    /// </summary>
     [SerializeField] Transform pointA; // First patrol point
     [SerializeField] Transform pointB; // Second patrol point
     [SerializeField] float speed = 2f; // Speed of movement
@@ -40,6 +50,9 @@ public class MrMole : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Function to start each coroutine
+    /// </summary>
     void SwitchState()
     {
         StopAllCoroutines();
@@ -49,6 +62,9 @@ public class MrMole : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Couroutine makes AI roam around certain area
+    /// </summary>
     IEnumerator Patrolling()
     {
         while (currentState == "Patrolling")
@@ -70,6 +86,10 @@ public class MrMole : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Function moves the NPC around
+    /// </summary>
+    /// <param name="target"></param>
     void MoveTowards(Vector3 target)
     {
         Vector3 direction = (target - transform.position).normalized;
@@ -79,18 +99,27 @@ public class MrMole : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * turnSpeed);
     }
 
+    /// <summary>
+    /// Enables NPC to talk to Player
+    /// </summary>
     public void StartInteraction()
     {
         isInteracting = true; // Stop movement
     }
 
+    /// <summary>
+    /// Ends NPC interaction
+    /// </summary>
     public void EndInteraction()
     {
         isInteracting = false; // Resume movement
         targetPoint = pointA.position; // Resume patrolling
         nextState = "Patrolling";
     }
-
+    
+    /// <summary>
+    /// NPC always faces player when interacted with
+    /// </summary>
     void FacePlayer()
     {
         // get the player first

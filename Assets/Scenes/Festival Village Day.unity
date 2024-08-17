@@ -24443,13 +24443,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 873728003}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.48046094, z: -0, w: -0.8770162}
-  m_LocalPosition: {x: -176.61, y: 0.69000006, z: -69.72}
+  m_LocalRotation: {x: -0, y: -0.4801075, z: -0, w: -0.8772097}
+  m_LocalPosition: {x: -174.8, y: 0.69000006, z: -71.7}
   m_LocalScale: {x: 0.63546, y: 1, z: 0.60592}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -302.569, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -302.615, z: 0}
 --- !u!1 &874431822
 GameObject:
   m_ObjectHideFlags: 0
@@ -36088,6 +36088,7 @@ MonoBehaviour:
     - Say...Maybe you could help your fellow villagers out?
     sentences2:
     - Thank you so much! The festival can go on now!
+    - Why don't you go home and rest first?
     - Do join us at the bonfire for the festival!
 --- !u!54 &1357235020
 Rigidbody:
@@ -53361,6 +53362,73 @@ Transform:
   - {fileID: 1460057094}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2011950428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2011950431}
+  - component: {fileID: 2011950430}
+  - component: {fileID: 2011950432}
+  m_Layer: 0
+  m_Name: Cut To EndScene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &2011950430
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011950428}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.3148794, y: 3.4972126, z: 12.894438}
+  m_Center: {x: 2.599806, y: 1.2486063, z: -0.8621411}
+--- !u!4 &2011950431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011950428}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.4801075, z: -0, w: -0.8772097}
+  m_LocalPosition: {x: -177.34, y: 0.69000006, z: -68.13}
+  m_LocalScale: {x: 0.63546, y: 1, z: 0.60592}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -302.615, z: 0}
+--- !u!114 &2011950432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011950428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd16f682079d89e4fb0d5830917cbf33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: 5
 --- !u!1 &2013971472
 GameObject:
   m_ObjectHideFlags: 0
@@ -67809,6 +67877,7 @@ SceneRoots:
   - {fileID: 704298501}
   - {fileID: 1126159957}
   - {fileID: 873728006}
+  - {fileID: 2011950431}
   - {fileID: 87352232}
   - {fileID: 1141713082}
   - {fileID: 1888505521}
