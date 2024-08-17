@@ -67,7 +67,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         // check if instance hasn't been set yet
         if (instance == null)
@@ -86,14 +86,29 @@ public class AudioManager : MonoBehaviour
 
             // destroy the new instance if it's not the singleton instance
             Destroy(gameObject);
+            return;
         }
 
-        // FIXME
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+    }
+
+    private void Start()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SetBGMForScene(SceneManager.GetActiveScene().name);
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        SetBGMForScene(scene.name);
+    }
+
+    void SetBGMForScene(string sceneName)
+    {
+        if (SceneManager.GetActiveScene().name == "Main menu")
         {
             PlayBGM("Menu BGM");
         }
-        else 
+        else if (SceneManager.GetActiveScene().name == "Festival Village Day" || SceneManager.GetActiveScene().name == "Forest" || SceneManager.GetActiveScene().name == "House")
         {
             PlayBGM("Game BGM");
         }

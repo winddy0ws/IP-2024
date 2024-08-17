@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEditor.PackageManager;
+/*using UnityEditor.PackageManager;*/
 using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
