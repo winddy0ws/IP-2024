@@ -13,6 +13,9 @@ using UnityEngine.SceneManagement;
 
 public class QuestUI : MonoBehaviour
 {
+    /// <summary>
+    /// References and Calls
+    /// </summary>
     public TextMeshProUGUI questName;
     public TextMeshProUGUI questProgress;
     public TextMeshProUGUI questDefault;

@@ -1,3 +1,10 @@
+/*
+ * Author: Yau Wai Lam and Livinia Poo
+ * Date: 16/08/24
+ * Description: 
+ * Player spawn save in Scene
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

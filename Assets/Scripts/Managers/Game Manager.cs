@@ -1,5 +1,5 @@
 /*
- * Author: Yau Wai Lam
+ * Author: Yau Wai Lam and Livinia Poo and Arwen Loh
  * Date: 06/08/24
  * Description: 
  * Game Manager script
@@ -85,11 +85,20 @@ public class GameManager : MonoBehaviour
         HealthBar.GetComponent<Image>().fillAmount = playerHealth / 100;
     }
 
+    /// <summary>
+    /// Scene Load event listener
+    /// </summary>
+    /// <param name="scene"></param>
+    /// <param name="mode"></param>
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         UpdateHealthBarVisibility(scene);
     }
 
+    /// <summary>
+    /// Shows healthbar UI depending whether the scene allows it
+    /// </summary>
+    /// <param name="scene"></param>
     private void UpdateHealthBarVisibility(Scene scene)
     {
         if (scene.buildIndex == 2)
@@ -102,12 +111,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Removes Event Listener
+    /// </summary>
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    
+    /// <summary>
+    /// Ensures child objects are considered
+    /// </summary>
+    /// <param name="tag"></param>
+    /// <param name="activated"></param>
     public void SetParentTagActivation(string tag, bool activated)
     {
         Debug.Log($"SetParentTagActivation: Trying to set children of {tag} tag to {activated}");
@@ -126,14 +142,4 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
-    // public void RestartToMainMenu()
-    // {
-    //     Debug.Log("restarting to main menu, killing self");
-    //     AudioManager audioManager = FindObjectOfType<AudioManager>();
-    //     SceneManager.LoadScene(0);
-    //     Destroy(audioManager);
-    //     Destroy(gameObject);
-    //     Debug.LogError("you should NOT be able to see this");
-    // }
 }

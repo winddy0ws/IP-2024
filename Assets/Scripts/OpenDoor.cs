@@ -1,11 +1,24 @@
+/*
+ * Author: Yau Wai Lam
+ * Date: 11/08/24
+ * Description: 
+ * Opening doors based on interaction
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class OpenDoor : Interactable
 { 
+    /// <summary>
+    /// Setup closed state
+    /// </summary>
     public bool isOpen = false;
 
+    /// <summary>
+    /// Uses interactable parent class to open door
+    /// </summary>
     public override void OnPress()
     {
         Debug.Log("rotate");

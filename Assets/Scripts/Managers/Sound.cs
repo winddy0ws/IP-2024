@@ -12,6 +12,9 @@ using UnityEngine;
 [System.Serializable]
 public class Sound
 {
+    /// <summary>
+    /// Assigning Audio tracks
+    /// </summary>
     public string soundName;
     public AudioClip clip;
 }
