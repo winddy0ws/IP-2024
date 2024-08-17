@@ -15,7 +15,7 @@ public class SceneChange : MonoBehaviour
     /// <summary>
     /// Variable for which scene to change to
     /// </summary>
-    public int scene;
+    public string sceneName;
 
     /// <summary>
     /// Player will change between scene upon entering area
@@ -25,7 +25,15 @@ public class SceneChange : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(scene);
+            if (!string.IsNullOrEmpty(sceneName))
+            {
+                SceneManager.LoadScene(sceneName);
+                Debug.Log($"Loading scene: {sceneName}");
+            }
+            else
+            {
+                Debug.LogError("Scene name is not set in the SceneChange script");
+            }
         }
     }
 }
