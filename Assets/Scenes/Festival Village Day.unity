@@ -302,6 +302,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree
       objectReference: {fileID: 0}
+    - target: {fileID: 1335726306580732, guid: 23f312332b5cd5542ba196450880e89b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4021494074433550, guid: 23f312332b5cd5542ba196450880e89b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -51.73256
@@ -1079,6 +1083,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Street_Lamp (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465441261940217880, guid: 76b540a1884effc4d91017e1168baf73,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3904,6 +3913,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Street_Lamp (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465441261940217880, guid: 76b540a1884effc4d91017e1168baf73,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7399,6 +7413,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Birch_Tree_05 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9154215057541871321, guid: 2554008d6447a2540b44e55f0c0b576e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7997,6 +8016,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Street_Lamp (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 8465441261940217880, guid: 76b540a1884effc4d91017e1168baf73,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8098,6 +8122,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PP_Birch_Tree_05 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9154215057541871321, guid: 2554008d6447a2540b44e55f0c0b576e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12067,6 +12096,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Street_Lamp (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8465441261940217880, guid: 76b540a1884effc4d91017e1168baf73,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12903,6 +12937,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Street_Lamp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465441261940217880, guid: 76b540a1884effc4d91017e1168baf73,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15355,6 +15394,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Street_Lamp (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465441261940217880, guid: 76b540a1884effc4d91017e1168baf73,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18609,6 +18653,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Birch_Tree_05 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 9154215057541871321, guid: 2554008d6447a2540b44e55f0c0b576e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19146,6 +19195,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Street_Lamp (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8465441261940217880, guid: 76b540a1884effc4d91017e1168baf73,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19669,6 +19723,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: tree (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1335726306580732, guid: 23f312332b5cd5542ba196450880e89b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4021494074433550, guid: 23f312332b5cd5542ba196450880e89b, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5303
@@ -20000,6 +20058,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Street_Lamp (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465441261940217880, guid: 76b540a1884effc4d91017e1168baf73,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21381,6 +21444,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PP_Grass_11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1439904337943108576, guid: ef62619642b0df743b22dd5120c6ac4d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1778994357615247706, guid: ef62619642b0df743b22dd5120c6ac4d,
         type: 3}
@@ -23790,6 +23858,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PP_Birch_Tree_05
+      objectReference: {fileID: 0}
+    - target: {fileID: 9154215057541871321, guid: 2554008d6447a2540b44e55f0c0b576e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27186,6 +27259,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Street_Lamp (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465441261940217880, guid: 76b540a1884effc4d91017e1168baf73,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32269,6 +32347,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Birch_Tree_05 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 9154215057541871321, guid: 2554008d6447a2540b44e55f0c0b576e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32573,6 +32656,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PP_Birch_Tree_05 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9154215057541871321, guid: 2554008d6447a2540b44e55f0c0b576e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -33888,6 +33976,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Street_Lamp (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8465441261940217880, guid: 76b540a1884effc4d91017e1168baf73,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33983,6 +34076,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Street_Lamp (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465441261940217880, guid: 76b540a1884effc4d91017e1168baf73,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -34553,6 +34651,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Street_Lamp (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 8465441261940217880, guid: 76b540a1884effc4d91017e1168baf73,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -34654,6 +34757,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Street_Lamp (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465441261940217880, guid: 76b540a1884effc4d91017e1168baf73,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -38641,6 +38749,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Street_Lamp (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8465441261940217880, guid: 76b540a1884effc4d91017e1168baf73,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -40589,6 +40702,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Birch_Tree_06 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2636820298107493410, guid: a2bd798ea40c7e341aa61ad124d95342,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3448647613925869208, guid: a2bd798ea40c7e341aa61ad124d95342,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -42117,6 +42235,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PP_Birch_Tree_06 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2636820298107493410, guid: a2bd798ea40c7e341aa61ad124d95342,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3448647613925869208, guid: a2bd798ea40c7e341aa61ad124d95342,
         type: 3}
@@ -43937,6 +44060,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Street_Lamp (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465441261940217880, guid: 76b540a1884effc4d91017e1168baf73,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -51151,6 +51279,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Birch_Tree_06 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2636820298107493410, guid: a2bd798ea40c7e341aa61ad124d95342,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3448647613925869208, guid: a2bd798ea40c7e341aa61ad124d95342,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -55006,6 +55139,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: treeStump
       objectReference: {fileID: 0}
+    - target: {fileID: 1004710975425532, guid: c0aa33e678586aa43a1a9254fdfdfb4d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4409070438433976, guid: c0aa33e678586aa43a1a9254fdfdfb4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -48.47928
@@ -55564,6 +55701,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PP_Birch_Tree_06
+      objectReference: {fileID: 0}
+    - target: {fileID: 2636820298107493410, guid: a2bd798ea40c7e341aa61ad124d95342,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3448647613925869208, guid: a2bd798ea40c7e341aa61ad124d95342,
         type: 3}
@@ -57821,6 +57963,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Street_Lamp (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8465441261940217880, guid: 76b540a1884effc4d91017e1168baf73,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -58539,6 +58686,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Street_Lamp (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8465441261940217880, guid: 76b540a1884effc4d91017e1168baf73,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -58640,6 +58792,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Street_Lamp (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465441261940217880, guid: 76b540a1884effc4d91017e1168baf73,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
