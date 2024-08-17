@@ -56,7 +56,7 @@ public class QuestUI : MonoBehaviour
                     // go to bonfire
                     Debug.Log("QuestUI.Update: bonfire text");
                     GameManager.Instance.questName.text = "";
-                    GameManager.Instance.questDefault.text = "Head to the bonfire";
+                    GameManager.Instance.questDefault.text = "Head home";
                     GameManager.Instance.questProgress.text = "";
                 }
                 else
