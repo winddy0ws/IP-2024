@@ -16744,6 +16744,9 @@ MonoBehaviour:
   HealthBarObj: {fileID: 45352613}
   Die: {fileID: 2064670271}
   player: {fileID: 812517557}
+  questName: {fileID: 0}
+  questDefault: {fileID: 0}
+  questProgress: {fileID: 0}
 --- !u!4 &649455585
 Transform:
   m_ObjectHideFlags: 0
@@ -39773,7 +39776,7 @@ Transform:
   m_GameObject: {fileID: 1582955703}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -124, y: 39, z: 144}
+  m_LocalPosition: {x: -124, y: 39, z: 134}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45422,7 +45425,7 @@ Transform:
   m_GameObject: {fileID: 1752793672}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 106, y: 39, z: 472}
+  m_LocalPosition: {x: 99, y: 39, z: 472}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -52404,7 +52407,7 @@ Transform:
   m_GameObject: {fileID: 2013971472}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -366, y: 39, z: 472}
+  m_LocalPosition: {x: -355, y: 39, z: 472}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

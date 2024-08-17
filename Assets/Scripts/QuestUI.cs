@@ -29,7 +29,7 @@ public class QuestUI : MonoBehaviour
         if (QuestManager.wakeupQuestGiven == true && player.hasQuest && SceneManager.GetActiveScene().name == "House")
         {
             Debug.Log("Need to speak to Mayor");
-            questDefault.text = "Talk to the Mayor";
+            questDefault.text = "Talk to the Mayor in the townhall";
             questName.text = "";
             questProgress.text = "";
         }
@@ -42,13 +42,37 @@ public class QuestUI : MonoBehaviour
 
         if (!inExcludedScenes && !player.hasQuest)
         {
+            Debug.Log($"QuestUI.Update: Showing fallback text (questDefault={questDefault}, questName={questName}, questProgress={questProgress}, questDefault.text='{questDefault.text}')");
+
             // TODO: check if bagQuestCompleted, woodQuestCompleted, shroomQuestCompleted, wakeupQuestCompleted are all true
             //       if so, then show "talk to the mayor" instead of "help the villagers"
-
-            Debug.Log($"QuestUI.Update: Showing default text (questDefault={questDefault}, questName={questName}, questProgress={questProgress}, questDefault.text='{questDefault.text}')");
-            GameManager.Instance.questName.text = "";
-            GameManager.Instance.questDefault.text = "Help the villagers";
-            GameManager.Instance.questProgress.text = "";
+            if (QuestManager.bagQuestCompleted && QuestManager.woodQuestCompleted && QuestManager.shroomQuestCompleted && QuestManager.wakeupQuestCompleted)
+            {
+                if (QuestManager.mayorQuestCompleted)
+                {
+                    // go to bonfire
+                    Debug.Log("QuestUI.Update: bonfire text");
+                    GameManager.Instance.questName.text = "";
+                    GameManager.Instance.questDefault.text = "Head to the bonfire";
+                    GameManager.Instance.questProgress.text = "";
+                }
+                else
+                {
+                    // talk to the mayor for the final time
+                    Debug.Log("QuestUI.Update: final mayor text");
+                    GameManager.Instance.questName.text = "";
+                    GameManager.Instance.questDefault.text = "Talk to the Mayor in the townhall";
+                    GameManager.Instance.questProgress.text = "";
+                }
+            }
+            else
+            {
+                // default
+                Debug.Log("QuestUI.Update: default help the villagers");
+                GameManager.Instance.questName.text = "";
+                GameManager.Instance.questDefault.text = "Help the villagers";
+                GameManager.Instance.questProgress.text = "";
+            }
         }
         else if (!inExcludedScenes && player.hasQuest)
         {
@@ -77,7 +101,7 @@ public class QuestUI : MonoBehaviour
             else if (QuestManager.wakeupQuestGiven == true && player.hasQuest && QuestManager.questGiver == "mayorQuest")
             {
                 Debug.Log("QuestUI.Update: mayorrru");
-                GameManager.Instance.questDefault.text = "Talk to the Mayor";
+                GameManager.Instance.questDefault.text = "Talk to the Mayor in the townhall";
                 GameManager.Instance.questProgress.text = "";
                 GameManager.Instance.questName.text = "";
             }

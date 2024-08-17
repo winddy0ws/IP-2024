@@ -331,8 +331,18 @@ public class DialogueManager : MonoBehaviour
         }
         else if (QuestManager.questGiver == "mayorQuest")
         {
-            Debug.Log($"EndDialogue: mayor quest completion path (questText='{questText}')");
-            quest.CompleteWakeupQuest();
+            if (QuestManager.bagQuestCompleted == true && QuestManager.woodQuestCompleted == true && QuestManager.shroomQuestCompleted == true)
+            {
+                Debug.Log("all done");
+                quest.CompleteMayorQuest();
+            }
+            else
+            {
+                Debug.Log($"EndDialogue: mayor quest completion path (questText='{questText}')");
+                quest.CompleteWakeupQuest();
+            }
+            /*Debug.Log($"EndDialogue: mayor quest completion path (questText='{questText}')");
+            quest.CompleteWakeupQuest();*/
 
             // get the mole
             var moleObject = GameObject.FindGameObjectWithTag("Mole");
@@ -355,10 +365,10 @@ public class DialogueManager : MonoBehaviour
                 Debug.Log("Could not get the game object tagged with 'Mole'");
             }
         }
-        else if (QuestManager.questGiver == "mayorQuest" && QuestManager.bagQuestCompleted == true && QuestManager.woodQuestCompleted == true && QuestManager.shroomQuestCompleted == true)
+       /* else if (QuestManager.questGiver == "mayorQuest" && QuestManager.bagQuestCompleted == true && QuestManager.woodQuestCompleted == true && QuestManager.shroomQuestCompleted == true)
         {
             Debug.Log("all done");
             quest.CompleteMayorQuest();
-        }
+        }*/
     }
 }
