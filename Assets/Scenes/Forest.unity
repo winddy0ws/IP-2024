@@ -714,6 +714,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 61007431}
     m_Modifications:
+    - target: {fileID: 4901606283099863973, guid: 907cd14fe7dcf5f4abcbc4a9af9c9934,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6390945104385304997, guid: 907cd14fe7dcf5f4abcbc4a9af9c9934,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -784,6 +789,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShroomCap
       objectReference: {fileID: 0}
+    - target: {fileID: 6777571118426260235, guid: 907cd14fe7dcf5f4abcbc4a9af9c9934,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7543661018943549973, guid: 907cd14fe7dcf5f4abcbc4a9af9c9934,
         type: 3}
       propertyPath: m_Name
@@ -793,6 +803,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7543661018943549973, guid: 907cd14fe7dcf5f4abcbc4a9af9c9934,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -830,6 +845,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623635238759042665, guid: bff4f88d947f1a64183ed2612510e7df,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7698231703396562056, guid: bff4f88d947f1a64183ed2612510e7df,
         type: 3}
@@ -1267,6 +1287,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShroomStalk
       objectReference: {fileID: 0}
+    - target: {fileID: 123645547548403183, guid: 24a35b9a28f7857468d740afef662ec8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4692985761375126470, guid: 24a35b9a28f7857468d740afef662ec8,
         type: 3}
       propertyPath: m_Name
@@ -1277,10 +1302,20 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4692985761375126470, guid: 24a35b9a28f7857468d740afef662ec8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6978696746106799449, guid: 24a35b9a28f7857468d740afef662ec8,
         type: 3}
       propertyPath: m_Name
       value: ShroomCap
+      objectReference: {fileID: 0}
+    - target: {fileID: 6978696746106799449, guid: 24a35b9a28f7857468d740afef662ec8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7942195402773855063, guid: 24a35b9a28f7857468d740afef662ec8,
         type: 3}
@@ -1439,6 +1474,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShroomStalk
       objectReference: {fileID: 0}
+    - target: {fileID: 440329345201468255, guid: 383532fefa7526b4c919c0d68a7c1f80,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 601712778136321060, guid: 383532fefa7526b4c919c0d68a7c1f80,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1509,6 +1549,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShroomCap
       objectReference: {fileID: 0}
+    - target: {fileID: 2111013835463985280, guid: 383532fefa7526b4c919c0d68a7c1f80,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6815566706577301655, guid: 383532fefa7526b4c919c0d68a7c1f80,
         type: 3}
       propertyPath: m_Name
@@ -1518,6 +1563,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6815566706577301655, guid: 383532fefa7526b4c919c0d68a7c1f80,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2319,6 +2369,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623635238759042665, guid: bff4f88d947f1a64183ed2612510e7df,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7698231703396562056, guid: bff4f88d947f1a64183ed2612510e7df,
         type: 3}
@@ -3533,6 +3588,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6623635238759042665, guid: bff4f88d947f1a64183ed2612510e7df,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7698231703396562056, guid: bff4f88d947f1a64183ed2612510e7df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3803,6 +3863,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6623635238759042665, guid: bff4f88d947f1a64183ed2612510e7df,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7698231703396562056, guid: bff4f88d947f1a64183ed2612510e7df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3885,6 +3950,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShroomStalk
       objectReference: {fileID: 0}
+    - target: {fileID: 4921596514788351898, guid: ede2f139ea7b3e344886bd70d7241b39,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5284571420074750271, guid: ede2f139ea7b3e344886bd70d7241b39,
         type: 3}
       propertyPath: m_Name
@@ -3894,6 +3964,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284571420074750271, guid: ede2f139ea7b3e344886bd70d7241b39,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5858372246864321043, guid: ede2f139ea7b3e344886bd70d7241b39,
         type: 3}
@@ -3964,6 +4039,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ShroomCap
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078193160181992285, guid: ede2f139ea7b3e344886bd70d7241b39,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4790,6 +4870,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 874516662716169871, guid: f3a525164805b274f9d676053ab869fd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5645048421301143852, guid: f3a525164805b274f9d676053ab869fd,
         type: 3}
       propertyPath: m_LocalScale.y
@@ -4850,10 +4935,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShroomStalk
       objectReference: {fileID: 0}
+    - target: {fileID: 7707420994861279567, guid: f3a525164805b274f9d676053ab869fd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8679392886677099359, guid: f3a525164805b274f9d676053ab869fd,
         type: 3}
       propertyPath: m_Name
       value: ShroomCap
+      objectReference: {fileID: 0}
+    - target: {fileID: 8679392886677099359, guid: f3a525164805b274f9d676053ab869fd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4931,6 +5026,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 572832609597534349, guid: 9c8827986cd2c9249b8ef14b6785ff9c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3449272092270710865, guid: 9c8827986cd2c9249b8ef14b6785ff9c,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -5001,10 +5101,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShroomStalk
       objectReference: {fileID: 0}
+    - target: {fileID: 8225611327229490524, guid: 9c8827986cd2c9249b8ef14b6785ff9c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 9113907488998955912, guid: 9c8827986cd2c9249b8ef14b6785ff9c,
         type: 3}
       propertyPath: m_Name
       value: ShroomCap
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113907488998955912, guid: 9c8827986cd2c9249b8ef14b6785ff9c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5257,6 +5367,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6623635238759042665, guid: bff4f88d947f1a64183ed2612510e7df,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7698231703396562056, guid: bff4f88d947f1a64183ed2612510e7df,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5493,10 +5608,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShroomCap
       objectReference: {fileID: 0}
+    - target: {fileID: 1410273115016203842, guid: 5be463be179c3f04fa5d5e99e343c630,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6046094807124689619, guid: 5be463be179c3f04fa5d5e99e343c630,
         type: 3}
       propertyPath: m_Name
       value: ShroomStalk
+      objectReference: {fileID: 0}
+    - target: {fileID: 6046094807124689619, guid: 5be463be179c3f04fa5d5e99e343c630,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8325383131551272400, guid: 5be463be179c3f04fa5d5e99e343c630,
         type: 3}
@@ -5507,6 +5632,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8325383131551272400, guid: 5be463be179c3f04fa5d5e99e343c630,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5579,6 +5709,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShroomStalk
       objectReference: {fileID: 0}
+    - target: {fileID: 900392237633989736, guid: cc1d223cc130267408affd9ba52c68dd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 985245104412348845, guid: cc1d223cc130267408affd9ba52c68dd,
         type: 3}
       propertyPath: m_Name
@@ -5589,10 +5724,20 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 985245104412348845, guid: cc1d223cc130267408affd9ba52c68dd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5272398028693655331, guid: cc1d223cc130267408affd9ba52c68dd,
         type: 3}
       propertyPath: m_Name
       value: ShroomCap
+      objectReference: {fileID: 0}
+    - target: {fileID: 5272398028693655331, guid: cc1d223cc130267408affd9ba52c68dd,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6016138059273297956, guid: cc1d223cc130267408affd9ba52c68dd,
         type: 3}
